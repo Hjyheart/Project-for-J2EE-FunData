@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/nav/navbar.css" />
+    <link rel="stylesheet" href="/stylesheets/lookup.css" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <% include ./nav/navbar-personal.ejs %>
+    <div class="grey-div">
+        <div id="top-bar">
+            <div>
+                <h4 class="public">
+                    <span class="author">
+                        <a href="/user_name">user_name</a>
+                    </span>
+                    <span class="path-divider">/</span>
+                    <strong itemprop="name"><a href="/user_name/JAVAEE_HomeWORK_1_NATIVE_INTERFACE">dataset1</a></strong>
+
+                    <span class="fork-flag">
+                        <span class="text">forked from <a href="/Stanforxc/Java-native-interface-tutorial">other-user_name/dataset2</a></span>
+                    </span>
+                </h4>
+            </div>
+            <div>
+                <div class="btn-band">
+                    <a class="btn"><span>Unwatch<span></a>
+                    <a class="btn">1</a>
+                </div>
+                <div class="btn-band">
+                    <a class="btn"><span>Star<span></a>
+                    <a class="btn">1</a>
+                </div>
+                <div class="btn-band">
+                    <a class="btn"><span>Fork<span></a>
+                    <a class="btn">1</a>
+                </div>
+            </div>
+        </div>
+        <div class="list-top-bar">
+            <ul class="nav nav-tabs">
+                <li><a href="#">Data</a></li>
+                <li><a href="#">Pull request</a></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">Wiki</a></li>
+                <li><a href="#">Pulse</a></li>
+                <li><a href="#">Graphs</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="info-top-bar container">
+        <ul>
+            <li><a href="#"><span>commit</span></a></li>
+            <li><a href="#"><span>branch</span></a></li>
+            <li><a href="#"><span>releases</span></a></li>
+            <li><a href="#"><span>contributor</span></a></li>
+        </ul>
+    </div>
+    <div class="ope-top-bar container">
+        
+        <button type="button" class="btn btn-default">Branch:<span><b>master</b><span class="caret"></span></span></button>       
+        <button type="button" class="btn btn-default"><b>New pull request</b></button>
+        <div>
+            <a class="btn"><span>Create new file<span></a>
+            <a class="btn"><span>Upload files<span></a>
+            <a class="btn"><span>Find file<span></a>
+        </div>
+        
+        <button type="button" class="btn btn-success" id="clone">Clone or download</button>
+        
+        
+    </div>
+    <div class="data-table container">
+        <div class="cap">
+            <span>user_name</span>
+        </div>
+        <div class="content">
+            <table class="table">
+                <tr>
+                    <td>file_name</td>
+                    <td>description</td>
+                    <td>time</td>
+                </tr>
+                <tr>
+                    <td>file_name</td>
+                    <td>description</td>
+                    <td>time</td>
+                </tr>
+            </table>
+        <div>
+       
+    </div>
+  </body>
+</html>
