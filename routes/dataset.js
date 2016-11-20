@@ -1,18 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+/* Dataset home */
 router.get('/', function(req, res, next) {
-  res.render('home', { title: 'Express' });
+  res.render('./dataset/home', { title: 'Express' });
 });
 
 router.get('/lookup', function(req, res, next) {
-  res.render('lookup', { title: 'Express' });
+  res.render('./dataset/lookup', { title: 'Express' });
 });
 
+/* Dataset Detail */
 router.get('/:datasetName/detail', function(req, res, next) {
     console.log(req.params.datasetName);
-    res.render('detail', { title: 'Express' });
+    res.render('./dataset/detail', { title: req.params.datasetName });
 });
 
 module.exports = router;
