@@ -11,4 +11,8 @@ router.get('/login', function (req, res, next) {
    res.render('login', { title: "login"});
 });
 
+/* GET test page */
+router.get('/test', function (req, res, next) {
+   res.render('error', { title: "test"});
+});
 module.exports = router;

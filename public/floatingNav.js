@@ -14,4 +14,9 @@ $(document)
                     $('.fixed.menu').transition('fade out');
                 }
             });
+
+        // show dropdown on hover
+        $('#mainDropdown').dropdown({
+            on: 'hover'
+        });
     });
