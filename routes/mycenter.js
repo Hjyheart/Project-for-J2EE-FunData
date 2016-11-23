@@ -15,19 +15,4 @@ router.get('/information', function (req, res, next) {
    res.render('./mycenter/information', {title : 'information'});
 });
 
-/* MyCenter MyDataset */
-router.get('/mydataset', function (req, res, next) {
-    res.render('./mycenter/mydataset', {title : 'mydataset'});
-});
-
-/* MyCenter MyCompetition */
-router.get('/mycompetition', function (req, res, next) {
-    res.render('./mycenter/mycompetition', {title : 'mycompetition'});
-});
-
-/* MyCenter MyMooc */
-router.get('/mymooc', function (req, res, next) {
-    res.render('./mycenter/mymooc', {title : 'mymooc'});
-});
-
 module.exports = router;

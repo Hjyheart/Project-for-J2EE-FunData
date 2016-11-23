@@ -27,4 +27,9 @@ $(document)
         $('.special.cards .image').dimmer({
             on: 'hover'
         });
+
+        // for profile
+        $('.accordion').accordion({
+
+        });
     });
