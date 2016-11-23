@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* Dataset home */
+/* Dataset Home */
 router.get('/', function(req, res, next) {
   res.render('./dataset/home', { title: 'Express' });
 });

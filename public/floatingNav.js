@@ -19,4 +19,12 @@ $(document)
         $('#mainDropdown').dropdown({
             on: 'hover'
         });
+        $('#floatDropdown').dropdown({
+            on: 'hover'
+        });
+
+        // for head image
+        $('.special.cards .image').dimmer({
+            on: 'hover'
+        });
     });

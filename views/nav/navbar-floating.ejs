@@ -4,5 +4,27 @@
         <a class="item" href="/dataset">DataSets</a>
         <a class="item">Competitons</a>
         <a class="item">Moocs</a>
+        <div class="right menu">
+            <div class="item">
+                <div class="ui transparent inverted icon input">
+                    <i class="search icon"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <!--这里要加判断！！！登录了才会有这个dropdown-->
+            <div class="ui dropdown item" tabindex="0" id="floatDropdown">
+                <i class="user icon"></i>
+                My Center
+                <div class="menu transition hidden" tabindex="-1">
+                    <a class="item" href="/mycenter/profile">Profile</a>
+                    <a class="item" href="/mycenter/information">Information</a>
+                    <a class="item" href="/mycenter/mydataset">My Dataset</a>
+                    <a class="item" href="/mycenter/mycompetition">My Competition</a>
+                    <a class="item" href="/mycenter/mynooc">My Mooc</a>
+                    <a class="divider"></a>
+                    <a class="item">Log out</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

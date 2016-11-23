@@ -36,29 +36,31 @@
         <div class="ui middle aligned center aligned grid">
             <div class="row">
                 <div class="six wide column">
-                    <form class="ui large form" action="" method="post">
+                    <form class="ui large form" action="" method="post" id="form">
                         <div class="ui stacked segment">
-                            <div class="field">
+                            <div class="field" id="email">
                                 <div class="ui left icon input">
                                     <i class="user icon"></i>
                                     <input type="text" name="email" placeholder="E-mail address">
                                 </div>
                             </div>
-                            <div class="field">
+                            <div class="field" id="password">
                                 <div class="ui left icon input">
                                     <i class="lock icon"></i>
                                     <input type="password" name="password" placeholder="Password">
                                 </div>
                             </div>
+                            <div class="ui error message">
+                                <div class="header">Error</div>
+                                <p>No such id or wrong password!</p>
+                            </div>
                             <button class="ui fluid large blue submit button" type="submit">Login</button>
                         </div>
-
-                        <div class="ui error message"></div>
 
                     </form>
 
                     <div class="ui message">
-                        New to us? <a href="/signUp">Sign Up</a>
+                        New to us? <a href="/register">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -73,4 +75,10 @@
 </html>
 <script>
     $("body").css('height',$(window).height());
+
+    function errorDemo() {
+        $("#form").addClass("error");
+        $("#email").addClass("error");
+        $("#password").addClass("error");
+    }
 </script>
