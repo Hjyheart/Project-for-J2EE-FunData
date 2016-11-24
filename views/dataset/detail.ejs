@@ -7,6 +7,7 @@
       <script src="/jquery.js" crossorigin="anonymous"></script>
       <!-- Latest compiled and minified JavaScript -->
       <script src="/sematic/semantic.min.js" crossorigin="anonymous"\></script>
+      <script src="/floatingNav.js"></script>
   </head>
   <body class="pusherable">
     <div class="pusher">
@@ -31,7 +32,7 @@
                         <a class="active item" data-tab="One">Content </a>
                         <a class="item" data-tab="Two">Pull Request </a>
                         <a class="item" data-tab="Three">Admin </a>
-                        <a class="item" data-tab="Four">Setting </a>
+                        <a class="item" data-tab="Four">Comments </a>
                         <!--右侧喜爱和贡献标签-->
                         <div class="right menu">
                             <div class="item">
@@ -55,77 +56,14 @@
                     <!--数据集展示部分-->
                     <% include detail-content.ejs%>
 
-                    <div class="ui bottom attached tab segment" data-tab="Two">
-                        <div class="ui items">
-                            <div class="item">
-                                <button class="orange ui button" onclick="newSubmition()">New Submition</button>
-                            </div>
-                            <hr>
-                            <!--请求进行打表-->
-                            <div class="item">
-                                <div class="image">
-                                    <img src="http://semantic-ui.com/images/wireframe/image.png">
-                                </div>
-                                <div class="content">
-                                    <a class="header">UserName</a>
-                                    <div class="meta">
-                                        <span class="cinema">desc</span>
-                                    </div>
-                                    <div class="description">
-                                        <p></p>
-                                    </div>
-                                    <div class="extra">
-                                        <div class="ui right floated primary button" onclick="showPullRequest('<%= title %>')">More <i class="right chevron icon"></i> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="item">
-                                <div class="image">
-                                    <img src="http://semantic-ui.com/images/wireframe/image.png">
-                                </div>
-                                <div class="content">
-                                    <a class="header">UserName</a>
-                                    <div class="meta">
-                                        <span class="cinema">desc</span>
-                                    </div>
-                                    <div class="description">
-                                        <p></p>
-                                    </div>
-                                    <div class="extra">
-                                        <div class="ui right floated primary button">More <i class="right chevron icon"></i> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="ui bottom attached tab segment" data-tab="Three">
-                        <div class="ui items">
-                            <!--请求进行打表-->
-                            <div class="item">
-                                <div class="image">
-                                    <img src="http://semantic-ui.com/images/wireframe/image.png">
-                                </div>
-                                <div class="content">
-                                    <a class="header">UserName</a>
-                                    <div class="meta">
-                                        <span class="cinema">desc</span>
-                                    </div>
-                                    <div class="description">
-                                        <p></p>
-                                    </div>
-                                    <div class="extra">
-                                        <div class="ui right floated primary button" onclick="confirmPullRequest('<%= title %>')">Manage <i class="right chevron icon"></i> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="ui bottom attached tab segment" data-tab="Four">
-                        <p>Four</p>
-                    </div>
+                    <!--pull request部分-->
+                    <% include detail-pullrequest.ejs %>
+
+                    <!--admin部分-->
+                    <% include detail-admin.ejs %>
+
+                    <!--comments部分-->
+                    <% include detail-comment.ejs %>
                 </div>
             </div>
         </div>
