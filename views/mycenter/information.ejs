@@ -39,18 +39,15 @@
                         <a class="item" data-tab="third">Mooc Comments</a>
                         <a class="item" data-tab="four">Competition Comments</a>
                     </div>
-                    <div class="ui tab segment active" data-tab="first">
-                        <h3 class="ui header">AJAX Tab One</h3>
-                    </div>
-                    <div class="ui tab segment" data-tab="second">
-                        <h3 class="ui header">AJAX Tab One</h3>
-                    </div>
-                    <div class="ui tab segment" data-tab="third">
-                        <h3 class="ui header">AJAX Tab One</h3>
-                    </div>
-                    <div class="ui tab segment" data-tab="four">
-                        <h3 class="ui header">AJAX Tab One</h3>
-                    </div>
+
+                    <% include information-information.ejs %>
+
+                    <% include information-datasetcomments.ejs %>
+
+                    <% include information-mooccomments.ejs %>
+
+                    <% include information-competitioncomments.ejs %>
+
                 </div>
                 <div class="six wide right floated column">
                     <% include profile-informationbasiccard.ejs%>
@@ -69,6 +66,14 @@
 <script>
     $('.menu .item').tab();
 
+    // 刷新好友动态区域
+    function freshInformation() {
+        $('#freshInformationBtn').addClass('loading');
+        setTimeout(function () {
+            // 在这里刷新数据集
+            $("#freshInformationBtn").removeClass('loading');
+        }, 1000);
+    };
 
 </script>
 </html>
