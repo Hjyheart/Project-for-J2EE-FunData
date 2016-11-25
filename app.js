@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var dataSet = require('./routes/dataset');
 var myCenter = require('./routes/mycenter');
+var mooc = require('./routes/mooc');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/dataset', dataSet);
 app.use('/mycenter', myCenter);
+app.use('/mooc', mooc);
 // app.use('/mycenter', myCenter);
 
 // catch 404 and forward to error handler

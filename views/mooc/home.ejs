@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <link rel="stylesheet" href="/slide-css/style.css">
+    <script src="/jquery.js" crossorigin="anonymous"></script>
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+    <script src="/slide-js/vmc.slider.full.min.js"></script>
+    <script src="/floatingNav.js"></script>
+
+    <style>
+        .course{
+            max-height: 250px;
+            min-height: 250px;
+        }
+    </style>
+</head>
+
+<body class="pushable">
+
+<% include ../nav/navbar-floating.ejs %>
+
+<div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+        <% include ../nav/navbar-personal.ejs %>
+
+        <div class="ui text container">
+            <h1 class="ui inverted header">
+                Moocs
+            </h1>
+            <h2>Study!</h2>
+        </div>
+        <div class="content" style="width:1000px;height:300px;margin:10px auto;overflow:hidden;">
+            <div id="slider">
+                <a href="#"><img src="/images/demo1.jpg"/></a>
+                <a href="#"><img src="/images/demo2.jpg"/></a>
+                <a href="#"><img src="/images/demo3.jpg"/></a>
+                <a href="#"><img src="/images/demo4.jpg"/></a>
+                <a href="#"><img src="/images/demo5.jpg"/></a>
+                <a href="#"><img src="/images/demo6.jpg"/></a>
+            </div>
+        </div>
+        <br>
+        <i class="down arrow icon"></i>
+    </div>
+
+    <div class="ui vertical stripe segment">
+        <br>
+        <div class="ui aligned stackable grid container">
+            <div class="row">
+                <% include home-courses.ejs%>
+                <button class="ui blue fluid button" onclick="freshCourse()" id="freshCourseBtn">more</button>
+            </div>
+        </div>
+    </div>
+
+    <%include ../footer.ejs%>
+
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $('#slider').vmcSlider({
+            width: 1000,
+            height: 300,
+            gridCol: 10,
+            gridRow: 5,
+            gridVertical: 20,
+            gridHorizontal: 10,
+            autoPlay: true,
+            ascending: true,
+            effects: [
+                'fade', 'fadeLeft', 'fadeRight', 'fadeTop', 'fadeBottom', 'fadeTopLeft', 'fadeBottomRight',
+                'blindsLeft', 'blindsRight', 'blindsTop', 'blindsBottom', 'blindsTopLeft', 'blindsBottomRight',
+                'curtainLeft', 'curtainRight', 'interlaceLeft', 'interlaceRight', 'mosaic', 'bomb', 'fumes'
+            ],
+            ie6Tidy: false,
+            random: false,
+            duration: 2000,
+            speed: 900
+        });
+    });
+
+    function freshCourse() {
+        $("#freshCourseBtn").addClass('loading');
+        setTimeout(function () {
+            // 在这里刷新mooc
+            $("#freshCourseBtn").removeClass('loading');
+        }, 1000);
+    };
+
+    function turnToDetail(name) {
+        window.location.href = '/mooc/' + name + '/detail';
+    };
+</script>
+
+</body>
+
+</html>
