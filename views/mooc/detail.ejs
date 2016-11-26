@@ -1,8 +1,90 @@
 <html>
 <head>
     <title><%= title %></title>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <script src="/jquery.js" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+    <script src="/floatingNav.js"></script>
 </head>
-<body>
 
+<body class="pushable">
+
+<% include ../nav/navbar-floating.ejs%>
+
+<div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+
+        <% include ../nav/navbar-personal.ejs %>
+
+        <div class="ui text container">
+            <br><br>
+            <h1 class="ui inverted header">
+                <%= title %>
+            </h1>
+            <h2>Let's study!</h2>
+            <br>
+            <i class="down arrow icon"></i>
+        </div>
+
+    </div>
+    <div class="ui vertical stripe segment">
+        <div class="ui aligned stackable grid container">
+            <div class="row">
+                <!--侧边栏-->
+                <div class="three wide column">
+                    <div class="ui vertical labeled icon buttons tabular menu">
+                        <button class="ui button active" data-tab="overview"><i class="tag icon"></i> Overview </button>
+                        <button class="ui button" data-tab="one"><i class="bookmark icon"></i> Step One </button>
+                        <button class="ui button" data-tab="two"><i class="bookmark icon"></i> Step Two </button>
+                        <button class="ui button" data-tab="three"><i class="bookmark icon"></i> Step Three </button>
+                        <button class="ui button" data-tab="four"><i class="bookmark icon"></i> Step Four </button>
+                        <button class="ui button" data-tab="five"><i class="bookmark icon"></i> Step Five </button>
+                        <button class="ui button" data-tab="six"><i class="bookmark icon"></i> Step Six </button>
+                        <button class="ui button" data-tab="comments"><i class="talk icon"></i> Q & A </button>
+                    </div>
+                </div>
+                <!--右侧内容区-->
+                <div class="thirteen wide right floated column">
+                    <% include course-overview.ejs %>
+
+                    <% include course-steps.ejs %>
+
+                    <% include course-comments.ejs %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include ../footer.ejs%>
+</div>
+
+<!--用于确认加入了课程-->
+<div class="ui small modal" id="welcome">
+    <i class="close icon"></i>
+    <div class="header">Welcome</div>
+    <div class="content">
+        <p>Join successfully!</p>
+    </div>
+    <div class="actions">
+        <div class="ui approve green button">Ok</div>
+    </div>
+</div>
+
+<script>
+    $('.tabular.menu .button').tab();
+
+    function showA(queId) {
+        $('#' + queId).transition('vertical flip');
+    };
+
+    function joinDeal() {
+        $('#welcome').modal('show');
+        $('#joinBtn').transition('fade');
+    };
+
+</script>
 </body>
 </html>

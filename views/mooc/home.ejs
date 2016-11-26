@@ -7,13 +7,6 @@
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/slide-js/vmc.slider.full.min.js"></script>
     <script src="/floatingNav.js"></script>
-
-    <style>
-        .course{
-            max-height: 250px;
-            min-height: 250px;
-        }
-    </style>
 </head>
 
 <body class="pushable">
@@ -44,12 +37,22 @@
         <i class="down arrow icon"></i>
     </div>
 
-    <div class="ui vertical stripe segment">
+    <div class="ui vertical aligned stripe segment">
         <br>
         <div class="ui aligned stackable grid container">
             <div class="row">
-                <% include home-courses.ejs%>
-                <button class="ui blue fluid button" onclick="freshCourse()" id="freshCourseBtn">more</button>
+                <div class="sixteen wide column">
+                    <% include home-courses-boutique.ejs%>
+                    <br>
+                    <button class="ui blue right floated button" onclick="freshCourseBoutique()" id="freshCourseBoutiqueBtn">more</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="sixteen wide column">
+                    <% include home-courses-others.ejs%>
+                    <br>
+                    <button class="ui blue right floated button" onclick="freshCourseOthers()" id="freshCourseOthersBtn">more</button>
+                </div>
             </div>
         </div>
     </div>
@@ -81,11 +84,19 @@
         });
     });
 
-    function freshCourse() {
-        $("#freshCourseBtn").addClass('loading');
+    function freshCourseBoutique() {
+        $("#freshCourseBoutiqueBtn").addClass('loading');
         setTimeout(function () {
             // 在这里刷新mooc
-            $("#freshCourseBtn").removeClass('loading');
+            $("#freshCourseBoutiqueBtn").removeClass('loading');
+        }, 1000);
+    };
+
+    function freshCourseOthers() {
+        $("#freshCourseOthersBtn").addClass('loading');
+        setTimeout(function () {
+            // 在这里刷新mooc
+            $("#freshCourseOthersBtn").removeClass('loading');
         }, 1000);
     };
 
