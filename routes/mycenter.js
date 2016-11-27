@@ -27,6 +27,10 @@ router.get('/information', function (req, res, next) {
    res.render('./mycenter/information', {title : 'information'});
 });
 
+/* MyCenter Friends */
+router.get('/friends', function (req, res, next) {
+    res.render('./mycenter/friends', {title : 'friends'});
+});
 
 // TODO 异步嵌套
 module.exports = router;

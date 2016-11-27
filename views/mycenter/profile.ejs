@@ -59,7 +59,8 @@
                         </div>
                         <div class="title"><i class="dropdown icon"></i> My Mooc </div>
                         <div class="content">
-                            <p>My Mooc</p>
+                            <!--把我的课打表打出来-->
+                            <% include profile-mymooc.ejs %>
                         </div>
                         <div class="title active"><i class="dropdown icon"></i> My Add </div>
                         <div class="content active">
@@ -84,15 +85,26 @@
 
 <script>
 
-    var name;
+    var datasetName;
+    var competitionName;
+    var moocName;
 
-    function toDetail(name) {
+    function datasetToDetail(name) {
         window.location.href = "/dataset/" + name + "/detail";
     };
 
-    function showWarning(datasetName){
+    function datasetShowWarning(datasetName){
         name = datasetName;
-        $('#confirmDelete').modal('show');
+        $('#confirmDeleteDataset').modal('show');
+    };
+
+    function moocToDetail(name) {
+        window.location.href = "/mooc/" + name + "/detail";
+    };
+
+    function moocShowWarning(moocName){
+        name = datasetName;
+        $('#confirmDeleteMooc').modal('show');
     };
 
     function showEdit() {

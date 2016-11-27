@@ -58,4 +58,9 @@ router.post('/register', () => {
     })
 });
 
+/* Get other's profile */
+router.get('/other/:name', function(req, res, next) {
+    res.render('otherprofile', { title: 'Express' });
+});
+
 module.exports = router;
