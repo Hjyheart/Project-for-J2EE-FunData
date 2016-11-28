@@ -122,15 +122,19 @@
     
     function createDataset() {
         $('#createDataset').modal('show');
-    }
+    };
     
     function createCompetition() {
         $('#createCompetition').modal('show');
-    }
+    };
     
     function createMooc() {
         $('#createMooc').modal('show');
-    }
+    };
+
+    function moocManager(id) {
+        window.location.href = "/mooc/" + id + "/manager";
+    };
 </script>
 
 </html>

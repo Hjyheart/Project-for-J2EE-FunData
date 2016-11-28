@@ -19,4 +19,11 @@ router.get('/:name/detail', function(req, res, next) {
     res.render('./mooc/detail', { title: course_name});
 });
 
+/* manger mooc */
+router.get('/:name/manager', function (req, res, next) {
+   var course_name = req.params.name;
+
+   res.render('./mooc/manager', { title: course_name});
+});
+
 module.exports = router;

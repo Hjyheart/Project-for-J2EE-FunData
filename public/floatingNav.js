@@ -28,6 +28,11 @@ $(document)
             on: 'hover'
         });
 
+        // for change guide
+        $('.special.images .image').dimmer({
+            on: 'hover'
+        });
+
         // for profile
         $('.accordion').accordion({
 
