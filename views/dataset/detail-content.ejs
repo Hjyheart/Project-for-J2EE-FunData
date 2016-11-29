@@ -6,38 +6,30 @@
             <th>标题</th>
         </tr></thead>
         <tbody>
-        <tr>
-            <td>cell</td>
-            <td>Cell</td>
-            <td>Cell</td>
-        </tr>
-        <tr>
-            <td>Cell</td>
-            <td>Cell</td>
-            <td>Cell</td>
-        </tr>
-        <tr>
-            <td>Cell</td>
-            <td>Cell</td>
-            <td>Cell</td>
-        </tr>
+            <tr ng-repeat="data in Content">
+                <td>cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+            </tr>
         </tbody>
         <tfoot>
-        <tr><th colspan="3">
-                <!--ajax换页-->
-                <div class="ui right floated pagination menu">
-                    <a class="icon item">
-                        <i class="left chevron icon"></i>
-                    </a>
-                    <a class="item">1</a>
-                    <a class="item">2</a>
-                    <a class="item">3</a>
-                    <a class="item">4</a>
-                    <a class="icon item">
-                        <i class="right chevron icon"></i>
-                    </a>
-                </div>
-            </th>
-        </tr></tfoot>
+            <tr>
+                <th colspan="3">
+                    <!--ajax换页-->
+                    <div class="ui right floated pagination menu">
+                        <a class="icon item">
+                            <i class="left chevron icon"></i>
+                        </a>
+                        <a class="item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="item">4</a>
+                        <a class="icon item">
+                            <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </th>
+            </tr>
+        </tfoot>
     </table>
 </div>

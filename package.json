@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": " concurrently \"gulp sass\" \"gulp watch\" \"pm2 start ./bin/www --watch\" "
+    "start": " concurrently \"gulp sass\" \"gulp watch\" \"node ./bin/www --watch\" "
   },
   "dependencies": {
     "body-parser": "~1.15.2",

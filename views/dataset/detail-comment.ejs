@@ -1,52 +1,24 @@
 <div class="ui bottom attached tab segment" data-tab="Four">
-    <div class="ui comments">
+    <div class="ui comments" ng-repeat="comment in Comments">
         <div class="comment">
             <a class="avatar">
                 <img src="/images/wudi.jpg">
             </a>
             <div class="content">
-                <a class="author">Matt</a>
+                <a class="author">{{comment.author}}</a>
                 <div class="metadata">
-                    <span class="date">Today at 5:42PM</span>
+                    <span class="date">{{comment.time}}</span>
                 </div>
-                <div class="text">How artistic! </div>
+                <div class="text">{{comment.content}}</div>
             </div>
         </div>
         <br>
-        <div class="comment">
-            <a class="avatar">
-                <img src="/images/wudi.jpg">
-            </a>
-            <div class="content">
-                <a class="author">Elliot Fu</a>
-                <div class="metadata">
-                    <span class="date">Yesterday at 12:30AM</span>
-                </div>
-                <div class="text">
-                    <p>This has been very useful for my research. Thanks as well!</p>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="comment">
-            <a class="avatar">
-                <img src="/images/wudi.jpg">
-            </a>
-            <div class="content">
-                <a class="author">Joe Henderson</a>
-                <div class="metadata">
-                    <span class="date">5 days ago</span>
-                </div>
-                <div class="text">Dude, this is awesome. Thanks so much </div>
-            </div>
-        </div>
-        <br>
-        <h2>comment</h2>
-        <form class="ui reply form">
-            <div class="field">
-                <textarea></textarea>
-            </div>
-            <div class="ui blue labeled submit icon button"><i class="icon edit"></i> Add  </div>
-        </form>
     </div>
+    <h2>comment</h2>
+    <form class="ui reply form">
+        <div class="field">
+            <textarea></textarea>
+        </div>
+        <div class="ui blue labeled submit icon button"><i class="icon edit"></i> Add  </div>
+    </form>
 </div>

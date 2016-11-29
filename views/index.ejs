@@ -5,11 +5,17 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
     <script src="/jquery.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+              crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="/sematic/semantic.min.js" crossorigin="anonymous"\></script>
-      <script src="/floatingNav.js"></script>
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+    <script src="/floatingNav.js"></script>
+
+    <script src="/controllers/app.js"></script>
+      <script src="/controllers/indexCtrl.js"></script>
+
   </head>
-  <body class="pushable">
+  <body class="pushable" ng-app="myApp" ng-controller="indexCtrl">
 
   <%include ./nav/navbar-floating.ejs%>
 
