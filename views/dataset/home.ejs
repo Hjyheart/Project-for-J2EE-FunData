@@ -6,11 +6,21 @@
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="/sematic/semantic.min.css"/>
       <script src="/jquery.js" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+              crossorigin="anonymous"></script>
       <!-- Latest compiled and minified JavaScript -->
       <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
       <script src="/floatingNav.js"></script>
+
+      <script src="/controllers/app.js"></script>
+      <script src="/services/upload.service.js"></script>
+      <script src="/services/info.service.js"></script>
+      <script src="/services/list.service.js"></script>
+      <script src="/services/const.service.js"></script>
+      <script src="/controllers/homeCtrl.js"></script>
+
   </head>
-  <body class="pushable">
+  <body class="pushable" ng-app="myApp" ng-controller="homeCtrl">
 
   <% include ../nav/navbar-floating.ejs%>
 
@@ -35,12 +45,39 @@
               <div class="row">
                   <!--卡片数据集-->
                   <div class="ten wide column dimmer">
-                      <div class="ui two cards">
+                      <div class="ui two cards" >
                           <!--左侧展示的数据集卡片-->
-                          <% include datasetcards.ejs%>
+                          <div class="ui card" ng-repeat=" project in HotProjects">
+                              <div class="content">
+                                  <div class="header">{{project.name}}</div>
+                              </div>
+                              <div class="content">
+                                  <h4 class="ui sub header">Activity</h4>
+                                  <div class="ui small feed">
+                                      <div class="event">
+                                          <div class="content">
+                                              <div class="summary"><a></a> added <a>Jenny Hess</a> to the project </div>
+                                          </div>
+                                      </div>
+                                      <div class="event">
+                                          <div class="content">
+                                              <div class="summary"><a>Stevie Feliciano</a> was added as an <a>Administrator</a> </div>
+                                          </div>
+                                      </div>
+                                      <div class="event">
+                                          <div class="content">
+                                              <div class="summary"><a>Helen Troy</a> added two pictures </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="extra content">
+                                  <button class="ui button"><a href="dataset/{{project.id}}/{{project.name}}/detail">Join Project</a></button>
+                              </div>
+                          </div>
                       </div>
                       <br>
-                      <button class="ui fluid blue button" onclick="freshDataSet()" id="freshDataSetBtn">More </button>
+                      <button class="ui fluid blue button" ng-click="fresh()" id="freshDataSetBtn">More </button>
                   </div>
                   <!--右侧标签栏-->
                   <div class="six wide right floated column">
@@ -49,15 +86,23 @@
                           <a class="item" data-tab="My Dataset">My Dataset </a>
                       </div>
                       <div class="ui bottom attached  tab segment active" data-tab="Contribute">
-                          <div class="ui relaxed divided list">
-                              <!--侧边栏中的我贡献的数据集-->
-                              <% include datasetsidebar-mycontribute.ejs%>
+                          <div class="ui relaxed divided list" ng-repeat=" project in MyContributes">
+                              <div class="item">
+                                  <div class="content">
+                                      <a class="header">{{project.name}}</a>
+                                      <div class="description">Updated 10 mins ago</div>
+                                  </div>
+                              </div>
                           </div>
                       </div>
                       <div class="ui bottom attached tab segment" data-tab="My Dataset">
-                          <div class="ui relaxed divided list">
-                              <!--侧边栏中的我的数据集-->
-                              <% include datasetsidebar-mydataset.ejs%>
+                          <div class="ui relaxed divided list" ng-repeat=" project in MyProjects">
+                              <div class="item">
+                                  <div class="content">
+                                      <a class="header">{{project.name}}</a>
+                                      <div class="description">Updated 10 mins ago</div>
+                                  </div>
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -70,6 +115,7 @@
   </body>
   
 </html>
+
 <script>
   $("body").css('height',$(window).height());
   $('.tabular.menu .item').tab();
@@ -78,11 +124,6 @@
       window.scrollTo(0, $('#datasets').scrollHeight);
   };
 
-  function freshDataSet() {
-      $("#freshDataSetBtn").addClass('loading');
-      setTimeout(function () {
-            // 在这里刷新数据集
-          $("#freshDataSetBtn").removeClass('loading');
-      }, 1000);
-  };
+
+
 </script>
