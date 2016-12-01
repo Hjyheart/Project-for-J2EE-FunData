@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var dataSet = require('./routes/dataset');
 var myCenter = require('./routes/mycenter');
 var mooc = require('./routes/mooc');
+var competiton = require('./routes/competition');
 
 var app = express();
 
@@ -28,7 +29,7 @@ app.use('/', index);
 app.use('/dataset', dataSet);
 app.use('/mycenter', myCenter);
 app.use('/mooc', mooc);
-// app.use('/mycenter', myCenter);
+app.use('/competition', competiton);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <script src="/jquery.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+    <script src="/floatingNav.js"></script>
+
+    <script src="/controllers/app.js"></script>
+    <script src="/services/upload.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/services/list.service.js"></script>
+    <script src="/services/const.service.js"></script>
+    <script src="/controllers/homeCtrl.js"></script>
+</head>
+
+<body class="pushable">
+<% include ../nav/navbar-floating.ejs%>
+
+<div class="pusher">
+
+    <div class="ui inverted vertical masthead center aligned segment">
+
+        <% include ../nav/navbar-personal.ejs %>
+
+        <div class="ui text container">
+            <br><br>
+            <h1 class="ui inverted header">
+                <%=title%>
+            </h1>
+            <h2>Let's go!</h2>
+            <br>
+            <i class="down arrow icon"></i>
+        </div>
+    </div>
+
+    <div class="ui vertical stripe segment">
+    </div>
+
+    <% include ../footer.ejs %>
+</div>
+
+</body>
+
+<script>
+
+</script>
+
+</html>
