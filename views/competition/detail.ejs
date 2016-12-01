@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <!--<link rel="stylesheet" href="/rank-css/about.css"/>-->
     <script src="/jquery.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
             crossorigin="anonymous"></script>
@@ -50,17 +51,21 @@
             <div class="centered row">
                 <div class="ui buttons">
                     <button class="ui green button" onclick="submitAnswer()">submit</button>
-                    <button class="ui red button" onclick="downloadFile()">download</button>
-                    <button class="ui orange button" onclick="mySubmitions()">my submitions</button>
-                    <button class="ui pink button" onclick="showRank()">rank</button>
+                    <button class="ui red button" onclick="downloadFile()" id="download-btn">download</button>
+                    <button class="ui orange button" onclick="mySubmission()" id="submission-btn">my submission</button>
+                    <button class="ui pink button" onclick="showRank()" id="rank-btn">rank</button>
                     <button class="ui blue button" onclick="showDiscuss()" id="discuss-btn">discuss</button>
-                    <button class="ui grey button disabled button" onclick="showAnswer()">answer</button>
+                    <button class="ui grey disabled button" onclick="showAnswer()" id="answer-btn">answer</button>
                 </div>
 
             </div>
             <div class="centered row">
                 <div class="ten wide column">
                     <% include detail-discuss.ejs %>
+                    <% include detail-download.ejs %>
+                    <% include detail-mysubmitions.ejs %>
+                    <% include detail-rank.ejs %>
+                    <% include detail-answer.ejs %>
                 </div>
             </div>
         </div>
@@ -78,27 +83,59 @@
 
     function downloadFile() {
         // download file
+        $('#download-area').transition('fade up');
+        if ($('#download-btn').text() === 'download') {
+            $('#download-btn').text('close download');
+        }
+        else {
+            $('#download-btn').text('download');
+        }
+
     };
 
     function showDiscuss() {
         // show discuss
         $('#discuss-area').transition('fade up');
-        if ($('#discuss-btn').text() === 'discuss')
+        if ($('#discuss-btn').text() === 'discuss') {
             $('#discuss-btn').text('close discuss');
-        else
-            $('#discuss-btn').text('discuss')
+        }
+        else {
+            $('#discuss-btn').text('discuss');
+        }
     };
 
-    function mySubmitions() {
-        // show my submitions
+    function mySubmission() {
+        // show my submission
+        $('#mysubmission-area').transition('fade up');
+        if ($('#submission-btn').text() === 'my submission') {
+            $('#submission-btn').text('close my submission');
+        }
+        else {
+            $('#submission-btn').text('my submission');
+        }
+
     };
 
     function showRank() {
         // show rank
+        $('#rank-area').transition('fade up');
+        if ($('#rank-btn').text() === 'close rank') {
+            $('#rank-btn').text('rank');
+        }
+        else {
+            $('#rank-btn').text('close rank');
+        }
     };
 
     function showAnswer() {
         // show answer 未结束之前disabled
+        $('#answer-area').transition('fade up');
+        if ($('#answer-btn').text() === 'close answer') {
+            $('#answer-btn').text('answer');
+        }
+        else {
+            $('#answer-btn').text('close answer');
+        }
     };
 
 
