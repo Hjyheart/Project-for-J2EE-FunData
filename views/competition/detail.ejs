@@ -41,14 +41,66 @@
     </div>
 
     <div class="ui vertical stripe segment">
-    </div>
+        <div class="ui grid container">
+            <div class="centered row">
+                <div class="twelve wide column">
+                    <% include detail-content.ejs %>
+                </div>
+            </div>
+            <div class="centered row">
+                <div class="ui buttons">
+                    <button class="ui green button" onclick="submitAnswer()">submit</button>
+                    <button class="ui red button" onclick="downloadFile()">download</button>
+                    <button class="ui orange button" onclick="mySubmitions()">my submitions</button>
+                    <button class="ui pink button" onclick="showRank()">rank</button>
+                    <button class="ui blue button" onclick="showDiscuss()" id="discuss-btn">discuss</button>
+                    <button class="ui grey button disabled button" onclick="showAnswer()">answer</button>
+                </div>
 
+            </div>
+            <div class="centered row">
+                <div class="ten wide column">
+                    <% include detail-discuss.ejs %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include detail-popupwindow.ejs %>
     <% include ../footer.ejs %>
 </div>
 
 </body>
 
 <script>
+    function submitAnswer() {
+        $('#submit').modal('show');
+    };
+
+    function downloadFile() {
+        // download file
+    };
+
+    function showDiscuss() {
+        // show discuss
+        $('#discuss-area').transition('fade up');
+        if ($('#discuss-btn').text() === 'discuss')
+            $('#discuss-btn').text('close discuss');
+        else
+            $('#discuss-btn').text('discuss')
+    };
+
+    function mySubmitions() {
+        // show my submitions
+    };
+
+    function showRank() {
+        // show rank
+    };
+
+    function showAnswer() {
+        // show answer 未结束之前disabled
+    };
+
 
 </script>
 
