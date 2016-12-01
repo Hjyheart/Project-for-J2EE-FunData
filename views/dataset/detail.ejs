@@ -33,7 +33,6 @@
                     <div class="ui top attached tabular menu">
                         <a class="active item" data-tab="One">Content </a>
                         <a class="item" data-tab="Two">Pull Request </a>
-                        <a class="item" data-tab="Three">Admin </a>
                         <a class="item" data-tab="Four">Comments </a>
                         <!--右侧喜爱和贡献标签-->
                         <div class="right menu">
@@ -46,12 +45,15 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <div class="ui labeled button" tabindex="0">
+                                <div class="ui labeled button">
                                     <div class="ui basic pink button"><i class="fork icon"></i> Contribute </div>
                                     <a class="ui left pointing pink label">
                                         0
                                     </a>
                                 </div>
+                            </div>
+                            <div class="item">
+                                <button class="ui basic blue button" onclick="toDatasetManage('<%=title%>')">Admin</button>
                             </div>
                         </div>
                     </div>
@@ -60,9 +62,6 @@
 
                     <!--pull request部分-->
                     <% include detail-pullrequest.ejs %>
-
-                    <!--admin部分-->
-                    <% include detail-admin.ejs %>
 
                     <!--comments部分-->
                     <% include detail-comment.ejs %>
@@ -92,17 +91,11 @@
         $('#newSubmition').modal('show');
     };
 
-    function confirmPullRequest(dataSetName) {
-        name = dataSetName;
-        $('#confirmDetailName').val(dataSetName);
-        $('#confirmPullRequest').modal('show');
-    };
-
-    function showWarning(){
-        $('#confirmWarning').modal('show');
-    };
-
     function addDataSet() {
         // 向后台请求加数据集
     };
+
+    function toDatasetManage(name) {
+        window.location.href = '/dataset/' + name + "/" + name + '/manage';
+    }
 </script>

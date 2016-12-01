@@ -93,6 +93,10 @@
         window.location.href = "/dataset/" + name + "/detail";
     };
 
+    function datasetToManage(name) {
+        window.location.href = "/dataset/" + name + "/" + name + "/manage";
+    };
+
     function datasetShowWarning(datasetName){
         name = datasetName;
         $('#confirmDeleteDataset').modal('show');
@@ -135,6 +139,8 @@
     function moocManager(id) {
         window.location.href = "/mooc/" + id + "/manager";
     };
+
+
 </script>
 
 </html>

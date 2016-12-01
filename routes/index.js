@@ -67,4 +67,11 @@ router.get('/other/:name', function(req, res, next) {
     res.render('otherprofile', { title: 'Express' });
 });
 
+
+/* for testing */
+router.get('/test', function (req, res, next) {
+    res.render('./dataset/detail', { title: 'detail'});
+});
+
+
 module.exports = router;

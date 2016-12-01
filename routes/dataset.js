@@ -40,4 +40,11 @@ router.get('/:datasetId/:datasetName/detail', function(req, res, next) {
     res.render('./dataset/detail', { title: db_name });
 });
 
+/* Dataset Manager */
+router.get('/:datasetId/:datasetName/manage', function (req, res, next) {
+    var db_id = req.params.datasetId;
+    var db_name = req.params.datasetName;
+   res.render('./dataset/manage', {title: db_name});
+});
+
 module.exports = router;
