@@ -23,6 +23,31 @@
     </div>
 </div>
 
+<!--用于delete competition做最后的确定-->
+<div class="ui basic modal" id="confirmDeleteCompetition">
+    <i class="close icon"></i>
+    <div class="header">
+        Warning!
+    </div>
+    <div class="image content">
+        <div class="description">
+            <p>Are you sure to delete this competition?</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="two fluid ui inverted buttons">
+            <div class="ui cancel red basic inverted button">
+                <i class="remove icon"></i>
+                No
+            </div>
+            <div class="ui ok green basic inverted button">
+                <i class="checkmark icon" onclick="toDetail('name')"></i>
+                Yes
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--用于delete mooc做最后的确定-->
 <div class="ui basic modal" id="confirmDeleteMooc">
     <i class="close icon"></i>

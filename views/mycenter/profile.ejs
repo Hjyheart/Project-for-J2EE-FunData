@@ -55,7 +55,8 @@
                         </div>
                         <div class="title"><i class="dropdown icon"></i> My Competition </div>
                         <div class="content">
-                            <p>My Competition</p>
+                           <!--把我的竞赛打表打出来-->
+                            <% include profile-mycompetition.ejs %>
                         </div>
                         <div class="title"><i class="dropdown icon"></i> My Mooc </div>
                         <div class="content">
@@ -109,6 +110,18 @@
     function moocShowWarning(moocName){
         name = datasetName;
         $('#confirmDeleteMooc').modal('show');
+    };
+
+    function comToDetail(comId) {
+        window.location.href = "/competition/" + comId + "/" + comId + "/detail";
+    };
+
+    function comToManage(comId) {
+        window.location.href = "/competition/" + comId + "/" + comId + "/manage";
+    };
+
+    function comShowWarning(comId) {
+        $('#confirmDeleteCompetition').modal('show');
     };
 
     function showEdit() {
