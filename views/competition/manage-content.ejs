@@ -1,0 +1,54 @@
+<h1 class="ui header">Problem name</h1>
+<button class="ui green button" onclick="editName()" id="edit-name">Edit</button>
+<div class="ui action input transition hidden" id="name-input">
+    <input type="text" placeholder="Search...">
+    <button class="ui blue labeled submit icon button" onclick="submitName()"><i class="icon edit"></i> submit </button>
+</div>
+
+<div class="ui raised segments">
+    <div class="ui segment">
+        <h2 class="ui header">Description</h2>
+    </div>
+    <div class="ui segment">
+        <p>Description of the competition</p>
+    </div>
+</div>
+
+<button class="ui green button" onclick="editDes()" id="edit-des">Edit</button>
+<div class="ui raised segments transition hidden" id="des-input">
+    <div class="ui segment">
+        <h2 class="ui header">Description</h2>
+    </div>
+    <div class="ui segment">
+        <div class="ui reply form">
+            <div class="field">
+                <textarea></textarea>
+            </div>
+            <button class="ui blue labeled submit icon button" onclick="submitDes()"><i class="icon edit"></i> submit </button>
+        </div>
+    </div>
+</div>
+
+<div class="ui raised segments">
+    <div class="ui segment">
+        <h2 class="ui header">Answer Format</h2>
+    </div>
+    <div class="ui segment">
+        <p>File format description</p>
+    </div>
+</div>
+
+<button class="ui green button" onclick="editFormat()" id="edit-format">Edit</button>
+<div class="ui raised segments transition hidden" id="format-input">
+    <div class="ui segment">
+        <h2 class="ui header">Answer Format</h2>
+    </div>
+    <div class="ui segment">
+        <div class="ui reply form">
+            <div class="field">
+                <textarea></textarea>
+            </div>
+            <button class="ui blue labeled submit icon button" onclick="submitFormat()"><i class="icon edit"></i> submit </button>
+        </div>
+    </div>
+</div>

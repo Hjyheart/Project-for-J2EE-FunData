@@ -1,56 +1,131 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title><%= title %></title>
-      <meta charset="UTF-8">
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="/sematic/semantic.min.css"/>
-      <script src="/jquery.js" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
-              crossorigin="anonymous"></script>
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
-      <script src="/floatingNav.js"></script>
+<head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <!--<link rel="stylesheet" href="/rank-css/about.css"/>-->
+    <script src="/jquery.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+    <script src="/floatingNav.js"></script>
 
-      <script src="/controllers/app.js"></script>
-      <script src="/services/upload.service.js"></script>
-      <script src="/services/info.service.js"></script>
-      <script src="/services/list.service.js"></script>
-      <script src="/services/const.service.js"></script>
+    <script src="/controllers/app.js"></script>
+    <script src="/services/upload.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/services/list.service.js"></script>
+    <script src="/services/const.service.js"></script>
+    <script src="/controllers/homeCtrl.js"></script>
+</head>
 
-  </head>
-  <body class="pushable">
+<body class="pushable">
+<% include ../nav/navbar-floating.ejs%>
 
-  <% include ../nav/navbar-floating.ejs%>
+<div class="pusher">
 
-  <div class="pusher">
-      <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui inverted vertical masthead center aligned segment">
 
         <% include ../nav/navbar-personal.ejs %>
 
-          <div class="ui text container">
-              <br><br>
-              <h1 class="ui inverted header">
-                  Competitions
-              </h1>
-              <h2>Let's compete with others!</h2>
-              <br><br>
-              <i class="down arrow icon"></i>
-          </div>
-      </div>
-        <br><br>
-      <div class="ui vertical stripe segment">
+        <div class="ui text container">
+            <br><br>
+            <h1 class="ui inverted header">
+                <%=title%>
+            </h1>
+            <h2>Manage <%=title%>!</h2>
+            <br>
+            <i class="down arrow icon"></i>
+        </div>
+    </div>
 
-      </div>
-      <%include ../footer.ejs%>
-  </div>
-    
-  </body>
-  
-</html>
+    <div class="ui vertical stripe segment">
+        <div class="ui grid container">
+            <div class="centered row">
+                <div class="twelve wide column">
+                    <% include manage-content.ejs %>
+                </div>
+            </div>
+            <div class="centered row">
+                <div class="ui buttons">
+                    <button class="ui red button" onclick="downloadFile()" id="download-btn">download</button>
+                    <button class="ui grey button" onclick="showAnswer()" id="answer-btn">answer</button>
+                </div>
+
+            </div>
+            <div class="centered row">
+                <div class="ten wide column">
+                    <% include detail-download.ejs %>
+                    <% include detail-answer.ejs %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include detail-popupwindow.ejs %>
+    <% include ../footer.ejs %>
+</div>
+
+</body>
 
 <script>
-  $("body").css('height',$(window).height());
 
+    function downloadFile() {
+        // download file
+        $('#download-area').transition('fade up');
+        if ($('#download-btn').text() === 'download') {
+            $('#download-btn').text('close download');
+        }
+        else {
+            $('#download-btn').text('download');
+        }
+
+    };
+
+    function showAnswer() {
+        // show answer 未结束之前disabled
+        $('#answer-area').transition('fade up');
+        if ($('#answer-btn').text() === 'close answer') {
+            $('#answer-btn').text('answer');
+        }
+        else {
+            $('#answer-btn').text('close answer');
+        }
+    };
+
+    function editName() {
+        $('#edit-name').transition('fade');
+        $('#name-input').transition('fade left');
+    };
+
+    function submitName() {
+        // 这里有ajax请求
+        $('#name-input').transition('fade');
+        $('#edit-name').transition('fade');
+    };
+
+    function editDes() {
+        $('#edit-des').transition('fade');
+        $('#des-input').transition('fade left');
+    };
+
+    function submitDes() {
+        // 这里有ajax
+        $('#des-input').transition('fade');
+        $('#edit-des').transition('fade');
+    };
+
+    function editFormat() {
+        $('#edit-format').transition('fade');
+        $('#format-input').transition('fade left');
+    };
+
+    function submitFormat() {
+        $('#format-input').transition('fade');
+        $('#edit-format').transition('fade left');
+    };
 
 </script>
+
+</html>
