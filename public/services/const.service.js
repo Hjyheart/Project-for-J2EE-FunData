@@ -13,6 +13,7 @@ app.service('constService', function () {
             getPullRequest: `${ServerHost}/dataset/getPullRequest`,
             getComment: `${ServerHost}/dataset/getComment`,
             getContent: `${ServerHost}/dataset/getContent`,
+            getMoocInit: `${ServerHost}/mooc/init`,
         }
     };
 
@@ -20,4 +21,4 @@ app.service('constService', function () {
         return _const.urls;
     }
 
-})
+});

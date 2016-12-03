@@ -61,4 +61,4 @@ app.controller('homeCtrl', function ($scope, $http,
     //     uploadService.upload();
     // }
 
-})
+});

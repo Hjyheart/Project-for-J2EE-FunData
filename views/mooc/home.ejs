@@ -7,9 +7,17 @@
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/slide-js/vmc.slider.full.min.js"></script>
     <script src="/floatingNav.js"></script>
+    <script src="/angular.js"></script>
+
+    <script src="/controllers/app.js"></script>
+    <script src="/services/upload.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/services/list.service.js"></script>
+    <script src="/services/const.service.js"></script>
+
 </head>
 
-<body class="pushable">
+<body class="pushable" ng-app="myApp" ng-controller="homeCtrl">
 
 <% include ../nav/navbar-floating.ejs %>
 
@@ -18,8 +26,8 @@
         <% include ../nav/navbar-personal.ejs %>
 
         <div class="ui text container">
-            <h1 class="ui inverted header">
-                Moocs
+            <h1 class="ui inverted header" >
+                {{ mooc_title }}
             </h1>
             <h2>Study!</h2>
         </div>
@@ -60,7 +68,7 @@
     <%include ../footer.ejs%>
 
 </div>
-
+<script src="/controllers/mooc/homeCtrl.js"></script>
 <script type="text/javascript">
     $(function() {
         $('#slider').vmcSlider({
