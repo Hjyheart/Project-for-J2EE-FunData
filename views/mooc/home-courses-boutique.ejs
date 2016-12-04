@@ -1,118 +1,16 @@
 <h1 class="ui header">Boutique</h1>
-<div class="ui link four cards">
-    <div class="ui card">
+<div class="ui link four cards" id="boutique-course-container">
+    <div class="ui card" ng-repeat="boutique in boutique_course">
         <div class="content">
-            <div class="header">Course</div>
+            <div class="header">{{boutique.course_name}}</div>
             <div class="meta">
-                <span>time</span>
-                <a>author</a>
+                <a>{{boutique.course_teacher_name}} </a>
             </div>
-            <p></p>
+            <p>{{boutique.course_des}}</p>
         </div>
         <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
-        </div>
-    </div>
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Course</div>
-            <div class="meta">
-                <span>time</span>
-                <a>author</a>
-            </div>
-            <p></p>
-        </div>
-        <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
-        </div>
-    </div>
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Course</div>
-            <div class="meta">
-                <span>time</span>
-                <a>author</a>
-            </div>
-            <p></p>
-        </div>
-        <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
-        </div>
-    </div>
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Course</div>
-            <div class="meta">
-                <span>time</span>
-                <a>author</a>
-            </div>
-            <p></p>
-        </div>
-        <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
-        </div>
-    </div>
-</div>
-
-<div class="ui link four cards">
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Course</div>
-            <div class="meta">
-                <span>time</span>
-                <a>author</a>
-            </div>
-            <p></p>
-        </div>
-        <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
-        </div>
-    </div>
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Course</div>
-            <div class="meta">
-                <span>time</span>
-                <a>author</a>
-            </div>
-            <p></p>
-        </div>
-        <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
-        </div>
-    </div>
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Course</div>
-            <div class="meta">
-                <span>time</span>
-                <a>author</a>
-            </div>
-            <p></p>
-        </div>
-        <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
-        </div>
-    </div>
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Course</div>
-            <div class="meta">
-                <span>time</span>
-                <a>author</a>
-            </div>
-            <p></p>
-        </div>
-        <div class="extra content">
-            <button class="ui right floated green button" onclick="turnToDetail('name')"> Go <i class="ui right arrow icon"></i></button>
-            <span><i class="user icon"></i> 75 Learners </span>
+            <button class="ui right floated green button" ng-click="turnToDetail(boutique)"> Go <i class="ui right arrow icon"></i></button>
+            <span><i class="user icon"></i> {{boutique.course_join_sum}} Learners </span>
         </div>
     </div>
 </div>

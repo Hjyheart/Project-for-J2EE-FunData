@@ -27,18 +27,18 @@
 
         <div class="ui text container">
             <h1 class="ui inverted header" >
-                {{ mooc_title }}
+                Moocs
             </h1>
             <h2>Study!</h2>
         </div>
         <div class="content" style="width:1000px;height:300px;margin:10px auto;overflow:hidden;">
             <div id="slider">
-                <a href="#"><img src="/images/demo1.jpg"/></a>
-                <a href="#"><img src="/images/demo2.jpg"/></a>
-                <a href="#"><img src="/images/demo3.jpg"/></a>
-                <a href="#"><img src="/images/demo4.jpg"/></a>
-                <a href="#"><img src="/images/demo5.jpg"/></a>
-                <a href="#"><img src="/images/demo6.jpg"/></a>
+                <a href="/mooc/{{screen_hot_course[0].course_id}}/detail"><img src="{{screen_hot_course[0].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[1].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[2].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[3].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[4].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[5].pic_url}}"/></a>
             </div>
         </div>
         <br>
@@ -52,14 +52,14 @@
                 <div class="sixteen wide column">
                     <% include home-courses-boutique.ejs%>
                     <br>
-                    <button class="ui blue right floated button" onclick="freshCourseBoutique()" id="freshCourseBoutiqueBtn">more</button>
+                    <button class="ui blue right floated button" ng-click="freshCourseBoutique()" id="freshCourseBoutiqueBtn">more</button>
                 </div>
             </div>
             <div class="row">
                 <div class="sixteen wide column">
                     <% include home-courses-others.ejs%>
                     <br>
-                    <button class="ui blue right floated button" onclick="freshCourseOthers()" id="freshCourseOthersBtn">more</button>
+                    <button class="ui blue right floated button" ng-click="freshCourseOthers()" id="freshCourseOthersBtn">more</button>
                 </div>
             </div>
         </div>
@@ -91,26 +91,6 @@
             speed: 900
         });
     });
-
-    function freshCourseBoutique() {
-        $("#freshCourseBoutiqueBtn").addClass('loading');
-        setTimeout(function () {
-            // 在这里刷新mooc
-            $("#freshCourseBoutiqueBtn").removeClass('loading');
-        }, 1000);
-    };
-
-    function freshCourseOthers() {
-        $("#freshCourseOthersBtn").addClass('loading');
-        setTimeout(function () {
-            // 在这里刷新mooc
-            $("#freshCourseOthersBtn").removeClass('loading');
-        }, 1000);
-    };
-
-    function turnToDetail(name) {
-        window.location.href = '/mooc/' + name + '/detail';
-    };
 </script>
 
 </body>
