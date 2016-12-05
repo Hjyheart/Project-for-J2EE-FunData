@@ -13,11 +13,10 @@
       <script src="/floatingNav.js"></script>
 
       <script src="/controllers/app.js"></script>
-      <script src="/services/upload.service.js"></script>
       <script src="/services/info.service.js"></script>
       <script src="/services/list.service.js"></script>
       <script src="/services/const.service.js"></script>
-      <script src="/controllers/homeCtrl.js"></script>
+      <script src="/controllers/dataset/homeCtrl.js"></script>
 
   </head>
   <body class="pushable" ng-app="myApp" ng-controller="homeCtrl">
@@ -49,30 +48,20 @@
                           <!--左侧展示的数据集卡片-->
                           <div class="ui card" ng-repeat=" project in HotProjects">
                               <div class="content">
-                                  <div class="header">{{project.name}}</div>
+                                  <div class="header">{{project.datasetname}}</div>
                               </div>
                               <div class="content">
                                   <h4 class="ui sub header">Activity</h4>
                                   <div class="ui small feed">
                                       <div class="event">
                                           <div class="content">
-                                              <div class="summary"><a></a> added <a>Jenny Hess</a> to the project </div>
-                                          </div>
-                                      </div>
-                                      <div class="event">
-                                          <div class="content">
-                                              <div class="summary"><a>Stevie Feliciano</a> was added as an <a>Administrator</a> </div>
-                                          </div>
-                                      </div>
-                                      <div class="event">
-                                          <div class="content">
-                                              <div class="summary"><a>Helen Troy</a> added two pictures </div>
+                                              <div class="summary"><a>{{project.username}}</a> <a ng-if="project.type==='1'"></a> <a ng-if="project.type==='1'"></a> to the project </div>
                                           </div>
                                       </div>
                                   </div>
                               </div>
                               <div class="extra content">
-                                  <button class="ui button"><a href="dataset/{{project.id}}/{{project.name}}/detail">Join Project</a></button>
+                                  <button class="ui button"><a href="dataset/{{project.datasetname}}/detail">Join Project</a></button>
                               </div>
                           </div>
                       </div>
@@ -89,8 +78,8 @@
                           <div class="ui relaxed divided list" ng-repeat=" project in MyContributes">
                               <div class="item">
                                   <div class="content">
-                                      <a class="header">{{project.name}}</a>
-                                      <div class="description">Updated 10 mins ago</div>
+                                      <a class="header">{{project.datasetname}}</a>
+                                      <div class="description">Updated At {{project.updatetime}}</div>
                                   </div>
                               </div>
                           </div>
@@ -99,8 +88,8 @@
                           <div class="ui relaxed divided list" ng-repeat=" project in MyProjects">
                               <div class="item">
                                   <div class="content">
-                                      <a class="header">{{project.name}}</a>
-                                      <div class="description">Updated 10 mins ago</div>
+                                      <a class="header">{{project.datasetname}}</a>
+                                      <div class="description">Updated At {{project.updatetime}}</div>
                                   </div>
                               </div>
                           </div>

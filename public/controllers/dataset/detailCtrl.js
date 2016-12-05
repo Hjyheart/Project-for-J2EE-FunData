@@ -12,6 +12,7 @@ app.controller('detailCtrl', function ($scope, $http,
     $scope.Comments;
     $scope.Content;
     $scope.pageStart = 0;
+    $scope.datasetname=$('datasetname')[0].innerText;
 
     this.$onInit = function () {
         listService.getList(constService.urls().getHotProject, $scope.pageStart)

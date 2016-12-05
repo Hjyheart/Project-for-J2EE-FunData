@@ -4,7 +4,6 @@
 
 var app = angular.module('myApp');
 app.controller('homeCtrl', function ($scope, $http,
-                                     uploadService,
                                      infoService,
                                      listService,
                                      constService) {
@@ -12,7 +11,6 @@ app.controller('homeCtrl', function ($scope, $http,
     $scope.MyProjects;
     $scope.MyContributes
     $scope.pageStart = 0;
-
     this.$onInit = function () {
         listService.getList(constService.urls().getHotProject, $scope.pageStart)
             .then( res => {
@@ -57,8 +55,5 @@ app.controller('homeCtrl', function ($scope, $http,
     };
 
 
-    // $scope.upload = function () {
-    //     uploadService.upload();
-    // }
 
 });

@@ -5,7 +5,7 @@
 var app = angular.module('myApp');
 
 app.service('listService', function ($http, infoService) {
-    this.getList = function(url, pageStart, datasetName) {
+    this.getList = function(url, pageStart) {
         return $http({
             method: "POST",
             url: url,
