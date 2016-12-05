@@ -19,6 +19,7 @@ app.controller('detailCtrl',
             url: 'http://localhost:8080/mooc/' + course_id + '/' + course_name + '/detail',
         })
             .then( res =>{
+
                 // init user
                 $scope.user = res.data.user;
 

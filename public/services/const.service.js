@@ -9,11 +9,18 @@ app.service('constService', function () {
         urls: {
             // dataset
             getHotProject: `${ServerHost}/dataset/getHotProject`,
-            getMyProject: `${ServerHost}/dataset/getMyProject`,
+            getMyProject: `${ServerHost}/dataset/getMyDataset`,
             getMyContribute: `${ServerHost}/dataset/getMyContribute`,
             getPullRequest: `${ServerHost}/dataset/getPullRequest`,
             getComment: `${ServerHost}/dataset/getComment`,
-            getContent: `${ServerHost}/dataset/getContent`,
+            getContent: `${ServerHost}/dataset/getDemoContent`,
+            comment: `${ServerHost}/dataset/comment`,
+            confirmRequest: `${ServerHost}/dataset/confirmRequest`,
+            getConfirmRequest: `${ServerHost}/dataset/getConfirmRequest`,
+            uploadFile: `${ServerHost}/dataset/uploadFile`,
+            checkUpload: `${ServerHost}/dataset/checkUpload`,
+            createDataset: `${ServerHost}/dataset/createDataset`,
+            downloadUrl: `${ServerHost}/dataset/downloadUrl`,
             // mooc
             getMoocInit: `${ServerHost}/mooc/init`,
             freshMoocBoutique: `${ServerHost}/mooc/fresh-boutique`,
