@@ -13,10 +13,11 @@ router.get('/', function (req, res, next) {
 });
 
 /* get mooc detail */
-router.get('/:name/detail', function(req, res, next) {
+router.get('/:id/:name/detail', function(req, res, next) {
     var course_name = req.params.name;
+    var course_id = req.params.id;
 
-    res.render('./mooc/detail', { title: course_name});
+    res.render('./mooc/detail', { title: course_name, name: course_name, id: course_id});
 });
 
 /* manger mooc */

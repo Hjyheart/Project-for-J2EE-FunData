@@ -1,17 +1,17 @@
 /**
  * Created by hongjiayong on 2016/12/3.
  */
-var app = angular.module('myApp', []);
-app.controller('homeCtrl',[ '$scope', '$http', function ($scope, $http) {
+var app = angular.module('myApp');
+app.controller('homeCtrl',[ '$scope', '$http', 'constService', function ($scope, $http, constService) {
     $scope.screen_hot_course;
     $scope.mooc_title;
     $scope.boutique_course;
-    // $scope.other_course;
+    $scope.other_course;
 
     this.$onInit = function () {
        $http({
            method: 'POST',
-           url: 'http://localhost:8080/mooc/init'
+           url: constService.urls().getMoocInit
        }).then( res =>{
            $scope.screen_hot_course = res.data.screen_hot_course;
            $scope.boutique_course = res.data.boutique_course;
@@ -24,7 +24,7 @@ app.controller('homeCtrl',[ '$scope', '$http', function ($scope, $http) {
     };
 
     $scope.turnToDetail = function (course) {
-        window.location.href = '/mooc/' + course.course_id + '/detail';
+        window.location.href = '/mooc/' + course.course_id + '/' + course.course_name +'/detail';
     };
 
     $scope.freshCourseOthers = function () {
@@ -32,7 +32,7 @@ app.controller('homeCtrl',[ '$scope', '$http', function ($scope, $http) {
         var end = $('#other-course-container').children().length;
         $http({
             method: 'POST',
-            url: 'http://localhost:8080/mooc/fresh-other',
+            url: constService.urls().freshMoocOther,
             params: {
                 'current': end
             }
@@ -61,7 +61,7 @@ app.controller('homeCtrl',[ '$scope', '$http', function ($scope, $http) {
         var end = $('#boutique-course-container').children().length;
         $http({
             method: 'POST',
-            url: 'http://localhost:8080/mooc/fresh-boutique',
+            url: constService.urls().freshMoocBoutique,
             params:{
                 'current': end
             }

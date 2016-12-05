@@ -16,4 +16,4 @@ app.service('listService', function ($http, infoService) {
         });
     }
 
-})
+});

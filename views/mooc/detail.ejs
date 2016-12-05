@@ -8,9 +8,21 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+    <script src="/angular.js"></script>
+
+    <script src="/controllers/app.js"></script>
+    <script src="/services/upload.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/services/list.service.js"></script>
+    <script src="/services/const.service.js"></script>
+    <script src="/services/divide.service.js"></script>
+
 </head>
 
-<body class="pushable">
+<div class="transition hidden" id="course_name"><%= name %></div>
+<div class="transition hidden" id="course_id"><%= id %></div>
+
+<body class="pushable" ng-app="myApp" ng-controller="detailCtrl">
 
 <% include ../nav/navbar-floating.ejs%>
 
@@ -72,7 +84,7 @@
         <div class="ui approve green button">Ok</div>
     </div>
 </div>
-
+<script src="/controllers/mooc/detailCtrl.js"></script>
 <script>
     $('.tabular.menu .button').tab();
 
