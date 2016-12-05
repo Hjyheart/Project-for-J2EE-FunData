@@ -4,10 +4,10 @@
 var app = angular.module('myApp');
 
 app.service('uploadService', function () {
-    this.upload = function (uploadToken) {
+    this.upload = function (uploadToken,key) {
         return Qiniu.uploader({
             runtimes: 'html5,flash,html4',      // 上传模式，依次退化
-            browse_button: 'upload',         // 上传选择的点选按钮，必需
+            browse_button: 'upload-file',         // 上传选择的点选按钮，必需
             uptoken: uploadToken,
             get_new_uptoken: false,             // 设置上传文件的时候是否每次都重新获取新的uptoken
 
@@ -19,7 +19,7 @@ app.service('uploadService', function () {
             dragdrop: true,                     // 开启可拖曳上传
             drop_element: 'container',          // 拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
             chunk_size: '4mb',                  // 分块上传时，每块的体积
-            auto_start: true,                   // 选择文件后自动上传，若关闭需要自己绑定事件触发上传
+            auto_start: false,                   // 选择文件后自动上传，若关闭需要自己绑定事件触发上传
 
             init: {
                 'FilesAdded': function(up, files) {

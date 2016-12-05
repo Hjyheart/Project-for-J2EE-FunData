@@ -10,7 +10,7 @@ app.controller('detailCtrl', function ($scope, $http,
                                      constService) {
     $scope.PullRequests;
     $scope.Comments;
-    $scope.Content;
+    $scope._comment;
     $scope.Contribute = 0;
     $scope.isAdmin = '0';
     $scope.pageStart = 0;
@@ -25,15 +25,6 @@ app.controller('detailCtrl', function ($scope, $http,
         activate: moreContent
     };
 
-    $scope.comment = {
-        page: 1,
-        take: 5,
-        maxSize: 5,
-        count: 0,
-        list: [],
-        activate: moreComment
-    };
-
     $scope.pullrequest = {
         page: 1,
         take: 5,
@@ -44,7 +35,7 @@ app.controller('detailCtrl', function ($scope, $http,
     };
 
     this.$onInit = function () {
-        detailService.getDetail(constService.urls().getContent, $scope.pageStart, $scope.datasetname)
+        detailService.getDetail(constService.urls().getContent, 0, $scope.datasetname)
             .then( res => {
                 $scope.content.list = res.data.content;
                 $scope.content.count = res.data.count;
@@ -58,43 +49,110 @@ app.controller('detailCtrl', function ($scope, $http,
 
     };
 
-    function moreContent(){
-        detailService.getDetail(constService.urls().getContent, $scope.pageStart, $scope.datasetname)
+    $scope.getContent =function () {
+        detailService.getDetail(constService.urls().getContent, 0, $scope.datasetname)
             .then( res => {
-            $scope.content.list = res.data.content;
-            //$scope.content.count = res.data.count;
-            $scope.content.count = 100;
+                $scope.Comments = res.data.comments;
             })
             .catch( err => {
                 console.log(err);
             });
     }
 
-    function moreComment(){
-        detailService.getDetail(constService.urls().getComment, $scope.pageStart, $scope.datasetname)
+    $scope.getComments =function () {
+        detailService.getDetail(constService.urls().getComment, 0, $scope.datasetname)
             .then( res => {
-                $scope.comment.list = res.data.comments;
-                //$scope.content.count = res.data.count;
-                $scope.comment.count = 100;
+                $scope.Comments = res.data.comments;
             })
             .catch( err => {
                 console.log(err);
             });
     }
 
-    function morePullRequest(){
-        detailService.getDetail(constService.urls().getPullRequest, $scope.pageStart, $scope.datasetname)
+    $scope.getPullRequests =function () {
+        detailService.getDetail(constService.urls().getPullRequest, 0, $scope.datasetname)
+            .then( res => {
+                $scope.Comments = res.data.comments;
+            })
+            .catch( err => {
+                console.log(err);
+            });
+    }
+
+    $scope.publishComment = function () {
+        $http({
+            method: "POST",
+            url: constService.urls().comment,
+            params: {
+                "username": infoService.getInfo('username'),
+                "content": $scope._comment,
+                "datasetname": $scope.datasetname
+            }
+        })
+            .then( res => {
+                $scope.Comments = $scope.Comments.concat(res.data.comment);
+                $scope._comment='';
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+    }
+
+    $scope.confirmPullRequest = function(pull, confirm) {
+        $http({
+            method: "POST",
+            url: constService.urls().confirmRequest,
+            params: {
+                "request_id": pull.id,
+                "confirm": confirm
+            }
+        })
+            .then( res => {
+                pull.type = 1;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+    }
+
+
+    function moreContent(page){
+        detailService.getDetail(constService.urls().getContent, page, $scope.datasetname)
             .then( res => {
                 $scope.content.list = res.data.content;
-                //$scope.content.count = res.data.count;
-                $scope.content.count = 100;
+                $scope.content.count = res.data.count;
+
             })
             .catch( err => {
                 console.log(err);
             });
     }
-    // $scope.upload = function () {
-    //     uploadService.upload();
-    // }
+
+    function morePullRequest(page){
+        detailService.getDetail(constService.urls().getPullRequest, page, $scope.datasetname)
+            .then( res => {
+                $scope.pullrequest.list = res.data.pullrequest;
+                $scope.pullrequest.count = res.data.count;
+            })
+            .catch( err => {
+                console.log(err);
+            });
+
+    }
+
+    $scope.upload = function () {
+        detailService.getDetail(constService.urls().uploadFile, 0, $scope.datasetname)
+            .then( res => {
+                var uploader = uploadService.upload(res.data.uploadtoken, res.data.key);
+                uploader.start();
+            })
+            .catch( err => {
+                console.log(err);
+            });
+
+
+    }
 
 })
