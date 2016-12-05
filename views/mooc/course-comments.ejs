@@ -4,42 +4,22 @@
 
         <h2 class="ui header">Answered</h2>
         <div class="ui comments">
-            <div class="comment">
+            <div class="comment" ng-repeat="item in answered">
                 <div class="content">
-                    <a class="author">SSE</a>
+                    <a class="author">{{item.question.question_owner_name}}</a>
                     <div class="metadata">
-                        <div class="date">time</div>
+                        <div class="date">{{item.question.question_time}}</div>
                     </div>
-                    <div class="text">Why you love me? </div>
+                    <div class="text">{{item.question.question_content}}</div>
                 </div>
                 <div class="ui comments">
                     <div class="comment">
                         <div class="content">
-                            <a class="author">Teacher</a>
+                            <a class="author">{{item.answer.answer_owner_name}}</a>
                             <div class="metadata">
-                                <div class="data">time</div>
+                                <div class="data">{{item.answer.answer_time}}</div>
                             </div>
-                            <div class="text">Yes</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="content">
-                    <a class="author">SSE</a>
-                    <div class="metadata">
-                        <div class="date">time</div>
-                    </div>
-                    <div class="text">Why you love me? </div>
-                </div>
-                <div class="ui comments">
-                    <div class="comment">
-                        <div class="content">
-                            <a class="author">Teacher</a>
-                            <div class="metadata">
-                                <div class="data">time</div>
-                            </div>
-                            <div class="text">No</div>
+                            <div class="text">{{item.answer.answer_content}}</div>
                         </div>
                     </div>
                 </div>
@@ -48,59 +28,45 @@
 
         <h2 class="ui header">Qestions</h2>
         <div class="ui comments">
-            <div class="comment">
+            <div class="comment" ng-repeat="item in unanswered">
                 <div class="content">
-                    <a class="author">SSE</a>
+                    <a class="author">{{item.question_owner_name}}</a>
                     <div class="metadata">
-                        <div class="date">time</div>
+                        <div class="date">{{item.question_time}}</div>
                     </div>
-                    <div class="text">Why you love me? </div>
-                    <div class="actions">
-                        <a class="reply active" onclick="showA('q1')">Reply</a>
+                    <div class="text">{{item.question_content}}</div>
+
+                    <div class="actions" ng-if="user.user_flag == 1">
+                        <a class="reply active" ng-click="showA(item)">Reply</a>
                     </div>
-                    <form class="ui reply form transition hidden" id="q1">
+
+                    <form class="ui reply form transition hidden" id={{item.question_id}}>
                         <div class="field">
-                            <textarea></textarea>
+                            <textarea id="{{ $index + '-answer' }}"></textarea>
                         </div>
-                        <div class="ui primary submit labeled icon button"><i class="icon edit"></i> Submit Answer </div>
-                    </form>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="content">
-                    <a class="author">SSE</a>
-                    <div class="metadata">
-                        <div class="date">time</div>
-                    </div>
-                    <div class="text">Why you love me? </div>
-                    <div class="actions">
-                        <a class="reply active" onclick="showA('q2')">Reply</a>
-                    </div>
-                    <form class="ui reply form transition hidden" id="q2">
-                        <div class="field">
-                            <textarea></textarea>
-                        </div>
-                        <div class="ui primary submit labeled icon button"><i class="icon edit"></i> Submit Answer </div>
+                        <div class="ui primary submit labeled icon button" ng-click="addAnswer(item, $index)"><i class="icon edit"></i> Submit Answer </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <h2 class="ui header">Add Question</h2>
+        <div ng-if="user.user_flag == 0">
+            <h2 class="ui header">Add Question</h2>
 
-        <div class="ui comments">
-            <div class="comment">
-                <div class="content">
-                    <a class="author">Luo Xue</a>
-                    <div class="metadata">
-                        <div class="date">time</div>
-                    </div>
-                    <form class="ui reply form">
-                        <div class="field">
-                            <textarea></textarea>
+            <div class="ui comments">
+                <div class="comment">
+                    <div class="content">
+                        <a class="author">Luo Xue</a>
+                        <div class="metadata">
+                            <div class="date">time</div>
                         </div>
-                        <div class="ui primary submit labeled icon button"><i class="icon edit"></i> Add Question </div>
-                    </form>
+                        <form class="ui reply form">
+                            <div class="field">
+                                <textarea id="new-question"></textarea>
+                            </div>
+                            <div class="ui primary submit labeled icon button" ng-click="addQuestion()"><i class="icon edit"></i> Add Question </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -71,30 +71,11 @@
     <% include ../footer.ejs %>
 </div>
 
-<!--用于确认加入了课程-->
-<div class="ui small modal" id="welcome">
-    <i class="close icon"></i>
-    <div class="header">Welcome</div>
-    <div class="content">
-        <p>Join successfully!</p>
-    </div>
-    <div class="actions">
-        <div class="ui approve green button">Ok</div>
-    </div>
-</div>
+    <% include detail-popupwindow.ejs %>
+
 <script src="/controllers/mooc/detailCtrl.js"></script>
 <script>
     $('.tabular.menu .button').tab();
-
-    function showA(queId) {
-        $('#' + queId).transition('vertical flip');
-    };
-
-    function joinDeal() {
-        $('#welcome').modal('show');
-        $('#joinBtn').transition('fade');
-    };
-
 </script>
 </body>
 </html>
