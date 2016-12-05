@@ -5,19 +5,26 @@
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="/sematic/semantic.min.css"/>
       <script src="/jquery.js" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+              crossorigin="anonymous"></script>
       <!-- Latest compiled and minified JavaScript -->
       <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
       <script src="/floatingNav.js"></script>
+      <script src="/ng-pagination/dist/directive.pagination.js"></script>
       <script src="/controllers/app.js"></script>
-      <script src="/controllers/detailCtrl.js"></script>
+      <script src="/services/detail.service.js"></script>
+      <script src="/services/upload.service.js"></script>
+      <script src="/services/info.service.js"></script>
+      <script src="/services/const.service.js"></script>
+      <script src="/controllers/dataset/detailCtrl.js"></script>
   </head>
-  <body class="pusherable">
+  <body class="pusherable" ng-app="myApp" ng-controller="detailCtrl">
     <div class="pusher">
         <div class="ui inverted vertical masthead center aligned segment">
             <% include ../nav/navbar-personal.ejs %>
             <div class="ui text container">
                 <br><br>
-                <h1 class="ui inverted header">
+                <h1 class="ui inverted header" id="datasetname">
                     <%= title %>
                 </h1>
                 <h2>Here are the dataset <%= title %> !</h2>
@@ -48,12 +55,12 @@
                                 <div class="ui labeled button">
                                     <div class="ui basic pink button"><i class="fork icon"></i> Contribute </div>
                                     <a class="ui left pointing pink label">
-                                        0
+                                        {{Contribute}}
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
-                                <button class="ui basic blue button" onclick="toDatasetManage('<%=title%>')">Admin</button>
+                                <button class="ui basic blue button" onclick="toDatasetManage('<%=title%>')" ng-if="isAdmin === '1'">Admin</button>
                             </div>
                         </div>
                     </div>

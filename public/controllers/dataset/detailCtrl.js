@@ -6,58 +6,93 @@ var app = angular.module('myApp');
 app.controller('detailCtrl', function ($scope, $http,
                                      uploadService,
                                      infoService,
-                                     listService,
+                                     detailService,
                                      constService) {
     $scope.PullRequests;
     $scope.Comments;
     $scope.Content;
+    $scope.Contribute = 0;
+    $scope.isAdmin = '0';
     $scope.pageStart = 0;
-    $scope.datasetname=$('datasetname')[0].innerText;
+    $scope.datasetname=$('#datasetname')[0].innerText;
+
+    $scope.content = {
+        page: 1,
+        take: 5,
+        maxSize: 5,
+        count: 0,
+        list: [],
+        activate: moreContent
+    };
+
+    $scope.comment = {
+        page: 1,
+        take: 5,
+        maxSize: 5,
+        count: 0,
+        list: [],
+        activate: moreComment
+    };
+
+    $scope.pullrequest = {
+        page: 1,
+        take: 5,
+        maxSize: 5,
+        count: 0,
+        list: [],
+        activate: morePullRequest
+    };
 
     this.$onInit = function () {
-        listService.getList(constService.urls().getHotProject, $scope.pageStart)
+        detailService.getDetail(constService.urls().getContent, $scope.pageStart, $scope.datasetname)
             .then( res => {
-                //TODO change res form
-                $scope.HotProjects = res.data.datasets;
-            })
-            .catch( err => {
-                console.log(err);
-            });
-        listService.getList(constService.urls().getMyProject, $scope.pageStart)
-            .then( res => {
-                //TODO change res form
-                $scope.MyProjects = res.data.datasets;
-            })
-            .catch( err => {
-                console.log(err);
-            });
-        listService.getList(constService.urls().getMyContribute, $scope.pageStart)
-            .then( res => {
-                //TODO change res form
-                $scope.MyContributes = res.data.datasets;
-            })
-            .catch( err => {
-                console.log(err);
-            });
-    };
+                $scope.content.list = res.data.content;
+                $scope.content.count = res.data.count;
+                $scope.Contribute = res.data.contribute;
+                $scope.isAdmin = res.data.admin;
 
-    $scope.fresh = function () {
-        $scope.pageStart++;
-        $("#freshDataSetBtn").addClass('loading');
-        listService.getList(constService.urls().getHotProject, $scope.pageStart)
-            .then( res => {
-                //TODO change res form
-                $scope.HotProjects = $scope.HotProjects.concat(res.data.datasets);
-                $("#freshDataSetBtn").removeClass('loading');
             })
             .catch( err => {
                 console.log(err);
-                $("#freshDataSetBtn").removeClass('loading');
             });
 
     };
 
+    function moreContent(){
+        detailService.getDetail(constService.urls().getContent, $scope.pageStart, $scope.datasetname)
+            .then( res => {
+            $scope.content.list = res.data.content;
+            //$scope.content.count = res.data.count;
+            $scope.content.count = 100;
+            })
+            .catch( err => {
+                console.log(err);
+            });
+    }
 
+    function moreComment(){
+        detailService.getDetail(constService.urls().getComment, $scope.pageStart, $scope.datasetname)
+            .then( res => {
+                $scope.comment.list = res.data.comments;
+                //$scope.content.count = res.data.count;
+                $scope.comment.count = 100;
+            })
+            .catch( err => {
+                console.log(err);
+            });
+    }
+
+    function morePullRequest(){
+        detailService.getDetail(constService.urls().getPullRequest, $scope.pageStart, $scope.datasetname)
+            .then( res => {
+                $scope.content.list = res.data.content;
+                //$scope.content.count = res.data.count;
+                $scope.content.count = 100;
+            })
+            .catch( err => {
+                console.log(err);
+            });
+    }
     // $scope.upload = function () {
     //     uploadService.upload();
     // }

@@ -4,11 +4,11 @@
 var app = angular.module('myApp');
 
 app.service('uploadService', function () {
-    this.upload = function () {
-        var uploader = Qiniu.uploader({
+    this.upload = function (uploadToken) {
+        return Qiniu.uploader({
             runtimes: 'html5,flash,html4',      // 上传模式，依次退化
-            browse_button: 'pickfiles',         // 上传选择的点选按钮，必需
-
+            browse_button: 'upload',         // 上传选择的点选按钮，必需
+            uptoken: uploadToken,
             get_new_uptoken: false,             // 设置上传文件的时候是否每次都重新获取新的uptoken
 
             domain: '<Your bucket domain>',     // bucket域名，下载资源时用到，必需

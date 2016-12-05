@@ -9,8 +9,10 @@ app.controller('homeCtrl', function ($scope, $http,
                                      constService) {
     $scope.HotProjects;
     $scope.MyProjects;
-    $scope.MyContributes
+    $scope.MyContributes;
+
     $scope.pageStart = 0;
+
     this.$onInit = function () {
         listService.getList(constService.urls().getHotProject, $scope.pageStart)
             .then( res => {
@@ -51,7 +53,6 @@ app.controller('homeCtrl', function ($scope, $http,
                 console.log(err);
                 $("#freshDataSetBtn").removeClass('loading');
             });
-
     };
 
 

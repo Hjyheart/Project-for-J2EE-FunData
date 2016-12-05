@@ -9,8 +9,8 @@ app.service('constService', function () {
         urls: {
             // dataset
             getHotProject: `${ServerHost}/dataset/getHotProject`,
-            getMyProject: `${ServerHost}/dataset/getMyProject`,
-            getMyContribute: `${ServerHost}/dataset/getMyDataset`,
+            getMyProject: `${ServerHost}/dataset/getMyDataset`,
+            getMyContribute: `${ServerHost}/dataset/getMyContribute`,
             getPullRequest: `${ServerHost}/dataset/getPullRequest`,
             getComment: `${ServerHost}/dataset/getComment`,
             getContent: `${ServerHost}/dataset/getDemoContent`,
