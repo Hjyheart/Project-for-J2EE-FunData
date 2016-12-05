@@ -5,10 +5,11 @@
                 <img src="/images/wudi.jpg">
             </a>
             <div class="content">
+
                 <a class="author">{{comment.username}}</a>
                 <div class="metadata">
                     <span class="date">{{comment.updatetime}}</span>
-                </div>
+               </div>
                 <div class="text">{{comment.content}}</div>
             </div>
         </div>
@@ -17,8 +18,9 @@
     <h2>comment</h2>
     <form class="ui reply form">
         <div class="field">
+
             <textarea ng-model="_comment"></textarea>
         </div>
         <div class="ui blue labeled submit icon button" ng-click="publishComment(_comment)"><i class="icon edit"></i> Add  </div>
-    </form>
+   </form>
 </div>

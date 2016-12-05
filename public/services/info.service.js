@@ -5,6 +5,7 @@ var app = angular.module('myApp');
 
 app.service('infoService', function () {
     var info = {
+
         username: 'fdsf'
     };
     this.setInfo = function(key, value){

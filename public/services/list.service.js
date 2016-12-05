@@ -10,9 +10,10 @@ app.service('listService', function ($http, infoService) {
             method: "POST",
             url: url,
             params: {
+
                 "username": infoService.getInfo('username'),
                 "page": pageStart
-            }
+           }
         });
     }
 

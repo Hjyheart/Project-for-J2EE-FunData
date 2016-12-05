@@ -25,14 +25,16 @@ router.post('/', function(req, res, next) {
 
 /* Dataset Detail */
 // TODO: 三个数据集区分我的和不是我的
+
 router.get('/:datasetName/detail', function(req, res, next) {
     var db_name = req.params.datasetName;
     request({
         url: `${_const.ServerHost}/lookup`,
         method: 'POST',
         form: {
+
             datasetname: db_name
-        }
+       }
     }, function (err, response, body) {
         console.log(body);
     });
