@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <link rel="stylesheet" href="/slide-css/style.css">
+    <script src="/jquery.js" crossorigin="anonymous"></script>
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+    <script src="/slide-js/vmc.slider.full.min.js"></script>
+    <script src="/floatingNav.js"></script>
+    <script src="/angular.js"></script>
+
+    <script src="/controllers/app.js"></script>
+    <script src="/services/upload.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/services/list.service.js"></script>
+    <script src="/services/const.service.js"></script>
+
+</head>
+
+<body class="pushable" ng-app="myApp" ng-controller="homeCtrl">
+
+<% include ../nav/navbar-floating.ejs %>
+
+<div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+        <% include ../nav/navbar-personal.ejs %>
+
+        <div class="ui text container">
+            <h1 class="ui inverted header" >
+                Moocs
+            </h1>
+            <h2>Study!</h2>
+        </div>
+        <div class="content" style="width:1000px;height:300px;margin:10px auto;overflow:hidden;">
+            <div id="slider">
+                <a href="/mooc/{{screen_hot_course[0].course_id}}/detail"><img src="{{screen_hot_course[0].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[1].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[2].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[3].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[4].pic_url}}"/></a>
+                <a href="#"><img src="{{screen_hot_course[5].pic_url}}"/></a>
+            </div>
+        </div>
+        <br>
+        <i class="down arrow icon"></i>
+    </div>
+
+    <div class="ui vertical aligned stripe segment">
+        <br>
+        <div class="ui aligned stackable grid container">
+            <div class="row">
+                <div class="sixteen wide column">
+                    <% include home-courses-boutique.ejs%>
+                    <br>
+                    <button class="ui blue right floated button" ng-click="freshCourseBoutique()" id="freshCourseBoutiqueBtn">more</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="sixteen wide column">
+                    <% include home-courses-others.ejs%>
+                    <br>
+                    <button class="ui blue right floated button" ng-click="freshCourseOthers()" id="freshCourseOthersBtn">more</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%include ../footer.ejs%>
+
+</div>
+<script src="/controllers/mooc/homeCtrl.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('#slider').vmcSlider({
+            width: 1000,
+            height: 300,
+            gridCol: 10,
+            gridRow: 5,
+            gridVertical: 20,
+            gridHorizontal: 10,
+            autoPlay: true,
+            ascending: true,
+            effects: [
+                'fade', 'fadeLeft', 'fadeRight', 'fadeTop', 'fadeBottom', 'fadeTopLeft', 'fadeBottomRight',
+                'blindsLeft', 'blindsRight', 'blindsTop', 'blindsBottom', 'blindsTopLeft', 'blindsBottomRight',
+                'curtainLeft', 'curtainRight', 'interlaceLeft', 'interlaceRight', 'mosaic', 'bomb', 'fumes'
+            ],
+            ie6Tidy: false,
+            random: false,
+            duration: 2000,
+            speed: 900
+        });
+    });
+</script>
+
+</body>
+
+</html>

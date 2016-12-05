@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+      <script src="/jquery.js" crossorigin="anonymous"></script>
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+      <script src="/floatingNav.js"></script>
+      <script src="/controllers/app.js"></script>
+      <script src="/controllers/detailCtrl.js"></script>
+  </head>
+  <body class="pusherable">
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+            <% include ../nav/navbar-personal.ejs %>
+            <div class="ui text container">
+                <br><br>
+                <h1 class="ui inverted header">
+                    <%= title %>
+                </h1>
+                <h2>Here are the dataset <%= title %> !</h2>
+                <br>
+                <div class="ui huge teal button">Your Data <i class="down arrow icon"></i></div>
+            </div>
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui aligned stackable grid container">
+                <div class="row">
+                    <!--主体部分-->
+                    <div class="ui top attached tabular menu">
+                        <a class="active item" data-tab="One">Content </a>
+                        <a class="item" data-tab="Two">Pull Request </a>
+                        <a class="item" data-tab="Four">Comments </a>
+                        <!--右侧喜爱和贡献标签-->
+                        <div class="right menu">
+                            <div class="item">
+                                <div class="ui labeled button" tabindex="0">
+                                    <div class="ui basic red button"><i class="heart icon"></i> Like </div>
+                                    <a class="ui red left pointing label">
+                                        0
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ui labeled button">
+                                    <div class="ui basic pink button"><i class="fork icon"></i> Contribute </div>
+                                    <a class="ui left pointing pink label">
+                                        0
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <button class="ui basic blue button" onclick="toDatasetManage('<%=title%>')">Admin</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--数据集展示部分-->
+                    <% include detail-content.ejs%>
+
+                    <!--pull request部分-->
+                    <% include detail-pullrequest.ejs %>
+
+                    <!--comments部分-->
+                    <% include detail-comment.ejs %>
+                </div>
+            </div>
+        </div>
+        <%include ../footer.ejs%>
+    </div>
+
+    <!--该页面所用弹出框-->
+    <% include detail-popupwindow.ejs%>
+
+  </body>
+</html>
+
+<script>
+    $('.tabular.menu .item').tab();
+
+    var name;
+
+    function showPullRequest(dataSetName) {
+        $('#showDetailName').val(dataSetName);
+        $('#newPullRequest').modal('show');
+    };
+
+    function newSubmition() {
+        $('#newSubmition').modal('show');
+    };
+
+    function addDataSet() {
+        // 向后台请求加数据集
+    };
+
+    function toDatasetManage(name) {
+        window.location.href = '/dataset/' + name + "/" + name + '/manage';
+    }
+</script>

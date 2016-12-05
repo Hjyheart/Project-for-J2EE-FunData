@@ -1,0 +1,16 @@
+<h1 class="ui header">Others</h1>
+<div class="ui link four cards" id="other-course-container">
+    <div class="ui card" ng-repeat="course in other_course">
+        <div class="content">
+            <div class="header">{{course.course_id}}</div>
+            <div class="meta">
+                <a>{{course.course_teacher_name}}</a>
+            </div>
+            <p></p>
+        </div>
+        <div class="extra content">
+            <button class="ui right floated green button" ng-click="turnToDetail(course)"> Go <i class="ui right arrow icon"></i></button>
+            <span><i class="user icon"></i> {{course.course_join_sum}} Learners </span>
+        </div>
+    </div>
+</div>

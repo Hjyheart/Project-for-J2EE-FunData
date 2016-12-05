@@ -1,0 +1,24 @@
+<div class="ui bottom attached tab segment" data-tab="Four">
+    <div class="ui comments" ng-repeat="comment in Comments">
+        <div class="comment">
+            <a class="avatar">
+                <img src="/images/wudi.jpg">
+            </a>
+            <div class="content">
+                <a class="author">{{comment.author}}</a>
+                <div class="metadata">
+                    <span class="date">{{comment.time}}</span>
+                </div>
+                <div class="text">{{comment.content}}</div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <h2>comment</h2>
+    <form class="ui reply form">
+        <div class="field">
+            <textarea></textarea>
+        </div>
+        <div class="ui blue labeled submit icon button"><i class="icon edit"></i> Add  </div>
+    </form>
+</div>

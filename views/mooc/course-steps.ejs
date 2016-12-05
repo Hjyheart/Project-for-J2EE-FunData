@@ -1,0 +1,13 @@
+<div class="ui attached tab" ng-repeat="step in steps" id={{step.step_header}}>
+    <div class="ui main text container">
+        <h1 class="ui header">{{step.step_header}}</h1>
+    </div>
+    <div class="ui text container">
+        <div id='{{$index}}'>
+
+        </div>
+        <h2 class="ui header">Guide</h2>
+        <img class="ui big centered image" src="{{step.step_pic_url}}">
+    </div>
+
+</div>

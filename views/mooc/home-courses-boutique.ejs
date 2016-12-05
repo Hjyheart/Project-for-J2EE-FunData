@@ -1,0 +1,16 @@
+<h1 class="ui header">Boutique</h1>
+<div class="ui link four cards" id="boutique-course-container">
+    <div class="ui card" ng-repeat="boutique in boutique_course">
+        <div class="content">
+            <div class="header">{{boutique.course_name}}</div>
+            <div class="meta">
+                <a>{{boutique.course_teacher_name}} </a>
+            </div>
+            <p>{{boutique.course_des}}</p>
+        </div>
+        <div class="extra content">
+            <button class="ui right floated green button" ng-click="turnToDetail(boutique)"> Go <i class="ui right arrow icon"></i></button>
+            <span><i class="user icon"></i> {{boutique.course_join_sum}} Learners </span>
+        </div>
+    </div>
+</div>

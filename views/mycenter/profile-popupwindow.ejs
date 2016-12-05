@@ -1,0 +1,209 @@
+<!--用于delete dataset做最后的确定-->
+<div class="ui basic modal" id="confirmDeleteDataset">
+    <i class="close icon"></i>
+    <div class="header">
+        Warning!
+    </div>
+    <div class="image content">
+        <div class="description">
+            <p>Are you sure to delete this dataset?</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="two fluid ui inverted buttons">
+            <div class="ui cancel red basic inverted button">
+                <i class="remove icon"></i>
+                No
+            </div>
+            <div class="ui ok green basic inverted button">
+                <i class="checkmark icon" onclick="toDetail('name')"></i>
+                Yes
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--用于delete competition做最后的确定-->
+<div class="ui basic modal" id="confirmDeleteCompetition">
+    <i class="close icon"></i>
+    <div class="header">
+        Warning!
+    </div>
+    <div class="image content">
+        <div class="description">
+            <p>Are you sure to delete this competition?</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="two fluid ui inverted buttons">
+            <div class="ui cancel red basic inverted button">
+                <i class="remove icon"></i>
+                No
+            </div>
+            <div class="ui ok green basic inverted button">
+                <i class="checkmark icon" onclick="toDetail('name')"></i>
+                Yes
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--用于delete mooc做最后的确定-->
+<div class="ui basic modal" id="confirmDeleteMooc">
+    <i class="close icon"></i>
+    <div class="header">
+        Warning!
+    </div>
+    <div class="image content">
+        <div class="description">
+            <p>Are you sure to delete this course?</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="two fluid ui inverted buttons">
+            <div class="ui cancel red basic inverted button">
+                <i class="remove icon"></i>
+                No
+            </div>
+            <div class="ui ok green basic inverted button">
+                <i class="checkmark icon" onclick="toDetail('name')"></i>
+                Yes
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--以下为点击edit时弹出的页面-->
+<div class="ui small modal" id="edit">
+    <i class="close icon"></i>
+    <div class="header" id="edit-title">
+        Edit Profile
+    </div>
+    <div class="ui form">
+        <div class="ui stacked segment">
+            <div class="field" id="first-name">
+                <label>First Name</label>
+                <div class="ui left icon input">
+                    <i class="spy icon"></i>
+                    <input placeholder="First Name" type="text">
+                </div>
+            </div>
+            <div class="field" id="last-name">
+                <label>Last Name</label>
+                <div class="ui left icon input">
+                    <i class="child icon"></i>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="ui green submit button approve" onclick="editProfile()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--以下为点击ChangeImg时弹出的页面-->
+<div class="ui modal" id="newImage">
+    <i class="close icon"></i>
+    <div class="header" id="detailName">
+        Change Image
+    </div>
+    <div class="content">
+        <form class="ui form" action="" method="post">
+            <div class="field aligned">
+                <input type="file" name="upload-file">
+            </div>
+            <button class="ui positive right floated labeled icon button" type="submit">Yes <i class="checkmark icon"></i> </button>
+            <br>
+        </form>
+    </div>
+</div>
+
+<!--以下为createDataset时弹出的页面-->
+<div class="ui modal" id="createDataset">
+    <i class="close icon"></i>
+    <div class="header">
+        Add Dataset
+    </div>
+    <div class="ui form">
+        <div class="ui stacked segment">
+            <div class="field" id="dataset-name">
+                <label>Dataset Name</label>
+                <div class="ui input">
+                    <input placeholder="DataSet Name" type="text">
+                </div>
+            </div>
+            <div class="field" id="dataset-desc">
+                <label>Description</label>
+                <div class="ui input">
+                    <input placeholder="Description" type="text">
+                </div>
+            </div>
+            <div class="field" id="dataset-upload">
+                <label>First Submition</label>
+                <input type="file">
+            </div>
+            <div class="actions">
+                <button class="ui green submit button approve">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--以下为createCompetition时弹出的页面-->
+<div class="ui modal" id="createCompetition">
+    <i class="close icon"></i>
+    <div class="header">
+        Add Competition
+    </div>
+    <div class="ui form">
+        <div class="ui stacked segment">
+            <div class="field" id="competition-name">
+                <label>Competition Name</label>
+                <div class="ui input">
+                    <input placeholder="Competition Name" type="text">
+                </div>
+            </div>
+            <div class="field" id="competition-desc">
+                <label>Description</label>
+                <div class="ui input">
+                    <input placeholder="Description" type="text">
+                </div>
+            </div>
+            <div class="field" id="competition-upload">
+                <label>File</label>
+                <input type="file">
+            </div>
+            <div class="actions">
+                <button class="ui green submit button approve">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--以下为createMoocs时弹出的页面-->
+<div class="ui modal" id="createMooc">
+    <i class="close icon"></i>
+    <div class="header">
+        Add Mooc
+    </div>
+    <div class="ui form">
+        <div class="ui stacked segment">
+            <div class="field" id="mooc-name">
+                <label>Mooc Name</label>
+                <div class="ui input">
+                    <input placeholder="Mooc Name" type="text">
+                </div>
+            </div>
+            <div class="field" id="mooc-desc">
+                <label>Description</label>
+                <div class="ui input">
+                    <input placeholder="Description" type="text">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="ui green submit button approve">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
