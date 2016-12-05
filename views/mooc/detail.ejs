@@ -34,7 +34,7 @@
         <div class="ui text container">
             <br><br>
             <h1 class="ui inverted header">
-                <%= title %>
+                <%= name %>
             </h1>
             <h2>Let's study!</h2>
             <br>
@@ -48,14 +48,12 @@
                 <!--侧边栏-->
                 <div class="three wide column">
                     <div class="ui vertical labeled icon buttons tabular menu">
-                        <button class="ui button active" data-tab="overview"><i class="tag icon"></i> Overview </button>
-                        <button class="ui button" data-tab="one"><i class="bookmark icon"></i> Step One </button>
-                        <button class="ui button" data-tab="two"><i class="bookmark icon"></i> Step Two </button>
-                        <button class="ui button" data-tab="three"><i class="bookmark icon"></i> Step Three </button>
-                        <button class="ui button" data-tab="four"><i class="bookmark icon"></i> Step Four </button>
-                        <button class="ui button" data-tab="five"><i class="bookmark icon"></i> Step Five </button>
-                        <button class="ui button" data-tab="six"><i class="bookmark icon"></i> Step Six </button>
-                        <button class="ui button" data-tab="comments"><i class="talk icon"></i> Q & A </button>
+                        <button class="ui button active" data-tab="overview" id="overview-btn"><i class="tag icon"></i> Overview </button>
+                        <button class="ui button" ng-repeat="step in steps" ng-click="showStep(step, $index)">
+                            <i class="bookmark icon"></i>
+                            {{step.step_header}}
+                        </button>
+                        <button class="ui button" data-tab="comments" id="comments-btn"><i class="talk icon"></i> Q & A </button>
                     </div>
                 </div>
                 <!--右侧内容区-->
