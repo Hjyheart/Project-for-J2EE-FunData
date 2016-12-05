@@ -1,7 +1,7 @@
 /**
  * Created by hongjiayong on 2016/12/5.
  */
-var app = angular.module('myApp');
+// var app = angular.module('myApp');
 app.controller('detailCtrl',
     ['$scope', '$http', 'constService', 'divideService',
     function ($scope, $http, constService, divideService) {
@@ -19,7 +19,6 @@ app.controller('detailCtrl',
             url: 'http://localhost:8080/mooc/' + course_id + '/' + course_name + '/detail',
         })
             .then( res =>{
-
                 // init user
                 $scope.user = res.data.user;
 
