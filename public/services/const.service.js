@@ -22,7 +22,9 @@ app.service('constService', function () {
             createDataset: `${ServerHost}/dataset/createDataset`,
             downloadUrl: `${ServerHost}/dataset/downloadUrl`,
             // mooc
-            getMoocInit: `${ServerHost}/mooc/init`,
+            getMoocScreenHotCourse: `${ServerHost}/course/screen_hot_course`,
+            getMoocBoutique: `${ServerHost}/course/boutique_course/`,
+            getOtherCourse: `${ServerHost}/course/boutique_course/`,
             freshMoocBoutique: `${ServerHost}/mooc/fresh-boutique`,
             freshMoocOther: `${ServerHost}/mooc/fresh-other`,
             getDetailInit: `${ServerHost}/mooc/detail/init`
