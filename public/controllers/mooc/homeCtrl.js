@@ -9,17 +9,35 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', function ($scope,
     $scope.other_course;
 
     this.$onInit = function () {
+       // 获取荧幕热门课程
        $http({
-           method: 'POST',
-           url: constService.urls().getMoocInit
+           method: 'GET',
+           url: constService.urls().getMoocScreenHotCourse
        }).then( res =>{
-           $scope.screen_hot_course = res.data.screen_hot_course;
-           $scope.boutique_course = res.data.boutique_course;
-           $scope.other_course = res.data.other_course;
+           $scope.screen_hot_course = res.data;
        }).catch(err =>{
            console.log(err);
        });
 
+        // 获取精品课程
+        $http({
+            method: 'GET',
+            url: constService.urls().getMoocBoutique + '0/8'
+        }).then( res=>{
+            $scope.boutique_course = res.data.boutique_course;
+        }).catch(err =>{
+            console.log(err);
+        });
+
+        // 获取其他课程
+        $http({
+            method: 'GET',
+            url: constService.urls().getOtherCourse + '0/8'
+        }).then( res=>{
+            $scope.other_course = res.data.boutique_course;
+        }).catch(err =>{
+
+        });
 
     };
 
@@ -31,40 +49,30 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', function ($scope,
         $('#freshCourseOthersBtn').addClass('loading');
         var end = $('#other-course-container').children().length;
         $http({
-            method: 'POST',
-            url: constService.urls().freshMoocOther,
-            params: {
-                'current': end
-            }
+            method: 'GET',
+            url: constService.urls().getOtherCourse + Math.floor(end / 8) + '/8',
         }).then(res =>{
-            for (var i = 0; i < res.data.other_course.length; i++){
+            for (var i = 0; i < res.data.boutique_course.length; i++){
                 $scope.other_course.push({
-                    'course_id': res.data.other_course[i].course_id,
-                    'course_name': res.data.other_course[i].course_name,
-                    'course_join_sum': res.data.other_course[i].course_join_sum,
-                    'course_teacher_name':res.data.other_course[i].course_teacher_name,
-                    'course_teacher_id': res.data.other_course[i].course_teacher_id,
-                    'course_des': res.data.other_course[i].course_des
+                    'course_id': res.data.boutique_course[i].course_id,
+                    'course_name': res.data.boutique_course[i].course_name,
+                    'course_join_sum': res.data.boutique_course[i].course_join_sum,
+                    'course_teacher_name':res.data.boutique_course[i].course_teacher_name,
+                    'course_rank': res.data.boutique_course[i].course_rank
                 });
             }
+            $('#freshCourseOthersBtn').removeClass('loading');
         }).catch(err =>{
             console.log(err);
         });
-
-        setTimeout(function () {
-            $('#freshCourseOthersBtn').removeClass('loading');
-        }, 1000);
     };
 
     $scope.freshCourseBoutique = function () {
         $("#freshCourseBoutiqueBtn").addClass('loading');
         var end = $('#boutique-course-container').children().length;
         $http({
-            method: 'POST',
-            url: constService.urls().freshMoocBoutique,
-            params:{
-                'current': end
-            }
+            method: 'GET',
+            url: constService.urls().getMoocBoutique + Math.floor(end / 8) + '/8',
         }).then( res =>{
 
             for (var i = 0; i < res.data.boutique_course.length; i++){
@@ -73,17 +81,13 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', function ($scope,
                     'course_name': res.data.boutique_course[i].course_name,
                     'course_join_sum': res.data.boutique_course[i].course_join_sum,
                     'course_teacher_name':res.data.boutique_course[i].course_teacher_name,
-                    'course_teacher_id': res.data.boutique_course[i].course_teacher_id,
-                    'course_des': res.data.boutique_course[i].course_des
+                    'course_rank': res.data.boutique_course[i].course_rank
                 });
             }
+            $("#freshCourseBoutiqueBtn").removeClass('loading');
         }).catch(err =>{
             console.log(err);
-        })
-        setTimeout(function () {
-            // 在这里刷新mooc
-            $("#freshCourseBoutiqueBtn").removeClass('loading');
-        }, 1000);
+        });
     };
 
 
