@@ -27,7 +27,7 @@ app.service('constService', function () {
             getOtherCourse: `${ServerHost}/course/boutique_course/`,
             freshMoocBoutique: `${ServerHost}/mooc/fresh-boutique`,
             freshMoocOther: `${ServerHost}/mooc/fresh-other`,
-            getDetailInit: `${ServerHost}/mooc/detail/init`
+            getDetailInit: `${ServerHost}/course/`
 
         }
     };

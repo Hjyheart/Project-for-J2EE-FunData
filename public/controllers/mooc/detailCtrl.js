@@ -15,19 +15,19 @@ app.controller('detailCtrl',
 
     this.$onInit = function () {
         $http({
-            method: 'POST',
-            url: 'http://localhost:8080/mooc/' + course_id + '/' + course_name + '/detail',
+            method: 'GET',
+            url: constService.urls().getDetailInit + course_id + '/' + course_name + '/detail',
         })
             .then( res =>{
-                // init user
+                // init user TODO: 等宗润的用户登录和注册机制的完成
                 $scope.user = res.data.user;
 
                 // init overview
-                var overview = res.data.course_detail.course_overview.overview_content;
+                var overview = res.data.course_detail.course_overview;
                 $('#overview-content').replaceWith(divideService.getHtml(overview));
 
                 // init steps
-                var steps = res.data.course_detail.course_steps;
+                var steps = res.data.course_detail.course_steps.course_steps;
                 $scope.steps = steps;
 
                 // init q & a
