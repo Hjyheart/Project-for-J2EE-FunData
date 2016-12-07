@@ -6,11 +6,18 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
     <script src="/jquery.js" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+            crossorigin="anonymous"></script>
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"\></script>
     <script src="/floatingNav.js"></script>
+    <script src="/ng-pagination/dist/directive.pagination.js"></script>
+    <script src="/controllers/app.js"></script>
+    <script src="/services/const.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/controllers/registerCtrl.js"></script>
+
 </head>
-<body class="pushable">
+<body class="pushable" ng-app="myApp" ng-controller="registerCtrl">
 
 <% include ./nav/navbar-floating.ejs%>
 
@@ -36,29 +43,20 @@
         <div class="ui middle aligned center aligned grid">
             <div class="row">
                 <div class="six wide column">
-                    <form class="ui large form" action="" method="post" id="form">
+                    <form class="ui large form" id="form">
                         <div class="ui stacked segment">
-                            <div class="two fields">
-                                <div class="field" id="first-name">
-                                    <label>First Name</label>
-                                    <div class="ui left icon input">
-                                        <i class="spy icon"></i>
-                                        <input placeholder="First Name" type="text">
-                                    </div>
-                                </div>
-                                <div class="field" id="last-name">
-                                    <label>Last Name</label>
-                                    <div class="ui left icon input">
-                                        <i class="child icon"></i>
-                                        <input placeholder="Last Name" type="text">
-                                    </div>
+                            <div class="field" id="name">
+                                <label>Last Name</label>
+                                <div class="ui left icon input">
+                                    <i class="child icon"></i>
+                                    <input placeholder="Name" type="text" ng-model="name">
                                 </div>
                             </div>
                             <div class="field" id="email">
                                 <label>E-mail</label>
                                 <div class="ui left icon input">
                                     <i class="mail icon"></i>
-                                    <input type="email" placeholder="email">
+                                    <input type="email" placeholder="email" ng-model="email">
                                 </div>
                             </div>
                             <div class="two fields" id="passwords">
@@ -66,22 +64,22 @@
                                     <label>Password</label>
                                     <div class="ui left icon input">
                                         <i class="lock icon"></i>
-                                        <input placeholder="Password" type="password">
+                                        <input placeholder="Password" type="password" ng-model="pwd" ng-focus="removeError()">
                                     </div>
                                 </div>
                                 <div class="field" id="re-password">
                                     <label>Repeat</label>
                                     <div class="ui left icon input">
                                         <i class="lock icon"></i>
-                                        <input placeholder="Password" type="password">
+                                        <input placeholder="Password" type="password" ng-model="repwd" ng-focus="removeError()">
                                     </div>
                                 </div>
                             </div>
-                            <div class="ui error message">
+                            <div class="ui error message" ng-if="error">
                                 <div class="header">Error</div>
                                 <p>Two passwords don't match!</p>
                             </div>
-                            <button class="ui fluid large green submit button" type="submit">Sign up</button>
+                            <button class="ui fluid large green submit button" ng-click="signUp(email, pwd, repwd, name)">Sign up</button>
                         </div>
                     </form>
                     <div class="ui message">
