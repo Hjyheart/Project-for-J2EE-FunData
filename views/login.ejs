@@ -6,11 +6,17 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
     <script src="/jquery.js" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="/sematic/semantic.min.js" crossorigin="anonymous"\></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+            crossorigin="anonymous"></script>
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+    <script src="/ng-pagination/dist/directive.pagination.js"></script>
+    <script src="/controllers/app.js"></script>
+    <script src="/services/const.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/controllers/loginCtrl.js"></script>
 </head>
-<body class="pushable">
+<body class="pushable" ng-app="myApp" ng-controller="loginCtrl">
 
 <% include ./nav/navbar-floating.ejs%>
 
@@ -36,25 +42,25 @@
         <div class="ui middle aligned center aligned grid">
             <div class="row">
                 <div class="six wide column">
-                    <form class="ui large form" action="" method="post" id="form">
+                    <form class="ui large form" id="form">
                         <div class="ui stacked segment">
                             <div class="field" id="email">
                                 <div class="ui left icon input">
                                     <i class="user icon"></i>
-                                    <input type="text" name="email" placeholder="E-mail address">
+                                    <input type="text" name="email" placeholder="E-mail address" ng-model="email" ng-focus="removeError()">
                                 </div>
                             </div>
                             <div class="field" id="password">
                                 <div class="ui left icon input">
                                     <i class="lock icon"></i>
-                                    <input type="password" name="password" placeholder="Password">
+                                    <input type="password" name="password" placeholder="Password" ng-model="pwd" ng-focus="removeError()">
                                 </div>
                             </div>
-                            <div class="ui error message">
+                            <div class="ui error message" ng-if="error">
                                 <div class="header">Error</div>
                                 <p>No such id or wrong password!</p>
                             </div>
-                            <button class="ui fluid large blue submit button" type="submit">Login</button>
+                            <button class="ui fluid large blue submit button" ng-click="login(email, pwd)">Login</button>
                         </div>
 
                     </form>

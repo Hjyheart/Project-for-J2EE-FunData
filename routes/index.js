@@ -9,31 +9,39 @@ router.get('/', function(req, res, next) {
 });
 
 
-
-
-
 /* GET login page. */
 router.get('/login', function (req, res, next) {
    res.render('login', { title: "login"});
 });
 
 router.post('/login', (req, res, next) => {
+    console.log(req.query.admin);
+    request({
+        url: `${_const.ServerHost}/authorize/login`,
+        method: 'POST',
+        form: {
+            email: req.query.email,
+            pwd: req.query.pwd
+        }
+    }, function (err, response, body) {
 
-    var email = req.body.email;
+        var body = JSON.parse(body);
+        if(body.username){
+            //TODO Any Redirect
+            req.session.username = body.username;
+            res.send(req.session.username);
+        }
+        else{
+            res.send("");
+        }
 
 
-request({
-    url: `${_const.ServerHost}/login`,
-    method: 'POST',
-    form: {
-        email: email,
-        pwd: req.body.pwd
-    }
-}, function (err, response, body) {
-    console.log(body);
+    })
 
-})
+});
 
+router.post('/checkLogin', function (req, res, next) {
+    res.send(req.session.username);
 });
 
 /* GET test page */
@@ -46,18 +54,26 @@ router.get('/register', function (req, res, next) {
     res.render('register', { title: "register"});
 });
 
-router.post('/register', () => {
+router.post('/register', (req, res, next) => {
     request({
-        url: `${_const.ServerHost}/register`,
+        url: `${_const.ServerHost}/authorize/register`,
         method: 'POST',
         form: {
-            email: req.body.email,
-            pwd: req.body.pwd,
-            f_name: req.body.f_name,
-            l_name: req.body.l_name
+            email: req.query.email,
+            pwd: req.query.pwd,
+            name: req.query.name,
         }
     }, function (err, response, body) {
-        console.log(body);
+        var body = JSON.parse(body);
+        if(body.username){
+            //TODO Any Redirect
+            req.session.username = body.username;
+            res.send(req.session.username);
+        }
+        else {
+            res.send("");
+        }
+
 
     })
 });

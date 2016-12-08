@@ -3,16 +3,26 @@
  */
 var app = angular.module('myApp');
 
-app.service('infoService', function () {
-    var info = {
+app.service('infoService', function ($http, $q, constService) {
 
-        username: 'fdsf'
-    };
-    this.setInfo = function(key, value){
-        info[key] = value;
+
+    this.setInfo = (key, value) => {
+        infoService.info = value;
+        //info[key] = value;
     }
-    this.getInfo = function(key) {
-        return info[key];
+    this.getInfo = (key) => {
+
+        return $http({
+            method: "POST",
+            url: constService.urls().getSession,
+        });
+
+        //
+        //     .then( res => {
+        //         username = res.data;
+        //     });
+        // return username;
+        //return defered.promise;
     }
 
 })

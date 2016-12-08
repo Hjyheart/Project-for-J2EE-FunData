@@ -4,9 +4,14 @@
 var app = angular.module('myApp');
 
 app.service('constService', function () {
-    var ServerHost = 'http://localhost:8080';
+    var ServerHost = 'http://192.168.1.103:8080';
+    var FrontHost = 'http://192.168.1.103:3000';
     var _const = {
         urls: {
+            //auth
+            setSession: `${FrontHost}/login`,
+            getSession: `${FrontHost}/checkLogin`,
+            register: `${FrontHost}/register`,
             // dataset
             getHotProject: `${ServerHost}/dataset/getHotProject`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,
