@@ -26,11 +26,11 @@
                 <div class="ui dimmer">
                     <div class="content">
                         <div class="center">
-                            <div class="ui inverted button" onclick="changeGuide('1')">Change Guide</div>
+                            <div class="ui inverted button" ng-click="changeGuide(step)">Change Guide</div>
                         </div>
                     </div>
                 </div>
-                <img  src="/images/xiaowang.jpg" class="ui big centered image">
+                <img class="ui big centered image" src="{{step.step_pic_url}}">
             </div>
         </div>
     </div>

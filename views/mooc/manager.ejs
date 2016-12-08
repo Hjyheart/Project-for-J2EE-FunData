@@ -50,7 +50,7 @@
                         </button>
                     </div>
                     <br>
-                    <button class="ui basic pink button" onclick="addNewStep()">Add New Step</button>
+                    <button class="ui basic pink button" ng-click="addNewStep()">Add New Step</button>
                 </div>
                 <!--右侧内容区-->
                 <div class="thirteen wide right floated column">
@@ -120,26 +120,8 @@
 
 
 <script>
+
     $('.tabular.menu .button').tab();
-
-    function overEditDeal() {
-        $('#over-edit-form').transition('vertical flip');
-        $('#over-edit-content').text($('#over-content').text());
-        $('#over-edit-btn').transition('fly left');
-    };
-
-    function overSubmit() {
-        $('#over-edit-form').transition('vertical flip');
-        $('#over-edit-btn').transition('fly left');
-    };
-
-    function changeGuide(id) {
-        $('#new-guide').modal('show');
-    };
-
-    function addNewStep() {
-        $('#add-step').modal('show');
-    };
 
 </script>
 
