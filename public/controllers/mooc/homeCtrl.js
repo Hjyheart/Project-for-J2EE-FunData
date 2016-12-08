@@ -22,7 +22,7 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', function ($scope,
         // 获取精品课程
         $http({
             method: 'GET',
-            url: constService.urls().getMoocBoutique + '0/8'
+            url: constService.urls().getMoocBoutique + '0'
         }).then( res=>{
             $scope.boutique_course = res.data.boutique_course;
         }).catch(err =>{
@@ -32,7 +32,7 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', function ($scope,
         // 获取其他课程
         $http({
             method: 'GET',
-            url: constService.urls().getOtherCourse + '0/8'
+            url: constService.urls().getOtherCourse + '0'
         }).then( res=>{
             $scope.other_course = res.data.boutique_course;
         }).catch(err =>{

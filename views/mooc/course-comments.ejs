@@ -6,20 +6,20 @@
         <div class="ui comments">
             <div class="comment" ng-repeat="item in answered">
                 <div class="content">
-                    <a class="author">{{item.question.question_owner_name}}</a>
+                    <a class="author" href="{{item.question.question_owner_id}}">{{item.question.question_owner_name}}</a>
                     <div class="metadata">
-                        <div class="date">{{item.question.question_time}}</div>
+                        <div class="date">{{item.question.question_createtime}}</div>
                     </div>
                     <div class="text">{{item.question.question_content}}</div>
                 </div>
                 <div class="ui comments">
-                    <div class="comment">
+                    <div class="comment" ng-repeat="ans in item.answer">
                         <div class="content">
-                            <a class="author">{{item.answer.answer_owner_name}}</a>
+                            <a class="author" href="{{ans.answer_owner_id}}">{{ans.answer_owner_id}}</a>
                             <div class="metadata">
-                                <div class="data">{{item.answer.answer_time}}</div>
+                                <div class="data">{{ans.answer_time}}</div>
                             </div>
-                            <div class="text">{{item.answer.answer_content}}</div>
+                            <div class="text">{{ans.answer_content}}</div>
                         </div>
                     </div>
                 </div>
@@ -30,17 +30,17 @@
         <div class="ui comments">
             <div class="comment" ng-repeat="item in unanswered">
                 <div class="content">
-                    <a class="author">{{item.question_owner_name}}</a>
+                    <a class="author" href="{{item.question.question_owner_id}}">{{item.question.question_owner_name}}</a>
                     <div class="metadata">
-                        <div class="date">{{item.question_time}}</div>
+                        <div class="date">{{item.question.question_createtime}}</div>
                     </div>
-                    <div class="text">{{item.question_content}}</div>
+                    <div class="text">{{item.question.question_content}}</div>
 
                     <div class="actions" ng-if="user.user_flag == 1">
                         <a class="reply active" ng-click="showA(item)">Reply</a>
                     </div>
 
-                    <form class="ui reply form transition hidden" id={{item.question_id}}>
+                    <form class="ui reply form transition hidden" id={{item.question.question_id}}>
                         <div class="field">
                             <textarea id="{{ $index + '-answer' }}"></textarea>
                         </div>
