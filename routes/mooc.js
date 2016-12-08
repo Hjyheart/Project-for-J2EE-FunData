@@ -21,8 +21,9 @@ router.get('/:id/:name/detail', function(req, res, next) {
 });
 
 /* manger mooc */
-router.get('/:name/manager', function (req, res, next) {
+router.get('/:id/:name/manager', function (req, res, next) {
    var course_name = req.params.name;
+    var course_id = req.params.id;
 
    res.render('./mooc/manager', { title: course_name});
 });

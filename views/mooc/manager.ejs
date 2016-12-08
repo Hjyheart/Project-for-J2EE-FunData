@@ -10,9 +10,15 @@
             crossorigin="anonymous"></script>
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+
+    <script src="/ng-pagination/dist/directive.pagination.js"></script>
+    <script src="/controllers/app.js"></script>
+    <script src="/services/const.service.js"></script>
+    <script src="/services/divide.service.js"></script>
+    <script src="/controllers/mooc/manageCtrl.js"></script>
 </head>
 
-<body class="pushable">
+<body class="pushable" ng-app="myApp" ng-controller="manageCtrl">
 <% include ../nav/navbar-floating.ejs%>
 
 <div class="pusher">
@@ -37,10 +43,11 @@
                 <!--侧边栏-->
                 <div class="three wide column">
                     <div class="ui vertical labeled icon buttons tabular menu">
-                        <button class="ui button active" data-tab="overview-edit"><i class="tag icon"></i> Overview </button>
-                        <button class="ui button" data-tab="one-edit"><i class="bookmark icon"></i> Step One </button>
-                        <button class="ui button" data-tab="two-edit"><i class="bookmark icon"></i> Step Two </button>
-                        <button class="ui button" data-tab="three-edit"><i class="bookmark icon"></i> Step Three </button>
+                        <button class="ui button active" data-tab="overview-edit" id="overview-btn"><i class="tag icon"></i> Overview </button>
+                        <button class="ui button" ng-repeat="step in steps" ng-click="showStep(step, $index)">
+                            <i class="bookmark icon"></i>
+                            {{step.step_header}}
+                        </button>
                     </div>
                     <br>
                     <button class="ui basic pink button" onclick="addNewStep()">Add New Step</button>
@@ -124,17 +131,6 @@
     function overSubmit() {
         $('#over-edit-form').transition('vertical flip');
         $('#over-edit-btn').transition('fly left');
-    };
-
-    function stepEditDeal(id) {
-        $('#' + id + '-edit-form').transition('vertical flip');
-        $('#' + id + '-edit-content').text($('#' + id + '-content').text());
-        $('#' + id + '-edit-btn').transition('fly left');
-    };
-
-    function stepSubmit(id) {
-        $('#' + id + '-edit-form').transition('vertical flip');
-        $('#' + id + '-edit-btn').transition('fly left');
     };
 
     function changeGuide(id) {

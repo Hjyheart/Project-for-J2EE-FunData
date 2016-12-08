@@ -1,61 +1,16 @@
 <div class="ui cards">
-    <div class="card">
+    <div class="card" ng-repeat="course in myMoocs">
         <div class="content">
-            <div class="header">Course1 </div>
-            <div class="author">owner </div>
-            <div class="description">description </div>
+            <div class="header">{{course.course_name}} </div>
+            <div class="author">{{course.course_owner_name}} </div>
+            <div class="description">{{course.course_des}} </div>
         </div>
         <div class="extra content">
             <div class="ui three buttons">
-                <div class="ui basic green button" onclick="moocToDetail('<%=title%>')">More</div>
-                <div class="ui basic blue button" onclick="moocManager('<%=title%>')">Manager</div>
-                <div class="ui basic red button" onclick="moocShowWarning('<%=title%>')">Delete</div>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="content">
-            <div class="header">Course1 </div>
-            <div class="author">owner </div>
-            <div class="description">description </div>
-        </div>
-        <div class="extra content">
-            <div class="ui three buttons">
-                <div class="ui basic green button" onclick="moocToDetail('<%=title%>')">More</div>
-                <div class="ui basic blue button" onclick="moocManager('<%=title%>')">Manager</div>
-                <div class="ui basic red button" onclick="moocShowWarning('<%=title%>')">Delete</div>
+                <div class="ui basic green button" ng-click="moocToDetail(course)">More</div>
+                <div class="ui basic blue button" ng-click="moocManager(course)">Manager</div>
+                <div class="ui basic red button" ng-click="moocShowWarning(course)">Delete</div>
             </div>
         </div>
     </div>
 </div>
-<div class="ui cards">
-    <div class="card">
-        <div class="content">
-            <div class="header">Course1 </div>
-            <div class="author">owner </div>
-            <div class="description">description </div>
-        </div>
-        <div class="extra content">
-            <div class="ui three buttons">
-                <div class="ui basic green button" onclick="moocToDetail('<%=title%>')">More</div>
-                <div class="ui basic blue button" onclick="moocManager('<%=title%>')">Manager</div>
-                <div class="ui basic red button" onclick="moocShowWarning('<%=title%>')">Delete</div>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="content">
-            <div class="header">Course1 </div>
-            <div class="author">owner </div>
-            <div class="description">description </div>
-        </div>
-        <div class="extra content">
-            <div class="ui three buttons">
-                <div class="ui basic green button" onclick="moocToDetail('<%=title%>')">More</div>
-                <div class="ui basic blue button" onclick="moocManager('<%=title%>')">Manager</div>
-                <div class="ui basic red button" onclick="moocShowWarning('<%=title%>')">Delete</div>
-            </div>
-        </div>
-    </div>
-</div>
-

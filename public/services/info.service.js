@@ -25,4 +25,4 @@ app.service('infoService', function ($http, $q, constService) {
         //return defered.promise;
     }
 
-})
+});
