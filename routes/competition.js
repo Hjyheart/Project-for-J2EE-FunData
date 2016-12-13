@@ -12,10 +12,9 @@ router.get('/', function (req, res, next) {
 });
 
 /* Get specific competition page */
-router.get('/:competitionId/:competitionName/detail', function (req, res, next) {
-    var com_name = req.params.competitionName;
-    console.log('in');
-    res.render('./competition/detail', {title: com_name});
+router.get('/:competitionId/detail', function (req, res, next) {
+    var com_id = req.params.competitionId;
+    res.render('./competition/detail', {title: 'competition detail', comId: com_id});
 });
 
 /* Get competition manage page */

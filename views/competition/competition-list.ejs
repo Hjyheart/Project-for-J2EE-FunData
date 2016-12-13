@@ -1,34 +1,15 @@
-<div class="ui two cards">
-    <div class="card">
+<div class="ui two cards" id="competition-container">
+    <div class="card" ng-repeat="competition in competitions">
         <div class="content">
-            <a class="ui yellow right ribbon label"><i class="user icon"></i>100</a>
-            <div class="header">competition name</div>
-            <div class="right floated ui green label"><i class="checkmark icon"></i>active</div>
-            <div class="author"><a href="#">owner</a></div>
+            <a class="ui yellow right ribbon label"><i class="user icon"></i>{{competition.com_join_num}}</a>
+            <div class="header">{{competition.com_name}}</div>
+            <div class="right floated ui green label" ng-if="competition.com_active_flag"><i class="checkmark icon"></i>active</div>
+            <div class="right floated ui red label" ng-if="!competition.com_active_flag"><i class="checkmark icon"></i>shut down</div>
+            <div class="author"><a href="/other/{{competition.com_owner_id}}">{{competition.com_owner_name}}</a></div>
             <div class="description">
-                description hasjgfkjas faskjfa gskjfgkasj gfkjasfgkjas gfjksagfkasg fkasgfkasg
+                <p>{{competition.com_des}}</p>
             </div>
         </div>
-        <div class="ui bottom attached button" onclick="toComDetail('id')"><i class="add icon"></i> more </div>
-    </div>
-    <div class="card">
-        <div class="content">
-            <a class="ui yellow right ribbon label"><i class="user icon"></i>100</a>
-            <div class="header">competition name</div>
-            <div class="right floated ui green label"><i class="checkmark icon"></i>active</div>
-            <div class="author"><a href="#">owner</a></div>
-            <div class="description">description </div>
-        </div>
-        <div class="ui bottom attached button" onclick="toComDetail('id')"><i class="add icon"></i> more </div>
-    </div>
-    <div class="card">
-        <div class="content">
-            <a class="ui yellow right ribbon label"><i class="user icon"></i>100</a>
-            <div class="header">competition name</div>
-            <div class="right floated ui green label"><i class="checkmark icon"></i>active</div>
-            <div class="author"><a href="#">owner</a></div>
-            <div class="description">description </div>
-        </div>
-        <div class="ui bottom attached button" onclick="toComDetail('id')"><i class="add icon"></i> more </div>
+        <div class="ui bottom attached button" ng-click="toComDetail(competition)"><i class="add icon"></i> more </div>
     </div>
 </div>

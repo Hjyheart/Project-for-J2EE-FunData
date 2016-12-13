@@ -33,7 +33,9 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
     };
 
     $scope.moocShowWarning = function (course) {
-        $('#confirmDeleteMooc').modal('show');
+        $('#confirmDeleteMooc').modal({
+            transition : 'vertical flip'
+        }).modal('show');
     };
 
     $scope.moocManager = function (course) {
@@ -41,7 +43,31 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
     };
 
     $scope.createMooc = function () {
-        $('#createMooc').modal('show');
+        $('#createMooc').modal({
+            transition : 'vertical flip'
+        }).modal('show');
+    };
+
+    // 创建竞赛
+    $scope.createCompetition = function () {
+        $('#createCompetition').modal({
+            transition : 'vertical flip'
+        }).modal('show');
+    };
+
+    $scope.upload = function () {
+        console.log($('#upload-file').val());
+        $('#file-progress').transition('vertical flip');
+        $('#file-progress').progress({
+            percent: 100,
+            text: {
+                active  : '{value} of {total}',
+                success : 'Upload compelete!'
+            }
+        });
+        $('#file-progress').transition('vertical flip');
+        $scope.fileNum += 1;
+        $('#upload-file').val('');
     };
 
 }]);

@@ -4,7 +4,6 @@
 var app = angular.module('myApp');
 
 app.service('uploadService', function () {
-<<<<<<< HEAD
     this.upload = function (uploadToken,key) {
         return Qiniu.uploader({
             runtimes: 'html5,flash,html4',      // 上传模式，依次退化
@@ -53,8 +52,5 @@ app.service('uploadService', function () {
                 }
             }
         });
-
-
-
     }
-})
+});

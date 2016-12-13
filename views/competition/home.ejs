@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title><%= title %></title>
+      <title><%=title%></title>
       <meta charset="UTF-8">
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="/sematic/semantic.min.css"/>
@@ -12,14 +12,15 @@
       <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
       <script src="/floatingNav.js"></script>
 
+      <script src="/ng-pagination/dist/directive.pagination.js"></script>
       <script src="/controllers/app.js"></script>
-      <script src="/services/upload.service.js"></script>
+      <script src="/controllers/competition/homeCtrl.js"></script>
       <script src="/services/info.service.js"></script>
-      <script src="/services/list.service.js"></script>
       <script src="/services/const.service.js"></script>
 
   </head>
-  <body class="pushable">
+
+  <body class="pushable" ng-app="myApp" ng-controller="homeCtrl">
 
   <% include ../nav/navbar-floating.ejs%>
 
@@ -48,7 +49,7 @@
                       <h1 class="ui header">Competitions</h1>
                       <% include competition-list.ejs %>
                       <br>
-                      <button class="ui fluid blue button" id="load-competition-btn" onclick="loadCompetition()">more</button>
+                      <button class="ui fluid blue button" id="load-competition-btn" ng-click="loadCompetition()">more</button>
                   </div>
 
                   <!--右侧标签栏-->
@@ -74,10 +75,6 @@
       setTimeout(function () {
           $('#load-competition-btn').removeClass('loading');
       }, 1000);
-  };
-
-  function toComDetail(id) {
-      window.location.href = '/competition/' + id + '/' + id + '/detail';
   };
 
 

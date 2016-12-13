@@ -35,7 +35,8 @@ app.service('constService', function () {
             freshMoocOther: `${ServerHost}/mooc/fresh-other`,
             getDetailInit: `${ServerHost}/course/`,
             // competition
-            getMyCompetition: `${ServerHost}/competition/getInfo`
+            getMyCompetition: `${ServerHost}/competition/getInfo`,
+            getCompetitions: `${ServerHost}/competition/show_competitions`
 
         }
     };

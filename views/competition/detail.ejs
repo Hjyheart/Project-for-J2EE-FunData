@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+    <title><%=title%></title>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
@@ -16,10 +16,11 @@
     <script src="/controllers/app.js"></script>
     <script src="/services/upload.service.js"></script>
     <script src="/services/info.service.js"></script>
-    <script src="/services/list.service.js"></script>
     <script src="/services/const.service.js"></script>
-    <script src="/controllers/homeCtrl.js"></script>
+    <!--<script src="/controllers/homeCtrl.js"></script>-->
 </head>
+
+<div class="transition hidden"><%= comId %></div>
 
 <body class="pushable">
 <% include ../nav/navbar-floating.ejs%>

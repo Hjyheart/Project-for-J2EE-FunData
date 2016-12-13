@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
-    <script src="/jquery.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--<script src="/jquery.js" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
             crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -75,7 +78,7 @@
                         <div class="content active">
                             <div class="vertical fluid ui buttons">
                                 <button class="basic ui button" onclick="createDataset()">Add Dataset</button>
-                                <button class="basic ui button" onclick="createCompetition()">Add Competition</button>
+                                <button class="basic ui button" ng-click="createCompetition()">Add Competition</button>
                                 <button class="basic ui button" ng-click="createMooc()">Add Mooc</button>
                             </div>
                         </div>
@@ -93,6 +96,8 @@
 </body>
 
 <script>
+    $("#start-time").datepicker();
+    $("#end-time").datepicker();
 
     var datasetName;
     var competitionName;
@@ -139,11 +144,6 @@
     function createDataset() {
         $('#createDataset').modal('show');
     };
-    
-    function createCompetition() {
-        $('#createCompetition').modal('show');
-    };
 
 </script>
-
 </html>
