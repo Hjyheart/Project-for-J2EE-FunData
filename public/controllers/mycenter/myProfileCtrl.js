@@ -2,9 +2,10 @@
  * Created by hongjiayong on 2016/12/6.
  */
 
-app.controller('myProfileCtrl', ['$scope', '$http', 'constService', function ($scope, $http, constService) {
-    $scope.fileNum = 0;
+app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoService',
+    function ($scope, $http, constService, infoService) {
     this.$onInit = function () {
+        //infoService.getInfo(constService.urls().)
         // 获取用户信息 这边应该是一个http请求
 
         // 获取用户的数据集

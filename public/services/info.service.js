@@ -1,28 +1,23 @@
 /**
  * Created by huang on 16-11-29.
  */
+
 var app = angular.module('myApp');
 
-app.service('infoService', function ($http, $q, constService) {
+app.service('infoService', function ($http, authService) {
+    this.getInfo = function(url, pageStart) {
+        return authService.getInfo().then( username => {
+            return $http({
+                method: "POST",
+                url: url,
+                params: {
 
+                    "username": username,
+                    "page": pageStart
+                }
+            })
 
-    this.setInfo = (key, value) => {
-        infoService.info = value;
-        //info[key] = value;
-    }
-    this.getInfo = (key) => {
-
-        return $http({
-            method: "POST",
-            url: constService.urls().getSession,
-        });
-
-        //
-        //     .then( res => {
-        //         username = res.data;
-        //     });
-        // return username;
-        //return defered.promise;
+        })
     }
 
 });

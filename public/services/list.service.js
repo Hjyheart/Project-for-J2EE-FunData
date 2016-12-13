@@ -4,17 +4,19 @@
 
 var app = angular.module('myApp');
 
-app.service('listService', function ($http, infoService) {
+app.service('listService', function ($http, authService) {
     this.getList = function(url, pageStart) {
         return $http({
-            method: "POST",
-            url: url,
-            params: {
+                method: "POST",
+                url: url,
+                params: {
 
-                "username": infoService.getInfo('username'),
-                "page": pageStart
-           }
-        });
+                    "username": authService.getUser(),
+                    "page": pageStart
+                }
+        })
+
+
     }
 
 });

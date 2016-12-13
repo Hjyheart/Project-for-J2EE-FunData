@@ -7,28 +7,30 @@
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
     <script src="/jquery.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
-            crossorigin="anonymous"></script>    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
     <script src="/ng-pagination/dist/directive.pagination.js"></script>
     <script src="/controllers/app.js"></script>
     <script src="/services/const.service.js"></script>
-    <script src="/services/info.service.js"></script>
+    <script src="/services/auth.service.js"></script>
     <script src="/controllers/indexCtrl.js"></script>
-
+    <script src="/controllers/authCtrl.js"></script>
 </head>
-<body class="pushable" ng-app="myApp" ng-controller="indexCtrl">
+<body class="pushable" ng-app="myApp">
 
 <% include nav/navbar-floating.ejs%>
 
 <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
-        <div ng-if="!isLogin">
-            <% include nav/navbar-public.ejs %>
+    <div class="ui inverted vertical masthead center aligned segment"  ng-controller="authCtrl">
+        <div>
+            <div ng-if="!isLogin">
+                <% include nav/navbar-public.ejs %>
+            </div>
+            <div ng-if="isLogin">
+                <% include nav/navbar-personal.ejs %>
+            </div>
         </div>
-        <div ng-if="isLogin">
-            <% include nav/navbar-personal.ejs %>
-        </div>
-
         <div class="ui text container">
             <br><br>
             <h1 class="ui inverted header">
@@ -40,48 +42,51 @@
         </div>
     </div>
 
-    <div class="ui stripe theming vertical segment">
-        <div class="ui stackable very relaxed two column grid container">
-            <div class="center aligned column">
-                <h1 class="ui header"> Dataset </h1>
-                <p>Description</p>
-                <button class="ui positive button" onclick="toData()">Get Start<i class="ui right arrow icon"></i></button>
-            </div>
-            <div class="left aligned column">
-                <img src="/images/dataset-logo.png" class="ui medium image">
+    <div ng-controller="indexCtrl">
+        <div class="ui stripe theming vertical segment">
+            <div class="ui stackable very relaxed two column grid container">
+                <div class="center aligned column">
+                    <h1 class="ui header"> Dataset </h1>
+                    <p>Description</p>
+                    <button class="ui positive button" onclick="toData()">Get Start<i class="ui right arrow icon"></i></button>
+                </div>
+                <div class="left aligned column">
+                    <img src="/images/dataset-logo.png" class="ui medium image">
 
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <div class="ui stripe theming vertical segment">
+            <div class="ui stackable very relaxed two column grid container">
+                <div class="left aligned column">
+                    <img src="/images/competition-logo.png" class="ui medium image">
+                </div>
+                <div class="center aligned column">
+                    <h1 class="ui header"> Competitions </h1>
+                    <p>Description</p>
+                    <button class="ui positive button" onclick="toCompetition()">Get Start<i class="ui right arrow icon"></i></button>
+                </div>
+            </div>
 
-    <div class="ui stripe theming vertical segment">
-        <div class="ui stackable very relaxed two column grid container">
-            <div class="left aligned column">
-                <img src="/images/competition-logo.png" class="ui medium image">
-            </div>
-            <div class="center aligned column">
-                <h1 class="ui header"> Competitions </h1>
-                <p>Description</p>
-                <button class="ui positive button" onclick="toCompetition()">Get Start<i class="ui right arrow icon"></i></button>
-            </div>
         </div>
 
-    </div>
+        <div class="ui stripe theming vertical segment">
+            <div class="ui stackable very relaxed two column grid container">
+                <div class="center aligned column">
+                    <h1 class="ui header"> Mooc </h1>
+                    <p>Description</p>
+                </div>
+                <div class="left aligned column">
+                    <img src="/images/mooc-logo.jpg" class="ui medium image">
+                    <button class="ui positive button" onclick="toMooc()">Get Start<i class="ui right arrow icon"></i></button>
+                </div>
+            </div>
 
-    <div class="ui stripe theming vertical segment">
-        <div class="ui stackable very relaxed two column grid container">
-            <div class="center aligned column">
-                <h1 class="ui header"> Mooc </h1>
-                <p>Description</p>
-            </div>
-            <div class="left aligned column">
-                <img src="/images/mooc-logo.jpg" class="ui medium image">
-                <button class="ui positive button" onclick="toMooc()">Get Start<i class="ui right arrow icon"></i></button>
-            </div>
         </div>
-
     </div>
+
 
     <% include footer.ejs %>
 </div>

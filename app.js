@@ -33,18 +33,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-    genid : () => {
-        return uuid.v4();
-    },
-    secret: _const.sessionSecret,
-    resave: false,
-    saveUninitialized: true,
-    store: new redisStore({
-        host: _const.RedisHost,
-        port: _const.RedisPort,
-        ttl :  260})
-}));
+
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 app.use('/', index);
 app.use('/dataset', dataSet);
