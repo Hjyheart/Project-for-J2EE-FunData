@@ -8,7 +8,7 @@ app.controller('authCtrl', function ($scope, $http,
     $scope.name;
     this.$onInit = function () {
         $scope.name = authService.getUser()
-        $scope.isLogin = !( authService.getUser() === null );
+        $scope.isLogin = !( authService.getUser() === 'null' );
     }
 
     $scope.logout = function () {
