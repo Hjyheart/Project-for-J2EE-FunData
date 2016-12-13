@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1e86c979-fdd9-4f60-866c-2c1ba1494130" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/authCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/authCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/competition/homeCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/competition/homeCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/services/const.service.js" afterPath="$PROJECT_DIR$/public/services/const.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/competition.js" afterPath="$PROJECT_DIR$/routes/competition.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/competition/home.ejs" afterPath="$PROJECT_DIR$/views/competition/home.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/mycenter/profile-mycompetition.ejs" afterPath="$PROJECT_DIR$/views/mycenter/profile-mycompetition.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/mycenter/profile-popupwindow.ejs" afterPath="$PROJECT_DIR$/views/mycenter/profile-popupwindow.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/mycenter/profile.ejs" afterPath="$PROJECT_DIR$/views/mycenter/profile.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,89 +31,35 @@
     <favorites_list name="FunData" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.48151752">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="profile.ejs" pinned="false" current-in-tab="false">
+        <leaf>
+          <file leaf-file-name="profile.ejs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/mycenter/profile.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+                <state relative-caret-position="290">
+                  <caret line="127" column="6" lean-forward="false" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="auth.service.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/services/auth.service.js">
+          <file leaf-file-name="profile-mycompetition.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/mycenter/profile-mycompetition.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="315">
+                  <caret line="21" column="77" lean-forward="true" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/index.ejs">
+          <file leaf-file-name="profile-popupwindow.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/mycenter/profile-popupwindow.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+                <state relative-caret-position="1065">
+                  <caret line="71" column="14" lean-forward="true" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="myProfileCtrl.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#0#47#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="authCtrl.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/controllers/authCtrl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="login.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/login.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="519">
-                  <caret line="60" column="68" lean-forward="true" selection-start-line="60" selection-start-column="68" selection-end-line="60" selection-end-column="68" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="const.service.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/services/const.service.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="homeCtrl.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/controllers/competition/homeCtrl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-                  <folding>
-                    <element signature="e#0#48#0" expanded="false" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -116,11 +68,33 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="loginCtrl.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/controllers/loginCtrl.js">
+          <file leaf-file-name="myProfileCtrl.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="284">
+                  <caret line="119" column="19" lean-forward="false" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="competition.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/competition.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="330">
+                  <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="const.service.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/services/const.service.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="194">
+                  <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
                   <folding />
                 </state>
               </provider>
@@ -150,12 +124,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/competition/detail-discuss.ejs" />
-        <option value="$PROJECT_DIR$/views/competition/detail-download.ejs" />
         <option value="$PROJECT_DIR$/views/competition/detail-rank.ejs" />
         <option value="$PROJECT_DIR$/views/competition/detail-mysubmitions.ejs" />
         <option value="$PROJECT_DIR$/views/competition/detail-answer.ejs" />
-        <option value="$PROJECT_DIR$/views/mycenter/profile-mycompetition.ejs" />
         <option value="$PROJECT_DIR$/views/competition/detail-popupwindow.ejs" />
         <option value="$PROJECT_DIR$/routes/dataset.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
@@ -188,19 +159,22 @@
         <option value="$PROJECT_DIR$/views/mooc/manager.ejs" />
         <option value="$PROJECT_DIR$/public/controllers/mooc/manageCtrl.js" />
         <option value="$PROJECT_DIR$/public/services/upload.service.js" />
-        <option value="$PROJECT_DIR$/public/controllers/competition/homeCtrl.js" />
-        <option value="$PROJECT_DIR$/views/competition/home.ejs" />
-        <option value="$PROJECT_DIR$/routes/competition.js" />
         <option value="$PROJECT_DIR$/views/competition/detail.ejs" />
         <option value="$PROJECT_DIR$/views/nav/navbar-public.ejs" />
         <option value="$PROJECT_DIR$/views/competition/competition-list.ejs" />
         <option value="$PROJECT_DIR$/public/calendar.js" />
         <option value="$PROJECT_DIR$/public/mootools.js" />
-        <option value="$PROJECT_DIR$/views/mycenter/profile-popupwindow.ejs" />
-        <option value="$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js" />
-        <option value="$PROJECT_DIR$/public/services/const.service.js" />
-        <option value="$PROJECT_DIR$/views/mycenter/profile.ejs" />
         <option value="$PROJECT_DIR$/public/controllers/authCtrl.js" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/views/nav/navbar-floating-public.ejs" />
+        <option value="$PROJECT_DIR$/views/competition/home.ejs" />
+        <option value="$PROJECT_DIR$/public/controllers/competition/homeCtrl.js" />
+        <option value="$PROJECT_DIR$/views/mycenter/profile-popupwindow.ejs" />
+        <option value="$PROJECT_DIR$/views/mycenter/profile-mycompetition.ejs" />
+        <option value="$PROJECT_DIR$/routes/competition.js" />
+        <option value="$PROJECT_DIR$/views/mycenter/profile.ejs" />
+        <option value="$PROJECT_DIR$/public/services/const.service.js" />
+        <option value="$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js" />
       </list>
     </option>
   </component>
@@ -216,10 +190,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-255" />
-    <option name="y" value="-1080" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -509,11 +481,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/nav" />
       <recent name="$PROJECT_DIR$/public/controllers/mooc" />
       <recent name="$PROJECT_DIR$/views/mooc" />
       <recent name="$PROJECT_DIR$/views/competition" />
       <recent name="$PROJECT_DIR$/views/mycenter" />
-      <recent name="$PROJECT_DIR$/public/rank-js" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Unnamed">
@@ -638,12 +610,12 @@
       <workItem from="1481212352991" duration="4961000" />
       <workItem from="1481598406702" duration="12484000" />
       <workItem from="1481630552724" duration="84000" />
-      <workItem from="1481630940258" duration="517000" />
+      <workItem from="1481630940258" duration="8577000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121783000" />
+    <option name="totallyTimeSpent" value="129843000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -655,15 +627,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-255" y="-1080" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12164297" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1858618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3260274" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20594059" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2849315" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26930693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -709,16 +681,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/controllers/dataset/detailCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/detailCtrl.js" />
-    <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js" />
     <entry file="file://$PROJECT_DIR$/views/mooc/home-courses-boutique.ejs" />
     <entry file="file://$PROJECT_DIR$/views/mooc/home-courses-others.ejs" />
     <entry file="file://$PROJECT_DIR$/views/mooc/course-comments.ejs" />
@@ -802,13 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/services/info.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/dataset/home.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
@@ -851,14 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/mooc/homeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="74" column="71" lean-forward="false" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/mooc/detailCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -867,31 +814,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/competition/home.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/nav/navbar-public.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/mooc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/competition.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="85" lean-forward="false" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -945,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/competition/competition-list.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="74" lean-forward="false" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -961,24 +880,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/calendar.js" />
     <entry file="file://$PROJECT_DIR$/public/mootools.js" />
-    <entry file="file://$PROJECT_DIR$/views/mycenter/profile-popupwindow.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="194" column="34" lean-forward="false" selection-start-line="194" selection-start-column="34" selection-end-line="194" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/competition/homeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/loginCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -995,36 +896,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/services/const.service.js">
+    <entry file="file://$PROJECT_DIR$/public/controllers/authCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js">
+    <entry file="file://$PROJECT_DIR$/views/nav/navbar-public.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        <state relative-caret-position="105">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/mycenter/profile.ejs">
+    <entry file="file://$PROJECT_DIR$/views/nav/navbar-floating-public.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/competition/home.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/competition/homeCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#48#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/dataset/detailCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/mooc/homeCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="71" lean-forward="false" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
           <folding />
         </state>
       </provider>
@@ -1037,11 +970,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/authCtrl.js">
+    <entry file="file://$PROJECT_DIR$/public/services/info.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+        <state relative-caret-position="345">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/mycenter/profile-popupwindow.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="14" lean-forward="true" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/competition/competition-list.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="107" lean-forward="true" selection-start-line="6" selection-start-column="99" selection-end-line="6" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/mycenter/profile-mycompetition.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="77" lean-forward="true" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/mycenter/profile.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="127" column="6" lean-forward="false" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/services/const.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/competition.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="119" column="19" lean-forward="false" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

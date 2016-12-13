@@ -18,8 +18,8 @@ router.get('/:competitionId/detail', function (req, res, next) {
 });
 
 /* Get competition manage page */
-router.get('/:competionId/:competitionName/manage', function (req, res, next) {
-    var com_name = req.params.competitionName;
+router.get('/:competionId/manage', function (req, res, next) {
+    var com_name = req.params.competitionId;
     res.render('./competition/manage', {title: com_name});
 });
 

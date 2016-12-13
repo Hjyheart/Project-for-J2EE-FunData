@@ -37,7 +37,10 @@ app.service('constService', function () {
             getDetailInit: `${ServerHost}/course/`,
             // competition
             getMyCompetition: `${ServerHost}/competition/getInfo`,
-            getCompetitions: `${ServerHost}/competition/show_competitions`
+            getCompetitions: `${ServerHost}/competition/show_competitions`,
+            addCompetition: `${ServerHost}/competition/add`,
+            getHostCompetitions: `${ServerHost}/competition/get_competition`,
+            deleteCompetition: `${ServerHost}/competition/delete`
 
         }
     };

@@ -158,16 +158,16 @@
     </div>
     <div class="ui form">
         <div class="ui stacked segment">
-            <div class="field" id="competition-name">
+            <div class="field">
                 <label>Competition Name</label>
                 <div class="ui input">
-                    <input placeholder="Competition Name" type="text">
+                    <input placeholder="Competition Name" type="text" id="com-name">
                 </div>
             </div>
-            <div class="field" id="competition-desc">
+            <div class="field">
                 <label>Description</label>
                 <div class="ui input">
-                    <input placeholder="Description" type="text">
+                    <input placeholder="Description" type="text" id="com-des">
                 </div>
             </div>
             <div class="field">
@@ -176,30 +176,30 @@
                     <input id="start-time" name="start-date" type="text" placeholder="start time">
                 </div>
             </div>
-            <div class="field" id="end-date">
+            <div class="field">
                 <label>end time</label>
                 <div class="ui input">
                     <input id="end-time" name="start-date" type="text" placeholder="end time">
                 </div>
             </div>
-            <div class="field" id="competition-upload">
-                <label>File(You can upload several files)</label>
-                <input type="file" id="upload-file">
-                <div class="ui indicating progress transition hidden" data-value="0" data-total="100" id="file-progress">
-                    <div class="bar">
-                        <div class="progress"></div>
-                    </div>
-                    <div class="label">Upload</div>
-                </div>
-                <div class="ui labeled button" tabindex="0" ng-click="upload()">
-                    <div class="ui blue button"> upload </div>
-                    <a class="ui basic left pointing blue label">
-                        {{fileNum}} file
-                    </a>
-                </div>
-            </div>
+            <!--<div class="field" id="competition-upload">-->
+                <!--<label>File(You can upload several files)</label>-->
+                <!--<input type="file" id="upload-file">-->
+                <!--<div class="ui indicating progress transition hidden" data-value="0" data-total="100" id="file-progress">-->
+                    <!--<div class="bar">-->
+                        <!--<div class="progress"></div>-->
+                    <!--</div>-->
+                    <!--<div class="label">Upload</div>-->
+                <!--</div>-->
+                <!--<div class="ui labeled button" tabindex="0" ng-click="upload()">-->
+                    <!--<div class="ui blue button"> upload </div>-->
+                    <!--<a class="ui basic left pointing blue label">-->
+                        <!--{{fileNum}} file-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="actions">
-                <button class="ui green submit button approve">Ok</button>
+                <button class="ui green submit button approve" ng-click="submitCom()">Ok</button>
             </div>
         </div>
     </div>

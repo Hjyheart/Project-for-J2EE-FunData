@@ -3,6 +3,8 @@
  */
 // TODO:需要知道登录机制才可以做侧边栏 并需要调整前端的样式
 app.controller('homeCtrl', ['$scope', '$http', 'constService', function ($scope, $http, constService) {
+    $scope.competitions_active;
+    $scope.competitions_unactive;
     $scope.competitions;
     this.$onInit = function () {
         $http({
@@ -13,6 +15,13 @@ app.controller('homeCtrl', ['$scope', '$http', 'constService', function ($scope,
             }
         }).then( res=>{
             $scope.competitions = res.data.competitions;
+            for (let i = 0; i < res.data.competitions.length; i++){
+                if (res.data.competitions[i].com_active_flag){
+                    $scope.competitions_active.push(res.data.competitions[i]);
+                }else{
+                    $scope.competitions_unactive.push(res.data.competitions[i]);
+                }
+            }
         }).catch( err=>{
             console.log(err);
         });
