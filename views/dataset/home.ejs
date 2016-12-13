@@ -18,6 +18,8 @@
       <script src="/services/auth.service.js"></script>
       <script src="/services/list.service.js"></script>
       <script src="/services/const.service.js"></script>
+      <script src="/controllers/authCtrl.js"></script>
+
       <script src="/controllers/dataset/homeCtrl.js"></script>
   </head>
   <body class="pushable" ng-app="myApp" >
@@ -26,8 +28,9 @@
 
   <div class="pusher" ng-controller="homeCtrl">
       <div class="ui inverted vertical masthead center aligned segment">
-
-        <% include ../nav/navbar-personal.ejs %>
+        <div ng-controller="authCtrl">
+            <% include ../nav/navbar-personal.ejs %>
+        </div>
 
           <div class="ui text container">
               <br><br>
