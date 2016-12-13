@@ -4,7 +4,7 @@
 var app = angular.module('myApp');
 
 app.service('constService', function () {
-    var ServerHost = 'http://192.168.1.109:8080';
+    var ServerHost = 'http://192.168.1.9:8080';
     //var ServerHost = 'http://localhost:8080';
     var FrontHost = 'http://192.168.1.103:3000';
     //var FrontHost = 'http://localhost:3000';
@@ -26,7 +26,7 @@ app.service('constService', function () {
             getConfirmRequest: `${ServerHost}/dataset/getConfirmRequest`,
             uploadFile: `${ServerHost}/dataset/uploadFile`,
             checkUpload: `${ServerHost}/dataset/checkUpload`,
-            createDataset: `${ServerHost}/dataset/createDataset`,
+            createDataset: `${ServerHost}/createDataset`,
             downloadUrl: `${ServerHost}/dataset/downloadUrl`,
             // mooc
             getMoocScreenHotCourse: `${ServerHost}/course/screen_hot_course`,

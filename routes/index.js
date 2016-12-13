@@ -23,7 +23,7 @@ router.post('/login', (req, res, next) => {
             pwd: req.query.pwd
         }
     }, function (err, response, body) {
-
+        console.log(body)
         var body = JSON.parse(body);
         if(body.username){
             res.send(body.username);

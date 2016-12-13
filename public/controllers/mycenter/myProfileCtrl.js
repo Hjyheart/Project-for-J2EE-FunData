@@ -2,8 +2,7 @@
  * Created by hongjiayong on 2016/12/6.
  */
 
-app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoService',
-    function ($scope, $http, constService, infoService) {
+app.controller('myProfileCtrl', function ($scope, $http, constService, createService, uploadService) {
     this.$onInit = function () {
         //infoService.getInfo(constService.urls().)
         // 获取用户信息 这边应该是一个http请求
@@ -42,6 +41,15 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
         window.location.href = '/mooc/' + course.course_id + '/' + course.course_name +  '/manager';
     };
 
+    $scope.createDataset = function (username, description) {
+
+        createService.create(constService.urls().createDataset, description, username)
+            .then( res => {
+                uploadService.upload(res.data.uptoken, res.data.key).start()
+
+            })
+    }
+
     $scope.createMooc = function () {
         $('#createMooc').modal({
             transition : 'vertical flip'
@@ -68,6 +76,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
         $('#file-progress').transition('vertical flip');
         $scope.fileNum += 1;
         $('#upload-file').val('');
+
     };
 
-}]);
+});
