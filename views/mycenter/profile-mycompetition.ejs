@@ -1,31 +1,25 @@
 <div class="ui cards">
-    <div class="card">
+    <div class="card" ng-repeat="com in myCompetitions" ng-if="username === com.com_owner_name">
         <div class="content">
-            <div class="header">Name</div>
+            <div class="header">{{com.com_name}}</div>
             <br>
-            <div class="meta"><div class="ui label grey"><i class="remove icon"></i>shut down</div> </div>
-            <div class="description">des </div>
-        </div>
-        <div class="extra content">
-            <div class="ui three buttons">
-                <div class="ui basic green button" onclick="comToDetail('<%=title%>')">More</div>
-                <div class="ui basic blue button" onclick="comToManage('<%=title%>')">Manage</div>
-                <div class="ui basic red button" onclick="comShowWarning('<%=title%>')">Delete</div>
+            <div class="meta" ng-if="!com.com_active_flag">
+                <div class="ui label grey">
+                    <i class="remove icon"></i>
+                    shut down</div>
             </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="content">
-            <div class="header">Name </div>
-            <br>
-            <div class="meta"><div class="ui label green"><i class="checkmark icon"></i>shut down</div> </div>
-            <div class="description">des </div>
+            <div class="meta" ng-if="com.com_active_flag">
+                <div class="ui label green">
+                    <i class="checkmark icon"></i>
+                    active</div>
+            </div>
+            <div class="description">{{com.com_des}} </div>
         </div>
         <div class="extra content">
             <div class="ui three buttons">
-                <div class="ui basic green button" onclick="comToDetail('<%=title%>')">More</div>
-                <div class="ui basic blue button" onclick="comToManage('<%=title%>')">Manage</div>
-                <div class="ui basic red button" onclick="comShowWarning('<%=title%>')">Delete</div>
+                <div class="ui basic green button" ng-click="comToDetail(com)">More</div>
+                <div class="ui basic blue button" ng-click="comToManage(com)">Manage</div>
+                <div class="ui basic red button" ng-click="comShowWarning(com)">Delete</div>
             </div>
         </div>
     </div>

@@ -19,7 +19,15 @@
 </head>
 <body class="pushable" ng-app="myApp">
 
-<% include nav/navbar-floating.ejs%>
+
+<div ng-controller="authCtrl">
+    <div ng-if="isLogin">
+        <% include nav/navbar-floating.ejs%>
+    </div>
+    <div ng-if="!isLogin">
+        <% include nav/navbar-floating-public.ejs %>
+    </div>
+</div>
 
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment"  ng-controller="authCtrl">

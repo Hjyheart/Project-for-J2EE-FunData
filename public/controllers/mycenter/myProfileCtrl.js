@@ -2,10 +2,12 @@
  * Created by hongjiayong on 2016/12/6.
  */
 
-app.controller('myProfileCtrl', function ($scope, $http, constService, createService, uploadService) {
+app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoService', 'authService', 'uploadService',
+    function ($scope, $http, constService, infoService, authService, uploadService) {
+    $scope.myCompetitions;
+    $scope.username = authService.getUser();
+
     this.$onInit = function () {
-        //infoService.getInfo(constService.urls().)
-        // 获取用户信息 这边应该是一个http请求
 
         // 获取用户的数据集
 
@@ -23,7 +25,21 @@ app.controller('myProfileCtrl', function ($scope, $http, constService, createSer
                 'course_owner_name': 'jiayong',
                 'course_des': 'jiong'
             }
-        ]
+        ];
+        // 获取用户的竞赛
+        $http({
+            method: 'POST',
+            url: constService.urls().getHostCompetitions,
+            params:{
+                'page': 0,
+                'username': authService.getUser()
+            }
+        }).then( res=>{
+            console.log(res);
+            $scope.myCompetitions = res.data.competitions;
+        }).catch( err=>{
+            console.log(err);
+        });
     };
 
     // js for mooc
@@ -56,10 +72,63 @@ app.controller('myProfileCtrl', function ($scope, $http, constService, createSer
         }).modal('show');
     };
 
+    // 查看竞赛详情
+    $scope.comToDetail = function (com) {
+        window.location.href = '/competition/' + com.com_id + '/detail';
+    };
+
+
+    $scope.comToManage = function (com) {
+        window.location.href = '/competition/' + com.com_id + '/manage';
+    };
+
     // 创建竞赛
     $scope.createCompetition = function () {
         $('#createCompetition').modal({
             transition : 'vertical flip'
+        }).modal('show');
+    };
+    // 提交竞赛数据
+    $scope.submitCom = function () {
+        var start = $('#start-time').val().substring(6, 10) + '-' +
+            $('#start-time').val().substring(0, 2) + '-' +
+            $('#start-time').val().substring(3, 5) + ' 00:00:00';
+
+        var end = $('#end-time').val().substring(6, 10) + '-' +
+            $('#end-time').val().substring(0, 2) + '-' +
+            $('#end-time').val().substring(3, 5) + ' 00:00:00';
+
+        $http({
+            method: 'POST',
+            url: constService.urls().addCompetition,
+            params:{
+                'username': authService.getUser(),
+                'compName': $('#com-name').val(),
+                'start': start,
+                'end': end,
+                'des': $('#com-des').val()
+            }
+        }).then( res=>{
+            console.log(res);
+        }).catch( err=>{
+            console.log(err);
+        });
+    };
+
+    // 删除竞赛
+    $scope.comShowWarning = function (com) {
+        $('#confirmDeleteCompetition').modal({
+            'transision': 'vertical flip',
+            onApprove : function() {
+                $http({
+                    method: 'POST',
+                    url: constService.urls().deleteCompetition,
+                    params:{
+                        'comId': com.com_id,
+                        'username': $scope.username
+                    }
+                });
+            }
         }).modal('show');
     };
 
@@ -79,4 +148,4 @@ app.controller('myProfileCtrl', function ($scope, $http, constService, createSer
 
     };
 
-});
+}]);
