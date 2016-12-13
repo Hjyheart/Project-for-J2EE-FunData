@@ -2,10 +2,11 @@
  * Created by hongjiayong on 2016/12/6.
  */
 
-app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoService', 'authService',
-    function ($scope, $http, constService, infoService, authService) {
+app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoService', 'authService', 'uploadService',
+    function ($scope, $http, constService, infoService, authService, uploadService) {
     $scope.myCompetitions;
     $scope.username = authService.getUser();
+
     this.$onInit = function () {
 
         // 获取用户的数据集
@@ -55,6 +56,15 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
     $scope.moocManager = function (course) {
         window.location.href = '/mooc/' + course.course_id + '/' + course.course_name +  '/manager';
     };
+
+    $scope.createDataset = function (username, description) {
+
+        createService.create(constService.urls().createDataset, description, username)
+            .then( res => {
+                uploadService.upload(res.data.uptoken, res.data.key).start()
+
+            })
+    }
 
     $scope.createMooc = function () {
         $('#createMooc').modal({
@@ -135,6 +145,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
         $('#file-progress').transition('vertical flip');
         $scope.fileNum += 1;
         $('#upload-file').val('');
+
     };
 
 }]);

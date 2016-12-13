@@ -126,25 +126,25 @@
         Add Dataset
     </div>
     <div class="ui form">
-        <div class="ui stacked segment">
+        <div class="ui stacked segment" id="container">
             <div class="field" id="dataset-name">
                 <label>Dataset Name</label>
                 <div class="ui input">
-                    <input placeholder="DataSet Name" type="text">
+                    <input placeholder="DataSet Name" type="text" ng-model="name">
                 </div>
             </div>
             <div class="field" id="dataset-desc">
                 <label>Description</label>
                 <div class="ui input">
-                    <input placeholder="Description" type="text">
+                    <input placeholder="Description" type="text" ng-model="desc">
                 </div>
             </div>
             <div class="field" id="dataset-upload">
-                <label>First Submition</label>
-                <input type="file">
+
+                <a id="upload" href="#" ><span>First Submition</span></a>
             </div>
             <div class="actions">
-                <button class="ui green submit button approve">Ok</button>
+                <button class="ui green submit button approve" ng-click="createDataset(name, desc)">Ok</button>
             </div>
         </div>
     </div>
