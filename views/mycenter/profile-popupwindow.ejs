@@ -170,9 +170,33 @@
                     <input placeholder="Description" type="text">
                 </div>
             </div>
+            <div class="field">
+                <label>start time</label>
+                <div class="ui input">
+                    <input id="start-time" name="start-date" type="text" placeholder="start time">
+                </div>
+            </div>
+            <div class="field" id="end-date">
+                <label>end time</label>
+                <div class="ui input">
+                    <input id="end-time" name="start-date" type="text" placeholder="end time">
+                </div>
+            </div>
             <div class="field" id="competition-upload">
-                <label>File</label>
-                <input type="file">
+                <label>File(You can upload several files)</label>
+                <input type="file" id="upload-file">
+                <div class="ui indicating progress transition hidden" data-value="0" data-total="100" id="file-progress">
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="label">Upload</div>
+                </div>
+                <div class="ui labeled button" tabindex="0" ng-click="upload()">
+                    <div class="ui blue button"> upload </div>
+                    <a class="ui basic left pointing blue label">
+                        {{fileNum}} file
+                    </a>
+                </div>
             </div>
             <div class="actions">
                 <button class="ui green submit button approve">Ok</button>

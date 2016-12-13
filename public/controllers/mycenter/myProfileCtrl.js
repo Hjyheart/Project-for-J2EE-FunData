@@ -3,6 +3,7 @@
  */
 
 app.controller('myProfileCtrl', ['$scope', '$http', 'constService', function ($scope, $http, constService) {
+    $scope.fileNum = 0;
     this.$onInit = function () {
         // 获取用户信息 这边应该是一个http请求
 
@@ -31,7 +32,9 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService', function ($s
     };
 
     $scope.moocShowWarning = function (course) {
-        $('#confirmDeleteMooc').modal('show');
+        $('#confirmDeleteMooc').modal({
+            transition : 'vertical flip'
+        }).modal('show');
     };
 
     $scope.moocManager = function (course) {
@@ -39,7 +42,31 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService', function ($s
     };
 
     $scope.createMooc = function () {
-        $('#createMooc').modal('show');
+        $('#createMooc').modal({
+            transition : 'vertical flip'
+        }).modal('show');
+    };
+
+    // 创建竞赛
+    $scope.createCompetition = function () {
+        $('#createCompetition').modal({
+            transition : 'vertical flip'
+        }).modal('show');
+    };
+
+    $scope.upload = function () {
+        console.log($('#upload-file').val());
+        $('#file-progress').transition('vertical flip');
+        $('#file-progress').progress({
+            percent: 100,
+            text: {
+                active  : '{value} of {total}',
+                success : 'Upload compelete!'
+            }
+        });
+        $('#file-progress').transition('vertical flip');
+        $scope.fileNum += 1;
+        $('#upload-file').val('');
     };
 
 }]);
