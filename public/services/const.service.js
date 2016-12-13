@@ -5,7 +5,7 @@ var app = angular.module('myApp');
 
 app.service('constService', function () {
     // var ServerHost = 'http://192.168.1.103:8080';
-    var ServerHost = 'http://127.0.0.1:8080';
+    var ServerHost = 'http://localhost:8080';
     var FrontHost = 'http://192.168.1.103:3000';
     var _const = {
         urls: {
@@ -33,7 +33,9 @@ app.service('constService', function () {
             getOtherCourse: `${ServerHost}/course/boutique_course/more/`,
             freshMoocBoutique: `${ServerHost}/mooc/fresh-boutique`,
             freshMoocOther: `${ServerHost}/mooc/fresh-other`,
-            getDetailInit: `${ServerHost}/course/`
+            getDetailInit: `${ServerHost}/course/`,
+            // competition
+            getMyCompetition: `${ServerHost}/competition/getInfo`
 
         }
     };

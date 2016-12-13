@@ -18,13 +18,22 @@
       <script src="/services/detail.service.js"></script>
       <script src="/services/upload.service.js"></script>
       <script src="/services/info.service.js"></script>
+      <script src="/services/auth.service.js"></script>
       <script src="/services/const.service.js"></script>
       <script src="/controllers/dataset/detailCtrl.js"></script>
+      <script src="/controllers/authCtrl.js"></script>
   </head>
   <body class="pusherable" ng-app="myApp" ng-controller="detailCtrl">
    <div class="pusher">
         <div class="ui inverted vertical masthead center aligned segment">
-            <% include ../nav/navbar-personal.ejs %>
+            <div ng-controller="authCtrl">
+                <div ng-if="!isLogin">
+                    <% include nav/navbar-public.ejs %>
+                </div>
+                <div ng-if="isLogin">
+                    <% include nav/navbar-personal.ejs %>
+                </div>
+            </div>
             <div class="ui text container">
                 <br><br>
 

@@ -4,7 +4,7 @@
 var app = angular.module('myApp');
 app.controller('registerCtrl', function ($scope, $http,
                                         constService,
-                                        infoService) {
+                                        authService) {
     $scope.error = false;
 
     $scope.removeError = function () {
@@ -25,7 +25,12 @@ app.controller('registerCtrl', function ($scope, $http,
             }
         })
             .then( res => {
-                infoService.setInfo("username", res.data);
+                console.log(res)
+                authService.setUser(res.data);
+                location.href = '/'
+            })
+            .catch(err => {
+                console.log(err);
             })
     }
 

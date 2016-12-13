@@ -3,8 +3,8 @@
  */
 var app = angular.module('myApp');
 app.controller('loginCtrl', function ($scope, $http,
-                                        constService,
-                                        infoService) {
+                                      constService,
+                                        authService) {
     $scope.error = false;
 
     $scope.removeError = function () {
@@ -24,7 +24,9 @@ app.controller('loginCtrl', function ($scope, $http,
                     $scope.error = true;
                 }
                 else{
-                    //infoService.setInfo("username", res.data);
+
+                    authService.setUser(res.data);
+
                     location.href = "/";
                 }
 

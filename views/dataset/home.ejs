@@ -15,15 +15,16 @@
       <script src="/ng-pagination/dist/directive.pagination.js"></script>
       <script src="/controllers/app.js"></script>
       <script src="/services/info.service.js"></script>
+      <script src="/services/auth.service.js"></script>
       <script src="/services/list.service.js"></script>
       <script src="/services/const.service.js"></script>
       <script src="/controllers/dataset/homeCtrl.js"></script>
   </head>
-  <body class="pushable" ng-app="myApp" ng-controller="homeCtrl">
+  <body class="pushable" ng-app="myApp" >
 
   <% include ../nav/navbar-floating.ejs%>
 
-  <div class="pusher">
+  <div class="pusher" ng-controller="homeCtrl">
       <div class="ui inverted vertical masthead center aligned segment">
 
         <% include ../nav/navbar-personal.ejs %>

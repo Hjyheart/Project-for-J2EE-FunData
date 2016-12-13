@@ -15,7 +15,6 @@ router.get('/login', function (req, res, next) {
 });
 
 router.post('/login', (req, res, next) => {
-    console.log(req.query.admin);
     request({
         url: `${_const.ServerHost}/authorize/login`,
         method: 'POST',
@@ -27,9 +26,7 @@ router.post('/login', (req, res, next) => {
 
         var body = JSON.parse(body);
         if(body.username){
-            //TODO Any Redirect
-            req.session.username = body.username;
-            res.send(req.session.username);
+            res.send(body.username);
         }
         else{
             res.send("");
@@ -41,7 +38,8 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/checkLogin', function (req, res, next) {
-    res.send(req.session.username);
+    console.log(req.cookies);
+    res.send(req.cookies.username);
 });
 
 /* GET test page */
@@ -66,9 +64,7 @@ router.post('/register', (req, res, next) => {
     }, function (err, response, body) {
         var body = JSON.parse(body);
         if(body.username){
-            //TODO Any Redirect
-            req.session.username = body.username;
-            res.send(req.session.username);
+            res.send(body.username);
         }
         else {
             res.send("");
