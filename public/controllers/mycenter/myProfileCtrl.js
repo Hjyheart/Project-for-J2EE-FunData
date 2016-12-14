@@ -6,7 +6,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
     function ($scope, $http, constService, createService, authService, uploadService) {
     $scope.myCompetitions;
     $scope.username = authService.getUser();
-
+    var uploader;
 
     this.$onInit = function () {
 
@@ -60,14 +60,20 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
 
     $scope.createDataset = function createDataset() {
         $('#createDataset').modal('show');
+        createService.create(constService.urls().getToken)
+            .then( res => {
+                uploader = uploadService.upload(res.data.uptoken, res.data.key);
+
+            })
     };
 
-    $scope.submitDataset = function (username, description) {
-        createService.create(constService.urls().createDataset, description, username)
+    $scope.submitDataset = function (name, description) {
+
+
+        createService.create(constService.urls().createDataset, description, name)
             .then( res => {
-                var uploader = uploadService.upload(res.data.uptoken, res.data.key);
-                uploader.init();
                 uploader.start();
+
             })
     }
 

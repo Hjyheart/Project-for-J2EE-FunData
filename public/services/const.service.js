@@ -15,6 +15,7 @@ app.service('constService', function () {
             setSession: `${FrontHost}/login`,
             getSession: `${FrontHost}/checkLogin`,
             register: `${FrontHost}/register`,
+            getToken: `${ServerHost}/getToken`,
             // dataset
             getHotProject: `${ServerHost}/dataset/getHotProject`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,
