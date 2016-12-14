@@ -13,18 +13,16 @@ app.service('uploadService', function () {
             domain: 'oagx7gq4u.bkt.clouddn.com',     // bucket域名，下载资源时用到，必需
             container: 'dataset-upload',             // 上传区域DOM ID，默认是browser_button的父元素
             max_file_size: '100mb',             // 最大文件体积限制
-            //flash_swf_url: 'path/of/plupload/Moxie.swf',  //引入flash，相对路径
             max_retries: 3,                     // 上传失败最大重试次数
             dragdrop: true,                     // 开启可拖曳上传
             drop_element: 'dataset-upload',          // 拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
             chunk_size: '4mb',                  // 分块上传时，每块的体积
-
             auto_start: true,
 
             init: {
                 'FilesAdded': function(up, files) {
                     plupload.each(files, function(file) {
-                        // 文件添加进队列后，处理相关的事情
+                        console.log(file);
                     });
                 },
                 'BeforeUpload': function(up, file) {

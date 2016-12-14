@@ -82,7 +82,7 @@
                         <div class="title active"><i class="dropdown icon"></i> My Add </div>
                         <div class="content active">
                             <div class="vertical fluid ui buttons">
-                                <button class="basic ui button" onclick="createDataset()">Add Dataset</button>
+                                <button class="basic ui button" ng-click="createDataset()">Add Dataset</button>
                                 <button class="basic ui button" ng-click="createCompetition()">Add Competition</button>
                                 <button class="basic ui button" ng-click="createMooc()">Add Mooc</button>
                             </div>
@@ -141,10 +141,7 @@
     function changeImg() {
         $('#newImage').modal('show');
     };
-    
-    function createDataset() {
-        $('#createDataset').modal('show');
-    };
+
 
 </script>
 </html>
