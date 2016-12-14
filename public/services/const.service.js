@@ -40,7 +40,8 @@ app.service('constService', function () {
             getCompetitions: `${ServerHost}/competition/show_competitions`,
             addCompetition: `${ServerHost}/competition/add`,
             getHostCompetitions: `${ServerHost}/competition/get_competition`,
-            deleteCompetition: `${ServerHost}/competition/delete`
+            deleteCompetition: `${ServerHost}/competition/delete`,
+            getCompetitionDetail: `${ServerHost}/competition/detail`
 
         }
     };

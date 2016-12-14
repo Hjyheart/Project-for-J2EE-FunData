@@ -36,7 +36,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
             }
         }).then( res=>{
             console.log(res);
-            $scope.myCompetitions = res.data.competitions;
+            $scope.myCompetitions = res.data.My_competitions.my_com;
         }).catch( err=>{
             console.log(err);
         });

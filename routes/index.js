@@ -15,6 +15,7 @@ router.get('/login', function (req, res, next) {
 });
 
 router.post('/login', (req, res, next) => {
+    console.log(req.query);
     request({
         url: `${_const.ServerHost}/authorize/login`,
         method: 'POST',
