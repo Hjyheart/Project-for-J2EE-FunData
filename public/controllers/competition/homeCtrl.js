@@ -5,7 +5,13 @@ app.controller('homeCtrl', ['$scope', '$http', 'constService', 'authService', fu
     $scope.competitions_active = [];
     $scope.competitions_unactive = [];
     $scope.competitions;
+    $scope.username = null;
     this.$onInit = function () {
+
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
 
         if (authService.getUser() !== 'null' && authService.getUser() !== null){
             $http({

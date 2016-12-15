@@ -9,12 +9,14 @@
             crossorigin="anonymous"></script>
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+
     <script src="/ng-pagination/dist/directive.pagination.js"></script>
     <script src="/controllers/app.js"></script>
-    <script src="/services/upload.service.js"></script>
+    <script src="/controllers/mooc/detailCtrl.js"></script>
     <script src="/services/info.service.js"></script>
-    <script src="/services/list.service.js"></script>
     <script src="/services/const.service.js"></script>
+    <script src="/services/auth.service.js"></script>
+    <script src="/controllers/authCtrl.js"></script>
     <script src="/services/divide.service.js"></script>
 
 </head>
@@ -22,14 +24,26 @@
 <div class="transition hidden" id="course_name"><%= name %></div>
 <div class="transition hidden" id="course_id"><%= id %></div>
 
-<body class="pushable" ng-app="myApp" ng-controller="detailCtrl">
+<body class="pushable" ng-app="myApp" ng-controller="authCtrl">
 
-<% include ../nav/navbar-floating.ejs%>
+<div class="pusher" ng-controller="detailCtrl">
 
-<div class="pusher">
+    <div ng-if="isLogin">
+        <% include ../nav/navbar-floating.ejs%>
+    </div>
+    <div ng-if="!isLogin">
+        <% include ../nav/navbar-floating-public.ejs %>
+    </div>
+
     <div class="ui inverted vertical masthead center aligned segment">
-
-        <% include ../nav/navbar-personal.ejs %>
+        <div>
+            <div ng-if="!isLogin">
+                <% include ../nav/navbar-public.ejs %>
+            </div>
+            <div ng-if="isLogin">
+                <% include ../nav/navbar-personal.ejs %>
+            </div>
+        </div>
 
         <div class="ui text container">
             <br><br>

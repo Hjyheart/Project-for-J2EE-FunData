@@ -15,6 +15,7 @@ app.controller('detailCtrl', function ($scope, $http,
     $scope.isAdmin = '0';
     $scope.pageStart = 0;
     $scope.datasetname=$('#datasetname')[0].innerText;
+    $scope.username = null;
 
     $scope.content = {
         page: 1,
@@ -35,6 +36,12 @@ app.controller('detailCtrl', function ($scope, $http,
     };
 
     this.$onInit = function () {
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
+
+
         detailService.getDetail(constService.urls().getContent, 0, $scope.datasetname)
             .then( res => {
                     $scope.content.list = res.data.content;

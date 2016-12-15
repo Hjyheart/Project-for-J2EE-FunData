@@ -2,7 +2,7 @@
  * Created by hongjiayong on 2016/12/3.
  */
 // var app = angular.module('myApp', ['ng-pagination']);
-app.controller('homeCtrl',[ '$scope', '$http', 'constService', function ($scope, $http, constService) {
+app.controller('homeCtrl',[ '$scope', '$http', 'constService', 'authService', function ($scope, $http, constService, authService) {
     $scope.screen_hot_course;
     $scope.mooc_title;
     $scope.boutique_course;

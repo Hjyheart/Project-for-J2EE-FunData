@@ -4,7 +4,12 @@
 app.controller('detailCtrl', ['$scope', '$http', 'constService', 'authService', function ($scope, $http, constService, authService) {
     $scope.com_id = $('#com-id').text();
     $scope.competition;
+    $scope.username = null;
     this.$onInit = function () {
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
           $http({
               method: 'POST',
               url: constService.urls().getCompetitionDetail,

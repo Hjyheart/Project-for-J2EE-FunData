@@ -10,10 +10,16 @@ app.controller('homeCtrl', function ($scope, $http,
     $scope.HotProjects;
     $scope.MyProjects;
     $scope.MyContributes;
+    $scope.username = null;
 
     $scope.pageStart = 0;
 
     this.$onInit = function () {
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
+
         listService.getList(constService.urls().getHotProject, $scope.pageStart)
             .then( res => {
                     $scope.HotProjects = res.data.datasets;

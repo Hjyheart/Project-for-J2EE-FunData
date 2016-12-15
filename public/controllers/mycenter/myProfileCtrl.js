@@ -5,9 +5,14 @@
 app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoService', 'authService', 'uploadService',
     function ($scope, $http, constService, infoService, authService, uploadService) {
     $scope.myCompetitions;
-    $scope.username = authService.getUser();
+    $scope.username = null;
 
     this.$onInit = function () {
+
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
 
         // 获取用户的数据集
 
