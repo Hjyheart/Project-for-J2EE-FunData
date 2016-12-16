@@ -2,7 +2,14 @@
  * Created by hongjiayong on 2016/12/8.
  */
 app.controller('manageCtrl', ['$scope', '$http', 'constService', 'divideService', function ($scope, $http, constService, divideService) {
+    $scope.username = null;
     this.$onInit = function () {
+
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
+
         $scope.steps = [
             {
                 'step_header': 'One',

@@ -22,19 +22,17 @@
 
   </head>
 
-  <body class="pushable" ng-app="myApp" ng-controller="homeCtrl">
+  <body class="pushable" ng-app="myApp" ng-controller="authCtrl">
 
-  <div ng-controller="authCtrl">
+  <div class="pusher" ng-controller="homeCtrl">
       <div ng-if="isLogin">
           <% include ../nav/navbar-floating.ejs%>
       </div>
       <div ng-if="!isLogin">
           <% include ../nav/navbar-floating-public.ejs %>
       </div>
-  </div>
 
-  <div class="pusher">
-      <div class="ui inverted vertical masthead center aligned segment" ng-controller="authCtrl">
+      <div class="ui inverted vertical masthead center aligned segment">
           <div>
               <div ng-if="!isLogin">
                   <% include ../nav/navbar-public.ejs %>
@@ -60,7 +58,8 @@
 
               <div class="four column centered row">
                   <!--竞赛集-->
-                  <div class="nine wide column">
+                  <div class="ten wide column">
+
                       <h1 class="ui header">Competitions</h1>
                       <% include competition-list.ejs %>
                       <br>
@@ -68,7 +67,7 @@
                   </div>
 
                   <!--右侧标签栏-->
-                  <div class="six wide right floated column">
+                  <div class="five wide right floated column" ng-if="isLogin">
                       <% include competition-sidebar.ejs %>
                   </div>
               </div>
@@ -84,6 +83,7 @@
 <script>
   $("body").css('height',$(window).height());
   $('.tabular.menu .item').tab();
+  $('#user-com').tab();
 
   function loadCompetition() {
       $('#load-competition-btn').addClass('loading');

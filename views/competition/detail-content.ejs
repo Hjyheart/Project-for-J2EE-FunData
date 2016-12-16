@@ -1,10 +1,20 @@
-<h1 class="ui header">Problem name</h1>
+<h1 class="ui header">{{competition.com_name}}
+    <div class="ui green label" ng-if="competition.com_active_flag">
+        active
+    </div>
+    <div class="ui grey label" ng-if="!competition.com_active_flag">
+        unactive
+    </div>
+    <div class="ui blue label"><i class="hourglass start icon"></i> {{competition.com_start_time}} </div>
+    <div class="ui red label"><i class="hourglass end icon"></i> {{competition.com_end_time}} </div>
+</h1>
+
 <div class="ui raised segments">
     <div class="ui segment">
         <h2 class="ui header">Description</h2>
     </div>
     <div class="ui segment">
-        <p>Description of the competition</p>
+        <p>{{competition.com_des}}</p>
     </div>
 </div>
 
@@ -22,6 +32,6 @@
         <h2 class="ui header">Author</h2>
     </div>
     <div class="ui segment">
-        <a href="#">Author name</a>
+        <a href="/other/{{competition.com_owner_name}}">{{competition.com_owner_name}}</a>
     </div>
 </div>

@@ -3,24 +3,28 @@
  */
 // var app = angular.module('myApp');
 app.controller('detailCtrl',
-    ['$scope', '$http', 'constService', 'divideService',
-    function ($scope, $http, constService, divideService) {
+    ['$scope', '$http', 'constService', 'divideService', 'authService',
+    function ($scope, $http, constService, divideService, authService) {
     var course_name = $('#course_name').text();
     var course_id = $('#course_id').text();
 
     $scope.steps;
     $scope.answered;
     $scope.unanswered;
-    $scope.user;
+    $scope.username = null;
 
     this.$onInit = function () {
+
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
+
         $http({
             method: 'GET',
             url: constService.urls().getDetailInit + course_id + '/' + course_name + '/detail',
         })
             .then( res =>{
-                // init user TODO: 等宗润的用户登录和注册机制的完成
-                $scope.user = res.data.user;
 
                 // init overview
                 var overview = res.data.course_detail.course_overview;

@@ -5,10 +5,15 @@
 app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createService', 'authService', 'uploadService',
     function ($scope, $http, constService, createService, authService, uploadService) {
     $scope.myCompetitions;
-    $scope.username = authService.getUser();
     var uploader;
+    $scope.username = null;
 
     this.$onInit = function () {
+
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
 
         // 获取用户的数据集
 
@@ -37,7 +42,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
             }
         }).then( res=>{
             console.log(res);
-            $scope.myCompetitions = res.data.competitions;
+            $scope.myCompetitions = res.data.My_competitions.my_com;
         }).catch( err=>{
             console.log(err);
         });

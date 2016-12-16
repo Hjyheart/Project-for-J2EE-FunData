@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <link rel="stylesheet" href="/nv.d3.css"/>
     <!--<link rel="stylesheet" href="/rank-css/about.css"/>-->
     <script src="/jquery.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
@@ -12,29 +13,47 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+    <!--for d3 chart-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="/nv.d3.js"></script>
 
+    <script src="/ng-pagination/dist/directive.pagination.js"></script>
     <script src="/controllers/app.js"></script>
-    <script src="/services/upload.service.js"></script>
+    <script src="/controllers/competition/detailCtrl.js"></script>
     <script src="/services/info.service.js"></script>
     <script src="/services/const.service.js"></script>
+    <script src="/services/auth.service.js"></script>
+    <script src="/controllers/authCtrl.js"></script>
     <!--<script src="/controllers/homeCtrl.js"></script>-->
 </head>
 
-<div class="transition hidden"><%= comId %></div>
+<div class="transition hidden" id="com-id"><%= comId %></div>
 
-<body class="pushable">
-<% include ../nav/navbar-floating.ejs%>
+<body class="pushable" ng-app="myApp" ng-controller="authCtrl">
 
-<div class="pusher">
+<div class="pusher" ng-controller="detailCtrl">
+
+    <div ng-if="isLogin">
+        <% include ../nav/navbar-floating.ejs%>
+    </div>
+    <div ng-if="!isLogin">
+        <% include ../nav/navbar-floating-public.ejs %>
+    </div>
 
     <div class="ui inverted vertical masthead center aligned segment">
-
-        <% include ../nav/navbar-personal.ejs %>
+        <div>
+            <div ng-if="!isLogin">
+                <% include ../nav/navbar-public.ejs %>
+            </div>
+            <div ng-if="isLogin">
+                <% include ../nav/navbar-personal.ejs %>
+            </div>
+        </div>
 
         <div class="ui text container">
             <br><br>
             <h1 class="ui inverted header">
-                <%=title%>
+                {{competition.com_name}}
             </h1>
             <h2>Let's go!</h2>
             <br>
@@ -53,7 +72,7 @@
                 <div class="ui buttons">
                     <button class="ui green button" onclick="submitAnswer()">submit</button>
                     <button class="ui red button" onclick="downloadFile()" id="download-btn">download</button>
-                    <button class="ui orange button" onclick="mySubmission()" id="submission-btn">my submission</button>
+                    <button class="ui orange button" onclick="mySubmission()" id="submission-btn">close my submission</button>
                     <button class="ui pink button" onclick="showRank()" id="rank-btn">rank</button>
                     <button class="ui blue button" onclick="showDiscuss()" id="discuss-btn">discuss</button>
                     <button class="ui grey disabled button" onclick="showAnswer()" id="answer-btn">answer</button>
@@ -108,6 +127,7 @@
     function mySubmission() {
         // show my submission
         $('#mysubmission-area').transition('fade up');
+        $('#chart').transition('fade up');
         if ($('#submission-btn').text() === 'my submission') {
             $('#submission-btn').text('close my submission');
         }

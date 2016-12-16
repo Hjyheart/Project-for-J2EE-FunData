@@ -10,26 +10,24 @@
             crossorigin="anonymous"></script>
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+
     <script src="/ng-pagination/dist/directive.pagination.js"></script>
     <script src="/controllers/app.js"></script>
+    <script src="/controllers/indexCtrl.js"></script>
+    <script src="/services/info.service.js"></script>
     <script src="/services/const.service.js"></script>
     <script src="/services/auth.service.js"></script>
-    <script src="/controllers/indexCtrl.js"></script>
     <script src="/controllers/authCtrl.js"></script>
 </head>
-<body class="pushable" ng-app="myApp">
+<body class="pushable" ng-app="myApp" ng-controller="authCtrl">
 
-
-<div ng-controller="authCtrl">
+<div class="pusher" ng-controller="indexCtrl">
     <div ng-if="isLogin">
         <% include nav/navbar-floating.ejs%>
     </div>
     <div ng-if="!isLogin">
         <% include nav/navbar-floating-public.ejs %>
     </div>
-</div>
-
-<div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment"  ng-controller="authCtrl">
         <div>
             <div ng-if="!isLogin">

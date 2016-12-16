@@ -36,11 +36,11 @@
                     </div>
                     <div class="text">{{item.question.question_content}}</div>
 
-                    <div class="actions" ng-if="user.user_flag == 1">
-                        <a class="reply active" ng-click="showA(item)">Reply</a>
+                    <div class="actions" ng-if="isLogin">
+                        <a class="reply active" ng-click="showA(item.question)">Reply</a>
                     </div>
 
-                    <form class="ui reply form transition hidden" id={{item.question.question_id}}>
+                    <form class="ui reply form transition hidden" ng-if="isLogin" id={{item.question.question_id}}>
                         <div class="field">
                             <textarea id="{{ $index + '-answer' }}"></textarea>
                         </div>
@@ -50,17 +50,17 @@
             </div>
         </div>
 
-        <div ng-if="user.user_flag == 0">
+        <div ng-if="isLogin">
             <h2 class="ui header">Add Question</h2>
 
             <div class="ui comments">
                 <div class="comment">
                     <div class="content">
-                        <a class="author">Luo Xue</a>
+                        <a class="author">{{username}}</a>
                         <div class="metadata">
                             <div class="date">time</div>
                         </div>
-                        <form class="ui reply form">
+                        <form class="ui reply form" ng-if="isLogin">
                             <div class="field">
                                 <textarea id="new-question"></textarea>
                             </div>

@@ -1,25 +1,27 @@
 
-<div class="ui top attached tabular menu">
-    <a class="active item" data-tab="my-participation">My Participation </a>
-    <a class="item" data-tab="my-competition">My Competiton </a>
-</div>
-<div class="ui bottom attached  tab segment active" data-tab="my-participation">
+<div class="ui exsisting segment">
     <div class="ui relaxed divided list">
-        <div class="item">
+        <div class="ui header">
+            My Participation
+        </div>
+        <div class="item" ng-repeat="com in myPcompetitions">
+            <i class="large trophy middle aligned icon"></i>
             <div class="content">
-                <a class="header" href="/competition/id/id/detail">competition name</a>
-                <div class="description">Updated 10 mins ago</div>
+                <a class="header" href="/competition/{{com.com_id}}/detail">{{com.com_name}}</a>
             </div>
         </div>
     </div>
-</div>
-<div class="ui bottom attached tab segment" data-tab="my-competition">
+
     <div class="ui relaxed divided list">
-        <div class="item">
+        <div class="ui header">
+            My Competition
+        </div>
+        <div class="item" ng-repeat="com in mycompetitions">
+            <i class="large trophy middle aligned icon"></i>
             <div class="content">
-                <a class="header" href="/competition/id/id/detail">competition name</a>
-                <div class="description">Updated 10 mins ago</div>
+                <a class="header" href="/competition/{{com.com_id}}/detail">{{com.com_name}}</a>
             </div>
         </div>
     </div>
+
 </div>
