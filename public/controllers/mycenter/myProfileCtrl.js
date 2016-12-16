@@ -2,9 +2,10 @@
  * Created by hongjiayong on 2016/12/6.
  */
 
-app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoService', 'authService', 'uploadService',
-    function ($scope, $http, constService, infoService, authService, uploadService) {
+app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createService', 'authService', 'uploadService',
+    function ($scope, $http, constService, createService, authService, uploadService) {
     $scope.myCompetitions;
+    var uploader;
     $scope.username = null;
 
     this.$onInit = function () {
@@ -62,11 +63,18 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService',  'infoServic
         window.location.href = '/mooc/' + course.course_id + '/' + course.course_name +  '/manager';
     };
 
-    $scope.createDataset = function (username, description) {
+    $scope.createDataset = function createDataset() {
+        $('#createDataset').modal('show');
+        uploader = uploadService.upload();
 
-        createService.create(constService.urls().createDataset, description, username)
+    };
+
+    $scope.submitDataset = function (name, description) {
+
+
+        createService.create(constService.urls().createDataset, description, name)
             .then( res => {
-                uploadService.upload(res.data.uptoken, res.data.key).start()
+                uploader.start();
 
             })
     }

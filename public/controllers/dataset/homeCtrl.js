@@ -29,7 +29,7 @@ app.controller('homeCtrl', function ($scope, $http,
                 console.log(err);
             });
         listService.getList(constService.urls().getMyProject, $scope.pageStart)
-            .then( es => {
+            .then( res => {
                     $scope.MyProjects = res.data.datasets;
 
 
