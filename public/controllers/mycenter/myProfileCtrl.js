@@ -60,11 +60,8 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
 
     $scope.createDataset = function createDataset() {
         $('#createDataset').modal('show');
-        createService.create(constService.urls().getToken)
-            .then( res => {
-                uploader = uploadService.upload(res.data.uptoken, res.data.key);
+        uploader = uploadService.upload();
 
-            })
     };
 
     $scope.submitDataset = function (name, description) {

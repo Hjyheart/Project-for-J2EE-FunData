@@ -15,9 +15,9 @@ app.service('constService', function () {
             setSession: `${FrontHost}/login`,
             getSession: `${FrontHost}/checkLogin`,
             register: `${FrontHost}/register`,
-            getToken: `${ServerHost}/getToken`,
+
             // dataset
-            getHotProject: `${ServerHost}/dataset/getHotProject`,
+            getHotProject: `${ServerHost}/getHotProject`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,
             getMyContribute: `${ServerHost}/dataset/getMyContribute`,
             getPullRequest: `${ServerHost}/dataset/getPullRequest`,
@@ -26,9 +26,10 @@ app.service('constService', function () {
             comment: `${ServerHost}/dataset/comment`,
             confirmRequest: `${ServerHost}/dataset/confirmRequest`,
             getConfirmRequest: `${ServerHost}/dataset/getConfirmRequest`,
-            uploadFile: `${ServerHost}/dataset/uploadFile`,
+            getToken: `${ServerHost}/getToken`,
+            getKey: `${ServerHost}/getKey`,
             checkUpload: `${ServerHost}/dataset/checkUpload`,
-            createDataset: `${ServerHost}/createDataset`,
+            createDataset: `${ServerHost}/dataset/createDataset`,
             downloadUrl: `${ServerHost}/dataset/downloadUrl`,
             // mooc
             getMoocScreenHotCourse: `${ServerHost}/course/screen_hot_course`,
