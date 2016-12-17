@@ -24,32 +24,44 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService','createService',
 
         $scope.downloadFile = function () {
             // download file
-            $('#download-area').transition('fade up');
+            $('#download-upload').transition('fade up');
             if ($('#download-btn').text() === 'download') {
                 $('#download-btn').text('close download');
-                uploader = uploadService.upload();
             }
             else {
                 $('#download-btn').text('download');
             }
         };
 
-
-        $scope.submitDownload = function () {
-            // $http({
-            //     method: 'POST',
-            //     url: constService.urls().confirmDataFile,
-            //     params:{
-            //         'key': uploadService.getKey(),
-            //         'comId': $scope.comId
-            //     }
-            // }).then( res=>{
-            //     console.log(res);
-            // }).catch( err=>{
-            //     console.log(err);
-            // });
-            console.log(uploadService.getKey());
+        $scope.answerFile = function () {
+            $('#answer-upload').transition('fade up');
+            if ($('#answer-btn').text() === 'close answer') {
+                $('#answer-btn').text('answer');
+            }
+            else {
+                $('#answer-btn').text('close answer');
+            }
         };
 
+
+        $scope.uploadDownloadFile = function () {
+            $('#upload-modual-header').text('datafile');
+            $('.ui.modal').modal('show');
+            var datafile = {
+                'id': $scope.comId,
+                'type': 1
+            };
+            uploader = uploadService.upload(2, datafile);
+        };
+
+        $scope.uploadAnsFile = function () {
+            $('#upload-modual-header').text('ansfile');
+            $('.ui.modal').modal('show');
+            var ansfile = {
+                'id': $scope.comId,
+                'type': 2
+            };
+            uploader = uploadService.upload(2, ansfile);
+        };
 
     }]);

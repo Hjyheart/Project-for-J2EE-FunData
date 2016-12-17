@@ -42,6 +42,18 @@ app.service('uploadService', function (constService, $http) {
                     'FileUploaded': function(up, file, info) {
                         console.log(info);
                         var _info = JSON.parse(info);
+                        $('.ui.modal').modal('show');
+                        $('#process-bar').progress({
+                            percent: 100,
+                            text: {
+                                active  : '{value} of {total}',
+                                success : 'Upload compelete!'
+                            }
+                        });
+                        setTimeout(function () {
+                            $('.ui.modal').modal('hide');
+                            $('#process-bar').progress('set percent', 0);
+                        }, 1000);
                         // 1->dataset 2->com 3->mooc
                         if (type === 1){
                             var url = "";
@@ -65,7 +77,48 @@ app.service('uploadService', function (constService, $http) {
                                 cache: false
                             });
                         }else if (type === 2){
-
+                            // i->datafile 2->ans 3->userans
+                            if (id.type === 1){
+                                $http({
+                                    method: 'POST',
+                                    url: constService.urls().confirmDataFile,
+                                    params:{
+                                        'key': _info.key,
+                                        'comId': id.id
+                                    }
+                                }).then( res=>{
+                                    console.log(res);
+                                }).catch( err=>{
+                                    console.log(err);
+                                });
+                            }else if (id.type === 2){
+                                $http({
+                                    method: 'POST',
+                                    url: constService.urls().confirmDataAns,
+                                    params:{
+                                        'key': _info.key,
+                                        'comId': id.id
+                                    }
+                                }).then( res=>{
+                                    console.log(res);
+                                }).catch( err=>{
+                                    console.log(err);
+                                });
+                            }else if (id.type === 3){
+                                $http({
+                                    method: 'POST',
+                                    url: constService.urls().confirmUserDataAns,
+                                    params:{
+                                        'username': id.username,
+                                        'key': _info.key,
+                                        'comId': id.id
+                                    }
+                                }).then( res=>{
+                                    console.log(res);
+                                }).catch( err=>{
+                                    console.log(err);
+                                });
+                            }
                         }else if (type === 3){
 
                         }

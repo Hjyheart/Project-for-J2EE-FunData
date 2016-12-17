@@ -10,6 +10,8 @@
     <script src="/jquery.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.1.1/plupload.full.min.js"></script>
+    <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.0-beta/qiniu.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
@@ -20,17 +22,17 @@
     <script src="/ng-pagination/dist/directive.pagination.js"></script>
     <script src="/controllers/app.js"></script>
     <script src="/controllers/competition/detailCtrl.js"></script>
-    <script src="/services/info.service.js"></script>
     <script src="/services/const.service.js"></script>
+    <script src="/services/upload.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/services/create.service.js"></script>
     <script src="/services/auth.service.js"></script>
     <script src="/controllers/authCtrl.js"></script>
-    <!--<script src="/controllers/homeCtrl.js"></script>-->
 </head>
 
-<div class="transition hidden" id="com-id"><%= comId %></div>
 
 <body class="pushable" ng-app="myApp" ng-controller="authCtrl">
-
+<div class="transition hidden" id="com-id"><%= comId %></div>
 <div class="pusher" ng-controller="detailCtrl">
 
     <div ng-if="isLogin">
@@ -70,7 +72,8 @@
             </div>
             <div class="centered row">
                 <div class="ui buttons">
-                    <button class="ui green button" onclick="submitAnswer()">submit</button>
+                    <button class="ui green button" ng-click="submitAnswer()" ng-if="isLogin">submit</button>
+                    <button class="ui green button disabled" ng-click="submitAnswer()" ng-if="!isLogin">submit->login</button>
                     <button class="ui red button" onclick="downloadFile()" id="download-btn">download</button>
                     <button class="ui orange button" onclick="mySubmission()" id="submission-btn">close my submission</button>
                     <button class="ui pink button" onclick="showRank()" id="rank-btn">rank</button>
@@ -82,7 +85,6 @@
             <div class="centered row">
                 <div class="ten wide column">
                     <% include detail-discuss.ejs %>
-                    <% include detail-download.ejs %>
                     <% include detail-mysubmitions.ejs %>
                     <% include detail-rank.ejs %>
                     <% include detail-answer.ejs %>
@@ -90,7 +92,21 @@
             </div>
         </div>
     </div>
-    <% include detail-popupwindow.ejs %>
+    <!--以下为submit时弹出的页面-->
+    <div class="ui modal" id="upload-modal">
+        <div class="header" id="upload-modual-header"></div>
+        <div class="content">
+            <div class="ui form">
+                <div class="field" id="dataset-upload">
+                    <a href="#" id="upload">upload</a>
+                </div>
+                <div class="ui indicating progress" data-value="1" data-total="100" id="process-bar">
+                    <div class="bar"></div>
+                    <div class="label"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <% include ../footer.ejs %>
 </div>
 
