@@ -1,4 +1,4 @@
-<div class="ui raised segment transition active" id="mysubmission-area">
+<div class="ui raised segment transition active" id="mysubmission-area" ng-if="isLogin">
 
     <table class="ui very basic celled table">
         <thead>
@@ -27,6 +27,6 @@
 
 </div>
 
-<div class="ui raised segment transition active" id="chart">
+<div class="ui raised segment transition active" id="chart" ng-if="isLogin">
     <svg></svg>
 </div>

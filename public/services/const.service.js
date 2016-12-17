@@ -45,7 +45,9 @@ app.service('constService', function () {
             getHostCompetitions: `${ServerHost}/competition/get_competition`,
             deleteCompetition: `${ServerHost}/competition/delete`,
             getCompetitionDetail: `${ServerHost}/competition/detail`,
-            confirmDataFile: `${ServerHost}/competition/confirmDataFile`
+            confirmDataFile: `${ServerHost}/competition/confirmDataFile`,
+            confirmDataAns: `${ServerHost}/competition/confirmAnsFile`,
+            confirmUserDataAns: `${ServerHost}/competition/confirmUserAns`
 
         }
     };

@@ -73,9 +73,32 @@ app.service('uploadService', function (constService, $http) {
                                     console.log(err);
                                 });
                             }else if (id.type === 2){
-
+                                $http({
+                                    method: 'POST',
+                                    url: constService.urls().confirmDataAns,
+                                    params:{
+                                        'key': _info.key,
+                                        'comId': id.id
+                                    }
+                                }).then( res=>{
+                                    console.log(res);
+                                }).catch( err=>{
+                                    console.log(err);
+                                });
                             }else if (id.type === 3){
-
+                                $http({
+                                    method: 'POST',
+                                    url: constService.urls().confirmUserDataAns,
+                                    params:{
+                                        'username': id.username,
+                                        'key': _info.key,
+                                        'comId': id.id
+                                    }
+                                }).then( res=>{
+                                    console.log(res);
+                                }).catch( err=>{
+                                    console.log(err);
+                                });
                             }
                         }else if (type === 3){
 

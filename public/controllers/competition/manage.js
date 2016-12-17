@@ -57,6 +57,11 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService','createService',
         $scope.uploadAnsFile = function () {
             $('#upload-modual-header').text('ansfile');
             $('.ui.modal').modal('show');
+            var ansfile = {
+                'id': $scope.comId,
+                'type': 2
+            };
+            uploader = uploadService.upload(2, ansfile);
         };
 
     }]);

@@ -1,10 +1,12 @@
 /**
  * Created by hongjiayong on 2016/12/14.
  */
-app.controller('detailCtrl', ['$scope', '$http', 'constService', 'authService', function ($scope, $http, constService, authService) {
+app.controller('detailCtrl', ['$scope', '$http', 'constService', 'authService','uploadService', function ($scope, $http, constService, authService, uploadService) {
     $scope.com_id = $('#com-id').text();
+    $scope.isApply = false;
     $scope.competition;
     $scope.username = null;
+    var uploader;
     this.$onInit = function () {
         // init user
         if (authService.getUser() !== null && authService.getUser() !== 'null'){
@@ -67,4 +69,16 @@ app.controller('detailCtrl', ['$scope', '$http', 'constService', 'authService', 
 
 
     };
+
+    $scope.submitAnswer = function () {
+        $('#upload-modal').modal('show');
+        var useransfile = {
+            'username': authService.getUser(),
+            'id': $scope.com_id,
+            'type': 3
+        };
+        uploader = uploadService.upload(2, useransfile);
+        console.log(useransfile);
+    };
+
 }]);
