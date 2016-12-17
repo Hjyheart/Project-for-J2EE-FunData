@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e86c979-fdd9-4f60-866c-2c1ba1494130" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/services/const.service.js" afterPath="$PROJECT_DIR$/public/services/const.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/services/create.service.js" afterPath="$PROJECT_DIR$/public/services/create.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/services/upload.service.js" afterPath="$PROJECT_DIR$/public/services/upload.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/competition.js" afterPath="$PROJECT_DIR$/routes/competition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/competition/manage.ejs" afterPath="$PROJECT_DIR$/views/competition/manage.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/mycenter/profile.ejs" afterPath="$PROJECT_DIR$/views/mycenter/profile.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,7 +26,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="manage.ejs" pinned="false" current-in-tab="true">
+          <file leaf-file-name="manage.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/competition/manage.ejs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="375">
@@ -42,11 +36,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="upload.service.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="upload.service.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/services/upload.service.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="586">
-                  <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+                <state relative-caret-position="405">
+                  <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -69,7 +63,7 @@
           <file leaf-file-name="manage.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/controllers/competition/manage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="705">
+                <state relative-caret-position="720">
                   <caret line="50" column="48" lean-forward="false" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
                   <folding>
                     <element signature="e#0#48#0" expanded="false" />
@@ -153,8 +147,8 @@
         <option value="$PROJECT_DIR$/routes/competition.js" />
         <option value="$PROJECT_DIR$/views/mycenter/profile.ejs" />
         <option value="$PROJECT_DIR$/public/controllers/competition/manage.js" />
-        <option value="$PROJECT_DIR$/public/services/upload.service.js" />
         <option value="$PROJECT_DIR$/views/competition/manage.ejs" />
+        <option value="$PROJECT_DIR$/public/services/upload.service.js" />
       </list>
     </option>
   </component>
@@ -598,12 +592,12 @@
       <workItem from="1481694032238" duration="7564000" />
       <workItem from="1481715067936" duration="12609000" />
       <workItem from="1481905785970" duration="6987000" />
-      <workItem from="1481953998510" duration="2847000" />
+      <workItem from="1481953998510" duration="3328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160018000" />
+    <option name="totallyTimeSpent" value="160499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -623,9 +617,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.50277996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.49722" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1564734" sideWeight="0.5054602" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15918367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15918367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19897959" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19897959" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -992,7 +986,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/competition/manage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
+        <state relative-caret-position="720">
           <caret line="50" column="48" lean-forward="false" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
@@ -1000,18 +994,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/services/upload.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/competition/manage.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/services/upload.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>

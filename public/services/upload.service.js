@@ -4,8 +4,7 @@
 var app = angular.module('myApp');
 
 app.service('uploadService', function (constService, $http) {
-    var shit = undefined;
-    this.upload = function () {
+    this.upload = function (type, id) {
         var token;
         $http({
             method: 'POST',
@@ -42,7 +41,17 @@ app.service('uploadService', function (constService, $http) {
                     },
                     'FileUploaded': function(up, file, info) {
                         console.log(info);
-                        shit = info.key;
+
+                        // 1->dataset 2->com 3->mooc
+                        if (type === 1){
+
+                        }else if (type === 2){
+
+                        }else if (type === 3){
+
+                        }
+
+
                     },
                     'Error': function(up, err, errTip) {
                         console.log(err)
@@ -77,12 +86,4 @@ app.service('uploadService', function (constService, $http) {
 
     };
 
-    this.getKey = function () {
-        while (shit !== undefined);
-        return shit;
-    };
-
-    this.setKey = function () {
-        shit = undefined;
-    }
 });
