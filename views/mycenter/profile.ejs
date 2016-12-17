@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--<script src="/jquery.js" crossorigin="anonymous"></script>-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -15,6 +16,7 @@
     <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.0-beta/qiniu.min.js"></script>
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+
     <script src="/ng-pagination/dist/directive.pagination.js"></script>
     <script src="/controllers/app.js"></script>
     <script src="/controllers/mycenter/myProfileCtrl.js"></script>
@@ -41,7 +43,7 @@
                 Hello
             </h1>
 
-            <h2><%= userName %></h2>
+            <h2>{{username}}</h2>
            <br>
             <i class="down arrow icon"></i>
         </div>

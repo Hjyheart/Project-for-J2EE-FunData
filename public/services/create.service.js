@@ -15,7 +15,7 @@ app.service('createService', function ($http, authService) {
                     "datasetname": datasetName
                 }
             });
-    }
+    };
     
     this.createMooc = function (url, courseName, courseDes, teacher ) {
         return $http({
@@ -25,6 +25,20 @@ app.service('createService', function ($http, authService) {
 
             }
         });
-    }
+    };
+
+    this.createCompetition = function (url, username, compname, start, end, des ) {
+        return $http({
+            method: 'POST',
+            url: url,
+            params: {
+                'username': username,
+                'compname': compname,
+                'start': start,
+                'end': end,
+                'des': des
+            }
+        });
+    };
 
 });

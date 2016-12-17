@@ -18,9 +18,9 @@ router.get('/:competitionId/detail', function (req, res, next) {
 });
 
 /* Get competition manage page */
-router.get('/:competionId/manage', function (req, res, next) {
-    var com_name = req.params.competitionId;
-    res.render('./competition/manage', {title: com_name});
+router.get('/:competitionId/manage', function (req, res, next) {
+    var com_id = req.params.competitionId;
+    res.render('./competition/manage', {title: "manage", comId: com_id});
 });
 
 module.exports = router;
