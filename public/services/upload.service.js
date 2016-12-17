@@ -45,7 +45,7 @@ app.service('uploadService', function (constService, $http) {
                         // 1->dataset 2->com 3->mooc
                         if (type === 1){
                             var url = "";
-                            if(id.type === "1") {
+                            if(id.type.value === 1) {
                                 url = `${constService.urls().confirmTitle}`
                             }
                             else {

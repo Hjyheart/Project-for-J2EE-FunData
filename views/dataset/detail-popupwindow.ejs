@@ -5,11 +5,9 @@
         New Submition
     </div>
     <div class="content">
-
         <form class="ui form">
-            <select ng-model="_type">
-                <option value ="1">Title</option>
-                <option value ="2">File</option>
+            <select ng-model="_type" ng-change="select()" ng-options="t.text for t in types">
+
             </select>
             <div class="field aligned" id="dataset-upload">
                 <a href="#" id="upload">New File</a>
