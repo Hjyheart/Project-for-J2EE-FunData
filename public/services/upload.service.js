@@ -56,7 +56,26 @@ app.service('uploadService', function (constService, $http) {
                         }, 1000);
                         // 1->dataset 2->com 3->mooc
                         if (type === 1){
+                            var url = "";
+                            if(id.type.value === 1) {
+                                url = `${constService.urls().confirmTitle}`
+                            }
+                            else {
+                                url = `${constService.urls().confirmFile}`
+                            }
+                            $.ajax({
+                                url: url,
+                                type: 'POST',
+                                data: {
+                                    key: _info.key,
+                                    username: id.username,
+                                    datasetname: id.datasetname
+                                },
+                                success: function(data) {
 
+                                },
+                                cache: false
+                            });
                         }else if (type === 2){
                             // i->datafile 2->ans 3->userans
                             if (id.type === 1){

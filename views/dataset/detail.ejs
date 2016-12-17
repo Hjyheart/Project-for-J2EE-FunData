@@ -8,7 +8,7 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
               crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.2.1/plupload.full.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.1.1/plupload.full.min.js"></script>
       <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.min.js"></script>
       <!-- Latest compiled and minified JavaScript -->
       <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
@@ -28,10 +28,10 @@
         <div class="ui inverted vertical masthead center aligned segment">
             <div ng-controller="authCtrl">
                 <div ng-if="!isLogin">
-                    <% include nav/navbar-public.ejs %>
+                    <% include ../nav/navbar-public.ejs %>
                 </div>
                 <div ng-if="isLogin">
-                    <% include nav/navbar-personal.ejs %>
+                    <% include ../nav/navbar-personal.ejs %>
                 </div>
             </div>
             <div class="ui text container">
@@ -53,18 +53,10 @@
                     <div class="ui top attached tabular menu">
 
                         <a class="active item" data-tab="One" ng-click="getContent()">Content </a>
-                        <a class="item" data-tab="Two" ng-click="getComments()">Pull Request </a>
-                        <a class="item" data-tab="Four" ng-click="getPullRequests()">Comments </a>
+                        <a class="item" data-tab="Two" ng-click="getPullRequests()">Pull Request </a>
+                        <a class="item" data-tab="Four" ng-click="getComments()">Comments </a>
                        <!--右侧喜爱和贡献标签-->
                         <div class="right menu">
-                            <div class="item">
-                                <div class="ui labeled button" tabindex="0">
-                                    <div class="ui basic red button"><i class="heart icon"></i> Like </div>
-                                    <a class="ui red left pointing label">
-                                        0
-                                    </a>
-                                </div>
-                            </div>
                             <div class="item">
                                 <div class="ui labeled button">
                                     <div class="ui basic pink button"><i class="fork icon"></i> Contribute </div>
@@ -76,7 +68,7 @@
                             </div>
                             <div class="item">
 
-                                <button class="ui basic blue button" onclick="toDatasetManage('<%=title%>')" ng-if="isAdmin === '1'">Admin</button>
+                                <button class="ui basic blue button" ng-click="toDatasetManage('<%=title%>')" ng-if="isAdmin === '1'">Admin</button>
                            </div>
                         </div>
                     </div>
@@ -88,14 +80,15 @@
 
                     <!--comments部分-->
                     <% include detail-comment.ejs %>
+                    <!--该页面所用弹出框-->
+                    <% include detail-popupwindow.ejs%>
                 </div>
             </div>
         </div>
         <%include ../footer.ejs%>
     </div>
 
-    <!--该页面所用弹出框-->
-    <% include detail-popupwindow.ejs%>
+
 
   </body>
 </html>
@@ -110,15 +103,11 @@
         $('#newPullRequest').modal('show');
     };
 
-    function newSubmition() {
-        $('#newSubmition').modal('show');
-    };
+
 
     function addDataSet() {
         // 向后台请求加数据集
     };
 
-    function toDatasetManage(name) {
-        window.location.href = '/dataset/' + name + "/" + name + '/manage';
-    }
+
 </script>

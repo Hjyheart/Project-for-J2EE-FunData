@@ -13,7 +13,7 @@ app.service('infoService', function ($http, authService) {
                 params: {
 
                     "username": username,
-                    "page": pageStart
+
                 }
             })
 

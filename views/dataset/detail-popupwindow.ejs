@@ -5,12 +5,16 @@
         New Submition
     </div>
     <div class="content">
-
         <form class="ui form">
-            <div class="field aligned">
-                <input type="file" name="upload-file" id="upload-file">
+            <select ng-model="_type" ng-change="select()" ng-options="t.text for t in types">
+
+            </select>
+            <div class="field aligned" id="dataset-upload">
+                <a href="#" id="upload">New File</a>
            </div>
-            <button ng-click="upload()" class="ui positive right floated labeled icon button" type="submit">Yes <i class="checkmark icon"></i> </button>
+            <div class="actions">
+                <div ng-click="upload()" class="ui positive right floated labeled icon button approve" type="submit">Yes <i class="checkmark icon"></i> </div>
+            </div>
             <br>
         </form>
     </div>
