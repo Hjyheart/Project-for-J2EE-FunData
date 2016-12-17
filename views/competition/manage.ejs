@@ -72,7 +72,7 @@
             <div class="centered row">
                 <div class="ui buttons">
                     <button class="ui red button" ng-click="downloadFile()" id="download-btn">download</button>
-                    <button class="ui grey button" onclick="showAnswer()" id="answer-btn">answer</button>
+                    <button class="ui grey button" ng-click="answerFile()" id="answer-btn">answer</button>
                 </div>
 
             </div>
@@ -89,37 +89,48 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="ui blue button" ng-click="uploadDownloadFile()">upload</div>
                     </div>
-                    <div class="ui form">
-                        <div class="field" id="dataset-upload">
-                            <a href="#" id="upload" ng-click="init()">upload</a>
+                    <div class="ui raised segment transition hidden" id="answer-upload">
+                        <div class="ui divided list">
+                            <div class="item">
+                                <div class=" content">
+                                    <div class="ui text centered container">
+                                        <a href="#">Ans</a>
+                                        <p>des</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="actions">
-                            <button class="ui green submit button approve" ng-click="submitDownload()">Ok</button>
-                        </div>
+                        <div class="ui blue button" ng-click="uploadAnsFile()">upload</div>
                     </div>
-                    <% include detail-answer.ejs %>
                 </div>
             </div>
         </div>
     </div>
-    <% include detail-popupwindow.ejs %>
     <% include ../footer.ejs %>
 </div>
+
+<div class="ui modal" id="upload-modal">
+    <div class="header" id="upload-modual-header"></div>
+    <div class="content">
+        <div class="ui form">
+            <div class="field" id="dataset-upload">
+                <a href="#" id="upload">upload</a>
+            </div>
+            <div class="ui indicating progress" data-value="1" data-total="100" id="process-bar">
+                <div class="bar"></div>
+                <div class="label"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 </body>
 
 <script>
-    function showAnswer() {
-        // show answer 未结束之前disabled
-        $('#answer-area').transition('fade up');
-        if ($('#answer-btn').text() === 'close answer') {
-            $('#answer-btn').text('answer');
-        }
-        else {
-            $('#answer-btn').text('close answer');
-        }
-    };
 
     function editName() {
         $('#edit-name').transition('fade');

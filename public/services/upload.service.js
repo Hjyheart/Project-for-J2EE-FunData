@@ -8,7 +8,7 @@ app.service('uploadService', function (constService, $http) {
         var token;
         $http({
             method: 'POST',
-            url: 'http://10.60.42.202:8080/getToken'
+            url: constService.urls().getToken
         }).then( res=>{
             console.log(res.data);
             token = res.data;
@@ -41,12 +41,42 @@ app.service('uploadService', function (constService, $http) {
                     },
                     'FileUploaded': function(up, file, info) {
                         console.log(info);
-
+                        var _info = JSON.parse(info);
+                        $('.ui.modal').modal('show');
+                        $('#process-bar').progress({
+                            percent: 100,
+                            text: {
+                                active  : '{value} of {total}',
+                                success : 'Upload compelete!'
+                            }
+                        });
+                        setTimeout(function () {
+                            $('.ui.modal').modal('hide');
+                            $('#process-bar').progress('set percent', 0);
+                        }, 1000);
                         // 1->dataset 2->com 3->mooc
                         if (type === 1){
 
                         }else if (type === 2){
+                            // i->datafile 2->ans 3->userans
+                            if (id.type === 1){
+                                $http({
+                                    method: 'POST',
+                                    url: constService.urls().confirmDataFile,
+                                    params:{
+                                        'key': _info.key,
+                                        'comId': id.id
+                                    }
+                                }).then( res=>{
+                                    console.log(res);
+                                }).catch( err=>{
+                                    console.log(err);
+                                });
+                            }else if (id.type === 2){
 
+                            }else if (id.type === 3){
+
+                            }
                         }else if (type === 3){
 
                         }
