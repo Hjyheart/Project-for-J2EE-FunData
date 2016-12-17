@@ -10,25 +10,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
             crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.1.1/plupload.full.min.js"></script>
+    <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.0-beta/qiniu.min.js"></script>
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
 
+    <script src="/ng-pagination/dist/directive.pagination.js"></script>
     <script src="/controllers/app.js"></script>
+    <script src="/controllers/competition/manage.js"></script>
+    <script src="/services/const.service.js"></script>
     <script src="/services/upload.service.js"></script>
     <script src="/services/info.service.js"></script>
-    <script src="/services/list.service.js"></script>
-    <script src="/services/const.service.js"></script>
-    <script src="/controllers/homeCtrl.js"></script>
+    <script src="/services/create.service.js"></script>
+    <script src="/services/auth.service.js"></script>
+    <script src="/controllers/authCtrl.js"></script>
 </head>
 
-<body class="pushable">
-<% include ../nav/navbar-floating.ejs%>
 
-<div class="pusher">
+
+<body class="pushable" ng-app="myApp" ng-controller="authCtrl">
+<div class="transition hidden" id="com-id"><%= comId %></div>
+
+<div class="pusher" ng-controller="manageCtrl">
+
+    <div ng-if="isLogin">
+        <% include ../nav/navbar-floating.ejs%>
+    </div>
+    <div ng-if="!isLogin">
+        <% include ../nav/navbar-floating-public.ejs %>
+    </div>
 
     <div class="ui inverted vertical masthead center aligned segment">
 
-        <% include ../nav/navbar-personal.ejs %>
+        <div>
+            <div ng-if="!isLogin">
+                <% include ../nav/navbar-public.ejs %>
+            </div>
+            <div ng-if="isLogin">
+                <% include ../nav/navbar-personal.ejs %>
+            </div>
+        </div>
 
         <div class="ui text container">
             <br><br>
@@ -50,49 +71,66 @@
             </div>
             <div class="centered row">
                 <div class="ui buttons">
-                    <button class="ui red button" onclick="downloadFile()" id="download-btn">download</button>
-                    <button class="ui grey button" onclick="showAnswer()" id="answer-btn">answer</button>
+                    <button class="ui red button" ng-click="downloadFile()" id="download-btn">download</button>
+                    <button class="ui grey button" ng-click="answerFile()" id="answer-btn">answer</button>
                 </div>
 
             </div>
             <div class="centered row">
                 <div class="ten wide column">
-                    <% include detail-download.ejs %>
-                    <% include detail-answer.ejs %>
+                    <div class="ui raised segment transition hidden" id="download-upload">
+                        <div class="ui divided list">
+                            <div class="item">
+                                <div class=" content">
+                                    <div class="ui text centered container">
+                                        <a href="#">download1</a>
+                                        <p>des</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui blue button" ng-click="uploadDownloadFile()">upload</div>
+                    </div>
+                    <div class="ui raised segment transition hidden" id="answer-upload">
+                        <div class="ui divided list">
+                            <div class="item">
+                                <div class=" content">
+                                    <div class="ui text centered container">
+                                        <a href="#">Ans</a>
+                                        <p>des</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui blue button" ng-click="uploadAnsFile()">upload</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <% include detail-popupwindow.ejs %>
     <% include ../footer.ejs %>
 </div>
+
+<div class="ui modal" id="upload-modal">
+    <div class="header" id="upload-modual-header"></div>
+    <div class="content">
+        <div class="ui form">
+            <div class="field" id="dataset-upload">
+                <a href="#" id="upload">upload</a>
+            </div>
+            <div class="ui indicating progress" data-value="1" data-total="100" id="process-bar">
+                <div class="bar"></div>
+                <div class="label"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 </body>
 
 <script>
-
-    function downloadFile() {
-        // download file
-        $('#download-area').transition('fade up');
-        if ($('#download-btn').text() === 'download') {
-            $('#download-btn').text('close download');
-        }
-        else {
-            $('#download-btn').text('download');
-        }
-
-    };
-
-    function showAnswer() {
-        // show answer 未结束之前disabled
-        $('#answer-area').transition('fade up');
-        if ($('#answer-btn').text() === 'close answer') {
-            $('#answer-btn').text('answer');
-        }
-        else {
-            $('#answer-btn').text('close answer');
-        }
-    };
 
     function editName() {
         $('#edit-name').transition('fade');
