@@ -65,19 +65,16 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
 
     $scope.createDataset = function createDataset() {
         $('#createDataset').modal('show');
-        uploader = uploadService.upload();
+        //uploader = uploadService.upload(1, {username: $scope.username, datasetname: name});
 
     };
 
     $scope.submitDataset = function (name, description) {
-
-
-        createService.create(constService.urls().createDataset, description, name)
+        createService.createDateset(constService.urls().createDataset, description, name)
             .then( res => {
-                uploader.start();
-
+                //uploader.start();
             })
-    }
+    };
 
     $scope.createMooc = function () {
         $('#createMooc').modal({
@@ -123,6 +120,20 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
             }
         }).then( res=>{
             console.log(res);
+            // 获取用户的竞赛
+            $http({
+                method: 'POST',
+                url: constService.urls().getHostCompetitions,
+                params:{
+                    'page': 0,
+                    'username': authService.getUser()
+                }
+            }).then( res=>{
+                console.log(res);
+                $scope.myCompetitions = res.data.My_competitions.my_com;
+            }).catch( err=>{
+                console.log(err);
+            });
         }).catch( err=>{
             console.log(err);
         });
@@ -140,6 +151,23 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
                         'comId': com.com_id,
                         'username': $scope.username
                     }
+                }).then( res=>{
+                    // 获取用户的竞赛
+                    $http({
+                        method: 'POST',
+                        url: constService.urls().getHostCompetitions,
+                        params:{
+                            'page': 0,
+                            'username': authService.getUser()
+                        }
+                    }).then( res=>{
+                        console.log(res);
+                        $scope.myCompetitions = res.data.My_competitions.my_com;
+                    }).catch( err=>{
+                        console.log(err);
+                    });
+                }).catch( err =>{
+                    console.log(err);
                 });
             }
         }).modal('show');

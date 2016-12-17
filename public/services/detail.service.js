@@ -11,7 +11,6 @@ app.service('detailService', function ($http, authService) {
                 url: url,
                 params: {
                     "username": authService.getUser(),
-                    "page": pageStart,
                     "datasetname": datasetName
                 }
             });

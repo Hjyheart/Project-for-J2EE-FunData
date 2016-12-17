@@ -28,22 +28,13 @@ router.post('/', function(req, res, next) {
 
 router.get('/:datasetName/detail', function(req, res, next) {
     var db_name = req.params.datasetName;
-    request({
-        url: `${_const.ServerHost}/lookup`,
-        method: 'POST',
-        form: {
-
-            datasetname: db_name
-       }
-    }, function (err, response, body) {
-        console.log(body);
-    });
+    console.log(db_name)
     res.render('./dataset/detail', { title: db_name });
 });
 
 /* Dataset Manager */
-router.get('/:datasetId/:datasetName/manage', function (req, res, next) {
-    var db_id = req.params.datasetId;
+router.get('/:datasetName/manage', function (req, res, next) {
+
     var db_name = req.params.datasetName;
    res.render('./dataset/manage', {title: db_name});
 });

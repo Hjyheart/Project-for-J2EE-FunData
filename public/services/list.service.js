@@ -10,9 +10,7 @@ app.service('listService', function ($http, authService) {
                 method: "POST",
                 url: url,
                 params: {
-
                     "username": authService.getUser(),
-                    "page": pageStart
                 }
         })
 

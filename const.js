@@ -2,11 +2,8 @@
  * Created by huang on 16-11-23.
  */
 const obj = {
-<<<<<<< HEAD
-    //ServerHost:'http://192.168.1.9:8080',
-=======
->>>>>>> master
-    ServerHost:'http://10.60.42.202:8080',
+    ServerHost:'http://192.168.1.9:8080',
+    //ServerHost:'http://10.60.42.202:8080',
     pageSize: 4,
     sessionSecret: 'fundata',
     RedisHost: '10.60.42.201',

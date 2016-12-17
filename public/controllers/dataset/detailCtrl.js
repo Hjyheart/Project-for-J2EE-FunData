@@ -16,7 +16,8 @@ app.controller('detailCtrl', function ($scope, $http,
     $scope.pageStart = 0;
     $scope.datasetname=$('#datasetname')[0].innerText;
     $scope.username = null;
-
+    $scope._type;
+    var uploader;
     $scope.content = {
         page: 1,
         take: 5,
@@ -154,17 +155,27 @@ app.controller('detailCtrl', function ($scope, $http,
 
     }
 
-    $scope.upload = function () {
-        detailService.getDetail(constService.urls().uploadFile, 0, $scope.datasetname)
-            .then( res => {
-                    var uploader = uploadService.upload(res.data.uploadtoken, res.data.key);
-                    uploader.start();
-            })
-            .catch( err => {
-                console.log(err);
-            });
-
+    $scope.toDatasetManage = function (name) {
+        window.location.href = '/dataset/' + name + '/manage';
 
     }
+
+    $scope.upload = function () {
+        // detailService.getDetail(constService.urls().uploadFile, 0, $scope.datasetname)
+        //     .then( res => {
+        //             uploader.start();
+        //     })
+        //     .catch( err => {
+        //         console.log(err);
+        //     });
+       $('newSubmition').modal('hide');
+    }
+
+    $scope.newSubmition = function () {
+        $('#newSubmition').modal('show');
+        uploader = uploadService.upload(1, {username: authService.getUser(),
+            datasetname: $scope.datasetname,
+            type: $scope._type});
+    };
 
 })

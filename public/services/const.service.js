@@ -4,9 +4,9 @@
 var app = angular.module('myApp');
 
 app.service('constService', function () {
-    //var ServerHost = 'http://192.168.1.9:8080';
-
-    var ServerHost = 'http://10.60.42.202:8080';
+    //var ServerHost = 'http://localhost:8080';
+    var ServerHost = 'http://192.168.1.9:8080';
+    // var ServerHost = 'http://10.60.42.202:8080';
     //var FrontHost = 'http://192.168.1.103:3000';
     var FrontHost = 'http://localhost:3000';
     var _const = {
@@ -15,7 +15,8 @@ app.service('constService', function () {
             setSession: `${FrontHost}/login`,
             getSession: `${FrontHost}/checkLogin`,
             register: `${FrontHost}/register`,
-
+            confirmTitle: `${ServerHost}/dataset/confirmTitle`,
+            confirmFile: `${ServerHost}/dataset/confirmFile`,
             // dataset
             getHotProject: `${ServerHost}/getHotProject`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,
@@ -44,7 +45,8 @@ app.service('constService', function () {
             addCompetition: `${ServerHost}/competition/add`,
             getHostCompetitions: `${ServerHost}/competition/get_competition`,
             deleteCompetition: `${ServerHost}/competition/delete`,
-            getCompetitionDetail: `${ServerHost}/competition/detail`
+            getCompetitionDetail: `${ServerHost}/competition/detail`,
+            confirmDataFile: `${ServerHost}/competition/confirmDataFile`
 
         }
     };

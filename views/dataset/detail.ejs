@@ -8,7 +8,7 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
               crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.2.1/plupload.full.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.1.1/plupload.full.min.js"></script>
       <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.min.js"></script>
       <!-- Latest compiled and minified JavaScript -->
       <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
@@ -28,10 +28,10 @@
         <div class="ui inverted vertical masthead center aligned segment">
             <div ng-controller="authCtrl">
                 <div ng-if="!isLogin">
-                    <% include nav/navbar-public.ejs %>
+                    <% include ../nav/navbar-public.ejs %>
                 </div>
                 <div ng-if="isLogin">
-                    <% include nav/navbar-personal.ejs %>
+                    <% include ../nav/navbar-personal.ejs %>
                 </div>
             </div>
             <div class="ui text container">
@@ -76,7 +76,7 @@
                             </div>
                             <div class="item">
 
-                                <button class="ui basic blue button" onclick="toDatasetManage('<%=title%>')" ng-if="isAdmin === '1'">Admin</button>
+                                <button class="ui basic blue button" ng-click="toDatasetManage('<%=title%>')" ng-if="isAdmin === '1'">Admin</button>
                            </div>
                         </div>
                     </div>
@@ -110,15 +110,11 @@
         $('#newPullRequest').modal('show');
     };
 
-    function newSubmition() {
-        $('#newSubmition').modal('show');
-    };
+
 
     function addDataSet() {
         // 向后台请求加数据集
     };
 
-    function toDatasetManage(name) {
-        window.location.href = '/dataset/' + name + "/" + name + '/manage';
-    }
+
 </script>
