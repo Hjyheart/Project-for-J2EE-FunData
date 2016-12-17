@@ -72,12 +72,12 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
     $scope.submitDataset = function (name, description) {
 
 
-        createService.create(constService.urls().createDataset, description, name)
+        createService.createDateset(constService.urls().createDataset, description, name)
             .then( res => {
                 uploader.start();
 
             })
-    }
+    };
 
     $scope.createMooc = function () {
         $('#createMooc').modal({
