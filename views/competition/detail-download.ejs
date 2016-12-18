@@ -1,0 +1,11 @@
+<div class="ui raised segment transition hidden" id="download-area">
+    <div class="item" ng-repeat="download in competition.download">
+        <div class="content">
+            <a class="header" href="{{download.url}}">{{download.name}}</a>
+            <div class="meta">
+                <span>{{download.time}}</span>
+            </div>
+            <hr/>
+        </div>
+    </div>
+</div>

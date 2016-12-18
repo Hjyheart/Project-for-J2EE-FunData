@@ -48,6 +48,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         });
     };
 
+
     // js for mooc
     $scope.moocToDetail = function (course) {
         window.location.href = '/mooc/' + course.course_id + '/' + course.course_name + '/detail';
