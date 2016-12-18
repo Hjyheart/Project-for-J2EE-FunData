@@ -4,8 +4,9 @@
 
 app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createService', 'authService', 'infoService',
     function ($scope, $http, constService, createService, authService, infoService) {
-    $scope.myCompetitions;
+    $scope.myCompetitions = [];
     $scope.myCourses = [];
+    $scope.myDatasets = [];
     var uploader;
     $scope.username = null;
 
@@ -17,6 +18,16 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         }
 
         // 获取用户的数据集
+        infoService.getInfo(constService.urls().getMyProject)
+            .then( res => {
+                console.log(res);
+                $scope.myDatasets = res.data.datasets;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+
         infoService.getInfo(constService.urls().getMyCourse)
             .then( res => {
                 console.log(res);
@@ -26,8 +37,6 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
             .catch(err => {
                 console.log(err);
             })
-
-
 
         // 获取用户的竞赛
         $http({
@@ -106,8 +115,24 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         location.href = `/mooc/${course.id}/${course.name}/manager`
     }
 
-    $scope.moocShowWarning =function(course){
-
+    $scope.moocShowWarning =function(course, index){
+        $('#confirmDeleteMooc').modal({
+            'transision': 'vertical flip',
+            onApprove : function() {
+                $http({
+                    method: 'POST',
+                    url: constService.urls().deleteMooc,
+                    params:{
+                        'id': course.id,
+                        'username': $scope.username
+                    }
+                }).then( res => {
+                    $scope.myCourses.splice(index, 1);
+                }).catch( err =>{
+                    console.log(err);
+                });
+            }
+        }).modal('show');
     }
     // 查看竞赛详情
     $scope.comToDetail = function (com) {

@@ -21,6 +21,7 @@
     </div>
     <div class="ui text container">
         <h2 class="ui header">Guide</h2>
+        <button ng-click="changeGuide(step)">upload</button>
         <div class="ui special images">
             <div class="blurring dimmable image">
                 <div class="ui dimmer">
@@ -30,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="ui big centered image" src="{{step.step_pic_url}}">
+                <img class="ui big centered image" src="{{step.step_pic_url}}" id="guidePic">
             </div>
         </div>
     </div>

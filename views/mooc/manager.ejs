@@ -8,6 +8,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.1.1/plupload.full.min.js"></script>
+    <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.0-beta/qiniu.min.js"></script>
     <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
 
@@ -15,16 +17,22 @@
     <script src="/controllers/app.js"></script>
     <script src="/services/const.service.js"></script>
     <script src="/services/divide.service.js"></script>
+    <script src="/services/auth.service.js"></script>
+    <script src="/services/upload.service.js"></script>
     <script src="/controllers/mooc/manageCtrl.js"></script>
-</head>
 
+    <script src="/controllers/authCtrl.js"></script>
+</head>
+<div class="transition hidden" id="mooc-id"><%= moocId %></div>
 <body class="pushable" ng-app="myApp" ng-controller="manageCtrl">
 <% include ../nav/navbar-floating.ejs%>
 
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment">
 
-        <% include ../nav/navbar-personal.ejs %>
+        <div ng-controller="authCtrl">
+            <% include ../nav/navbar-personal.ejs %>
+        </div>
 
         <div class="ui text container">
             <br><br>
@@ -75,11 +83,11 @@
         New Gudie
     </div>
     <div class="content">
-        <form class="ui form" action="" method="post">
-            <div class="field aligned">
-                <input type="file" name="upload-file">
+        <form class="ui form">
+            <div class="field" id="dataset-upload">
+                <a href="#" id="upload">upload</a>
             </div>
-            <button class="ui positive right floated labeled icon button" type="submit">Yes <i class="checkmark icon"></i> </button>
+            <button class="ui positive right floated labeled icon button" ng-click="guideChanged()">Yes <i class="checkmark icon"></i> </button>
             <br>
         </form>
     </div>
@@ -96,23 +104,17 @@
             <div class="field" id="step-name">
                 <label>Step Name</label>
                 <div class="ui input">
-                    <input placeholder="Mooc Name" type="text">
+                    <input placeholder="Mooc Name" type="text" ng-model="s_name">
                 </div>
             </div>
             <div class="field">
                 <label>Content</label>
                 <div class="ui input">
-                    <textarea id="step-content"></textarea>
-                </div>
-            </div>
-            <div class="field" id="step-guide">
-                <label>Guide</label>
-                <div class="ui input">
-                    <input type="file">
+                    <textarea id="step-content" ng-model="s_content"></textarea>
                 </div>
             </div>
             <div class="actions">
-                <button class="ui green submit button approve">ok</button>
+                <button class="ui green submit button approve" ng-click="submitNewStep(s_name, s_content)">ok</button>
             </div>
         </div>
     </div>

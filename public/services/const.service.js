@@ -7,7 +7,8 @@ app.service('constService', function () {
     //var ServerHost = 'http://localhost:8080';
     //var ServerHost = 'http://192.168.1.9:8080';
     // var ServerHost = 'http://10.60.42.202:8080';
-    var ServerHost = 'http://192.168.1.4:8080';
+    //var ServerHost = 'http://192.168.1.4:8080';
+    var ServerHost = 'http://localhost:8080';
     var FrontHost = 'http://localhost:3000';
     var _const = {
         urls: {
@@ -34,6 +35,7 @@ app.service('constService', function () {
             downloadUrl: `${ServerHost}/dataset/downloadUrl`,
             // mooc
             addMooc: `${ServerHost}/course/add`,
+            addStep: `${ServerHost}/course/addstep`,
             getMoocScreenHotCourse: `${ServerHost}/course/screen_hot_course`,
             getMoocBoutique: `${ServerHost}/course/boutique_course/more/`,
             getOtherCourse: `${ServerHost}/course/boutique_course/more/`,
@@ -42,6 +44,9 @@ app.service('constService', function () {
             getDetailInit: `${ServerHost}/course/detail`,
             registerCourse: `${ServerHost}/course/register`,
             getMyCourse: `${ServerHost}/course/mycourses`,
+            deleteMooc: `${ServerHost}/course/delete`,
+            submitOverview: `${ServerHost}/course/editoverview`,
+            confirmStepFile: `${ServerHost}/course/confirmsteppic`,
             // competition
             getMyCompetition: `${ServerHost}/competition/getInfo`,
             getCompetitions: `${ServerHost}/competition/show_competitions`,

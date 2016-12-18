@@ -88,7 +88,11 @@
 
                                       <a class="header" href="dataset/{{project.datasetname}}/detail">{{project.datasetname}}</a>
                                       <div class="description">Updated At {{project.updatetime}}</div>
-                                 </div>
+
+                                      <span ng-if="project.type === 0">REJECT</span>
+                                      <span ng-if="project.type === -1">WAITING</span>
+                                      <span ng-if="project.type === 1">ACCEPT</span>
+                                  </div>
                               </div>
                           </div>
                       </div>

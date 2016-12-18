@@ -35,7 +35,10 @@
 
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment">
-        <% include ../nav/navbar-personal.ejs %>
+        <div ng-controller="authCtrl">
+            <% include ../nav/navbar-personal.ejs %>
+
+        </div>
 
         <div class="ui text container">
             <br><br>

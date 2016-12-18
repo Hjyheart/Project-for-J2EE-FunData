@@ -14,9 +14,9 @@
         <form class="ui form transition hidden" id="over-edit-form">
             <div class="field">
                 <label>New Overview</label>
-                <textarea id="over-edit-content"></textarea>
+                <textarea id="over-edit-content" ng-model="overview"></textarea>
             </div>
-            <div class="ui blue labeled submit icon button" ng-click="overSubmit()"><i class="icon edit"></i> submit </div>
+            <div class="ui blue labeled submit icon button" ng-click="overSubmit(overview)"><i class="icon edit"></i> submit </div>
         </form>
     </div>
 </div>

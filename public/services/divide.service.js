@@ -5,7 +5,7 @@ var app = angular.module('myApp');
 
 app.service('divideService', function () {
     this.getHtml= function (text) {
-        if(text === null){
+        if(text === null || text === undefined){
             return;
         }
         var html = '<p>';
