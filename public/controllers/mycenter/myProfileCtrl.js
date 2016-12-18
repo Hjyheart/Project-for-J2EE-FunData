@@ -2,9 +2,10 @@
  * Created by hongjiayong on 2016/12/6.
  */
 
-app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createService', 'authService', 'uploadService',
-    function ($scope, $http, constService, createService, authService, uploadService) {
+app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createService', 'authService', 'infoService',
+    function ($scope, $http, constService, createService, authService, infoService) {
     $scope.myCompetitions;
+    $scope.myCourses = [];
     var uploader;
     $scope.username = null;
 
@@ -16,22 +17,18 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         }
 
         // 获取用户的数据集
+        infoService.getInfo(constService.urls().getMyCourse)
+            .then( res => {
+                console.log(res);
+                $scope.myCourses = res.data.join.join_courses;
+                $scope.myCourses = $scope.myCourses.concat(res.data.host.host_courses);
+            })
+            .catch(err => {
+                console.log(err);
+            })
 
-        // 获取用户的课程
-        $scope.myMoocs =[
-            {
-                'course_id': 1,
-                'course_name': 'course1',
-                'course_owner_name': 'jiayong',
-                'course_des': 'kea'
-            },
-            {
-                'course_id': 2,
-                'course_name': 'course2',
-                'course_owner_name': 'jiayong',
-                'course_des': 'jiong'
-            }
-        ];
+
+
         // 获取用户的竞赛
         $http({
             method: 'POST',
@@ -83,32 +80,35 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         }).modal('show');
     };
 
-    $scope.submitMooc = function () {
+    $scope.submitMooc = function (courseName, description) {
         $http({
             method: 'POST',
-            url: `${constService.urls().addMooc/{courseName}/{description}/{username}}`,
+            url: constService.urls().addMooc,
+            params: {
+                'username': authService.getUser(),
+                'coursename': courseName,
+                'des': description
+            }
         }).then( res=>{
             console.log(res);
-            // 获取用户的竞赛
-            $http({
-                method: 'POST',
-                url: constService.urls().getHostCompetitions,
-                params:{
-                    'page': 0,
-                    'username': authService.getUser()
-                }
-            }).then( res=>{
-                console.log(res);
-                $scope.myCompetitions = res.data.My_competitions.my_com;
-            }).catch( err=>{
-                console.log(err);
-            });
+            // 获取用户的课程
+            $scope.myCourses = $scope.myCourses.concat(res.data);
         }).catch( err=>{
             console.log(err);
         });
     };
 
+    $scope.moocToDetail = function(course){
+        location.href = `/mooc/${course.id}/${course.name}/detail`
+    }
 
+    $scope.moocManager = function(course){
+        location.href = `/mooc/${course.id}/${course.name}/manager`
+    }
+
+    $scope.moocShowWarning =function(course){
+
+    }
     // 查看竞赛详情
     $scope.comToDetail = function (com) {
         window.location.href = '/competition/' + com.com_id + '/detail';

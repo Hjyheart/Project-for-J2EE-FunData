@@ -2,8 +2,8 @@
  * Created by huang on 16-11-23.
  */
 const obj = {
-    ServerHost:'http://192.168.1.9:8080',
-
+    //ServerHost:'http://192.168.1.9:8080',
+    ServerHost:'http://192.168.1.4:8080',
 
     //ServerHost:'http://10.60.42.202:8080',
 

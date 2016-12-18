@@ -5,8 +5,9 @@ var app = angular.module('myApp');
 
 app.service('constService', function () {
     //var ServerHost = 'http://localhost:8080';
-    var ServerHost = 'http://192.168.1.9:8080';
+    //var ServerHost = 'http://192.168.1.9:8080';
     // var ServerHost = 'http://10.60.42.202:8080';
+    var ServerHost = 'http://192.168.1.4:8080';
     var FrontHost = 'http://localhost:3000';
     var _const = {
         urls: {
@@ -32,13 +33,15 @@ app.service('constService', function () {
             createDataset: `${ServerHost}/dataset/createDataset`,
             downloadUrl: `${ServerHost}/dataset/downloadUrl`,
             // mooc
-            addMooc: `${ServerHost}/course/add/`,
+            addMooc: `${ServerHost}/course/add`,
             getMoocScreenHotCourse: `${ServerHost}/course/screen_hot_course`,
             getMoocBoutique: `${ServerHost}/course/boutique_course/more/`,
             getOtherCourse: `${ServerHost}/course/boutique_course/more/`,
-            freshMoocBoutique: `${ServerHost}/mooc/fresh-boutique`,
-            freshMoocOther: `${ServerHost}/mooc/fresh-other`,
-            getDetailInit: `${ServerHost}/course/`,
+            freshMoocBoutique: `${ServerHost}/course/fresh-boutique`,
+            freshMoocOther: `${ServerHost}/course/fresh-other`,
+            getDetailInit: `${ServerHost}/course/detail`,
+            registerCourse: `${ServerHost}/course/register`,
+            getMyCourse: `${ServerHost}/course/mycourses`,
             // competition
             getMyCompetition: `${ServerHost}/competition/getInfo`,
             getCompetitions: `${ServerHost}/competition/show_competitions`,
@@ -52,7 +55,9 @@ app.service('constService', function () {
             judgeIfRegister: `${ServerHost}/competition/applyIf`,
             competitionRegister: `${ServerHost}/competition/register`,
             competitionQuit: `${ServerHost}/competition/unregister`,
-            getPersonAccurate: `${ServerHost}/competition/person/accurate`
+            getPersonAccurate: `${ServerHost}/competition/person/accurate`,
+            getAccurateRank: `${ServerHost}/competition//accurate/rank`,
+            addComment: `${ServerHost}/competition/comment/add`
 
         }
     };

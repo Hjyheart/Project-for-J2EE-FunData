@@ -3,10 +3,10 @@
  */
 // var app = angular.module('myApp', ['ng-pagination']);
 app.controller('homeCtrl',[ '$scope', '$http', 'constService', 'authService', function ($scope, $http, constService, authService) {
-    $scope.screen_hot_course;
+    $scope.screen_hot_course = [];
     $scope.mooc_title;
-    $scope.boutique_course;
-    $scope.other_course;
+    $scope.boutique_course = [];
+    $scope.other_course = [];
 
     this.$onInit = function () {
        // 获取荧幕热门课程
@@ -14,6 +14,7 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', 'authService', fu
            method: 'GET',
            url: constService.urls().getMoocScreenHotCourse
        }).then( res =>{
+           console.log(res);
            $scope.screen_hot_course = res.data;
        }).catch(err =>{
            console.log(err);
@@ -24,6 +25,7 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', 'authService', fu
             method: 'GET',
             url: constService.urls().getMoocBoutique + '0'
         }).then( res=>{
+            console.log(res);
             $scope.boutique_course = res.data.boutique_course;
         }).catch(err =>{
             console.log(err);
@@ -32,8 +34,9 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', 'authService', fu
         // 获取其他课程
         $http({
             method: 'GET',
-            url: constService.urls().getOtherCourse + '0'
+            url: constService.urls().getOtherCourse + '1'
         }).then( res=>{
+            console.log(res);
             $scope.other_course = res.data.boutique_course;
         }).catch(err =>{
 

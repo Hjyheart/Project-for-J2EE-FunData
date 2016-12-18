@@ -2,9 +2,8 @@
     <div class="ui text main container">
     <h1 class="ui header">Overview</h1>
         <div id="overview-content">
-
         </div>
-        <button ng-if="user.user_flag == -1" class="ui green button" id="joinBtn" ng-click="joinDeal()">Join!</button>
-        <button ng-if="user.user_flag == 0" class="ui green button" id="unJoinBtn" ng-click="unJoinDeal()">Unsubscribe!</button>
+        <button ng-if="flag == 0" class="ui green button" id="joinBtn" ng-click="joinDeal()">Join!</button>
+        <button ng-if="flag == 1" class="ui green button" id="unJoinBtn" ng-click="unJoinDeal()">Unsubscribe!</button>
     </div>
 </div>

@@ -72,9 +72,9 @@
             </div>
             <div class="centered row">
                 <div class="ui buttons">
-                    <button class="ui green button" ng-click="submitAnswer()" ng-if="isLogin">submit</button>
-                    <button class="ui green button disabled" ng-click="submitAnswer()" ng-if="!isLogin">submit->login</button>
-                    <button class="ui red button" onclick="downloadFile()" id="download-btn">download</button>
+                    <button class="ui green button" ng-click="submitAnswer()" ng-if="isLogin && isApply">submit</button>
+                    <button class="ui green button disabled" ng-click="submitAnswer()" ng-if="!isLogin || !isApply">submit->login->register</button>
+                    <button class="ui red button" ng-click="downloadFile()" id="download-btn">download</button>
                     <button class="ui orange button" onclick="mySubmission()" id="submission-btn">close my submission</button>
                     <button class="ui pink button" onclick="showRank()" id="rank-btn">rank</button>
                     <button class="ui blue button" onclick="showDiscuss()" id="discuss-btn">discuss</button>
@@ -84,6 +84,7 @@
             </div>
             <div class="centered row">
                 <div class="ten wide column">
+                    <% include detail-download.ejs %>
                     <% include detail-discuss.ejs %>
                     <% include detail-mysubmitions.ejs %>
                     <% include detail-rank.ejs %>
@@ -113,21 +114,6 @@
 </body>
 
 <script>
-    function submitAnswer() {
-        $('#submit').modal('show');
-    };
-
-    function downloadFile() {
-        // download file
-        $('#download-area').transition('fade up');
-        if ($('#download-btn').text() === 'download') {
-            $('#download-btn').text('close download');
-        }
-        else {
-            $('#download-btn').text('download');
-        }
-
-    };
 
     function showDiscuss() {
         // show discuss

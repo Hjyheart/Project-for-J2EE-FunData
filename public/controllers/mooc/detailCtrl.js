@@ -11,8 +11,9 @@ app.controller('detailCtrl',
     $scope.steps;
     $scope.answered;
     $scope.unanswered;
+    $scope.isApply = false;
     $scope.username = null;
-
+    $scope.flag = -1;
     this.$onInit = function () {
 
         // init user
@@ -21,22 +22,26 @@ app.controller('detailCtrl',
         }
 
         $http({
-            method: 'GET',
-            url: constService.urls().getDetailInit + course_id + '/' + course_name + '/detail',
+            method: 'POST',
+            url: constService.urls().getDetailInit,
+            params: {
+                id: course_id,
+                username: authService.getUser()
+            }
+
         })
             .then( res =>{
-
+                console.log(res)
                 // init overview
-                var overview = res.data.course_detail.course_overview;
+                var overview = res.data.course_overview;
                 $('#overview-content').replaceWith(divideService.getHtml(overview));
 
                 // init steps
-                var steps = res.data.course_detail.course_steps.course_steps;
-                $scope.steps = steps;
-
+                $scope.steps = res.data.course_steps.course_steps;
+                $scope.flag = res.data.flag;
                 // init q & a
-                $scope.answered = res.data.course_detail.course_qa.answered;
-                $scope.unanswered = res.data.course_detail.course_qa.unanswered;
+                $scope.answered = res.data.course_qa.answered;
+                $scope.unanswered = res.data.course_qa.unanswered;
             })
             .catch(err =>{
                 console.log(err);
@@ -58,13 +63,36 @@ app.controller('detailCtrl',
 
     $scope.joinDeal = function () {
         $('#welcome').modal('show');
-        $scope.user.user_flag = 0;
-        // 注册异步
+        $http({
+            method: 'POST',
+            url: constService.urls().registerCourse,
+            params: {
+                id: course_id,
+                username: authService.getUser(),
+                type: 1
+            }
+
+        })
+            .then(res => {
+                $scope.flag = 1;
+            })
     };
 
     $scope.unJoinDeal = function () {
         $('#thanks').modal('show');
-        $scope.user.user_flag = -1;
+        $http({
+            method: 'POST',
+            url: constService.urls().registerCourse,
+            params: {
+                id: course_id,
+                username: authService.getUser(),
+                type: 0
+            }
+
+        })
+            .then(res => {
+                $scope.flag = 0;
+            })
     };
 
     $scope.addQuestion = function () {
