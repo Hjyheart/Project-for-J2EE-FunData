@@ -127,11 +127,11 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
 
     $scope.moocToDetail = function(course){
         location.href = `/mooc/${course.id}/${course.name}/detail`
-    }
+    };
 
     $scope.moocManager = function(course){
         location.href = `/mooc/${course.id}/${course.name}/manager`
-    }
+    };
 
     $scope.moocShowWarning =function(course, index){
         $('#confirmDeleteMooc').modal({
@@ -151,7 +151,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
                 });
             }
         }).modal('show');
-    }
+    };
     // 查看竞赛详情
     $scope.comToDetail = function (com) {
         window.location.href = '/competition/' + com.com_id + '/detail';
@@ -168,8 +168,9 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
             transition : 'vertical flip'
         }).modal('show');
     };
+
     // 提交竞赛数据
-    $scope.submitCom = function () {
+    $scope.createCom = function () {
         var start = $('#start-time').val().substring(6, 10) + '-' +
             $('#start-time').val().substring(0, 2) + '-' +
             $('#start-time').val().substring(3, 5) + ' 00:00:00';

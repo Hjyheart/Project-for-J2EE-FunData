@@ -22,16 +22,18 @@
     <div class="ui text container">
         <h2 class="ui header">Guide</h2>
         <button ng-click="changeGuide(step)">upload</button>
-        <div class="ui special images">
-            <div class="blurring dimmable image">
-                <div class="ui dimmer">
-                    <div class="content">
-                        <div class="center">
-                            <div class="ui inverted button" ng-click="changeGuide(step)">Change Guide</div>
+        <div class="ui special cards">
+            <div class="card">
+                <div class="blurring dimmable ui big centered image">
+                    <div class="ui dimmer">
+                        <div class="content">
+                            <div class="center">
+                                <div class="ui inverted button" ng-click="changeGuide(step)">Change Guide</div>
+                            </div>
                         </div>
                     </div>
+                    <img src="{{step.step_pic_url}}" id="guidePic">
                 </div>
-                <img class="ui big centered image" src="{{step.step_pic_url}}" id="guidePic">
             </div>
         </div>
     </div>

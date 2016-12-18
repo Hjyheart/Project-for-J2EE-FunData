@@ -21,7 +21,7 @@ app.service('constService', function () {
             getUserProfile: `${ServerHost}/authorize/user`,
             changePwd: `${ServerHost}/authorize/edit`,
             // dataset
-            getHotProject: `${ServerHost}/getHotProject`,
+            getHotProject: `${ServerHost}/dataset/getHotProject`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,
             getMyContribute: `${ServerHost}/dataset/getMyContribute`,
             getPullRequest: `${ServerHost}/dataset/getPullRequest`,
