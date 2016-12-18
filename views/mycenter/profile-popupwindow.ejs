@@ -199,17 +199,17 @@
             <div class="field" id="mooc-name">
                 <label>Mooc Name</label>
                 <div class="ui input">
-                    <input placeholder="Mooc Name" type="text">
+                    <input placeholder="Mooc Name" type="text" ng-model="mooc_name">
                 </div>
             </div>
             <div class="field" id="mooc-desc">
                 <label>Description</label>
                 <div class="ui input">
-                    <input placeholder="Description" type="text">
+                    <input placeholder="Description" type="text" ng-model="des">
                 </div>
             </div>
             <div class="actions">
-                <button class="ui green submit button approve">Ok</button>
+                <button class="ui green submit button approve" ng-click="submitMooc(mooc_name, des)">Ok</button>
             </div>
         </div>
     </div>

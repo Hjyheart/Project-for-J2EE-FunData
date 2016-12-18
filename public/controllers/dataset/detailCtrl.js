@@ -176,7 +176,6 @@ app.controller('detailCtrl', function ($scope, $http,
     };
 
     $scope.select = function () {
-
         uploader = uploadService.upload(1, {username: authService.getUser(),
             datasetname: $scope.datasetname,
             type: $scope._type,

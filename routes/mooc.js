@@ -25,7 +25,7 @@ router.get('/:id/:name/manager', function (req, res, next) {
    var course_name = req.params.name;
     var course_id = req.params.id;
 
-   res.render('./mooc/manager', { title: course_name});
+   res.render('./mooc/manager', { title: course_name, moocId: course_id});
 });
 
 module.exports = router;

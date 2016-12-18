@@ -42,18 +42,18 @@ app.service('uploadService', function (constService, $http) {
                     'FileUploaded': function(up, file, info) {
                         console.log(info);
                         var _info = JSON.parse(info);
-                        $('.ui.modal').modal('show');
-                        $('#process-bar').progress({
-                            percent: 100,
-                            text: {
-                                active  : '{value} of {total}',
-                                success : 'Upload compelete!'
-                            }
-                        });
-                        setTimeout(function () {
-                            $('.ui.modal').modal('hide');
-                            $('#process-bar').progress('set percent', 0);
-                        }, 1000);
+                        //$('.ui.modal').modal('show');
+                        // $('#process-bar').progress({
+                        //     percent: 100,
+                        //     text: {
+                        //         active  : '{value} of {total}',
+                        //         success : 'Upload compelete!'
+                        //     }
+                        // });
+                        // setTimeout(function () {
+                        //     $('.ui.modal').modal('hide');
+                        //     $('#process-bar').progress('set percent', 0);
+                        // }, 1000);
                         // 1->dataset 2->com 3->mooc
                         if (type === 1){
                             var url = "";
@@ -121,7 +121,21 @@ app.service('uploadService', function (constService, $http) {
                                 });
                             }
                         }else if (type === 3){
-
+                            $http({
+                                method: 'POST',
+                                url: constService.urls().confirmStepFile,
+                                params:{
+                                    'stepId': id.stepId,
+                                    'key': _info.key,
+                                    'courseId': id.courseId
+                                }
+                            }).then( res => {
+                                console.log(res);
+                                $('#guidePic').attr("src", res.data.url);
+                            }).catch( err=>{
+                                //
+                                console.log(err);
+                            });
                         }
 
 

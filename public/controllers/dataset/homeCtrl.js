@@ -39,7 +39,7 @@ app.controller('homeCtrl', function ($scope, $http,
             });
         listService.getList(constService.urls().getMyContribute, $scope.pageStart)
             .then( res => {
-                    $scope.MyContributes = res.data.datasets;
+                    $scope.MyContributes = res.data.dataset;
 
             })
             .catch( err => {
