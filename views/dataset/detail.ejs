@@ -58,11 +58,11 @@
                         <a class="item" data-tab="Four" ng-click="getComments()">Comments </a>
                        <!--右侧喜爱和贡献标签-->
                         <div class="right menu">
+                            <button ng-if="username" onclick="datasetToManage('<%= title%>')">manage</button>
                             <div class="item">
                                 <div class="ui labeled button">
                                     <div class="ui basic pink button"><i class="fork icon"></i> Contribute </div>
                                     <a class="ui left pointing pink label">
-
                                         {{Contribute}}
                                    </a>
                                 </div>
@@ -110,5 +110,8 @@
         // 向后台请求加数据集
     };
 
+    function datasetToManage(name) {
+        window.location.href = "/dataset/" + name + "/manage";
+    };
 
 </script>

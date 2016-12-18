@@ -1,19 +1,22 @@
-<div class="ui items">
+<div class="ui items" ng-repeat="pull in pullrequest.list">
     <!--请求进行打表-->
     <div class="item">
         <div class="image">
             <img src="http://semantic-ui.com/images/wireframe/image.png">
         </div>
         <div class="content">
-            <a class="header">UserName</a>
+            <a class="header">{{pull.userName}}</a>
             <div class="meta">
-                <span class="cinema">desc</span>
+                <span class="cinema">{{pull.description}}</span>
             </div>
             <div class="description">
                 <p></p>
             </div>
             <div class="extra">
-                <div class="ui right floated primary button" onclick="confirmPullRequest('<%= title %>')">Manage <i class="right chevron icon"></i> </div>
+                <div ng-if="pull.type === -1" class="ui right floated primary button" ng-click="confirmPullRequest('<%= title %>', pull.id, $index)">Confirm<i class="right chevron icon"></i> </div>
+                <div ng-if="pull.type === -1 || pull.type === 1" class="ui right floated primary button" ng-click="rejectPullRequest('<%= title %>', pull.id, $index)">Reject<i class="right chevron icon"></i> </div>
+                <div ng-if="pull.type === 0" class="ui right floated primary button">Rejected<i class="right chevron icon"></i> </div>
+
             </div>
         </div>
     </div>
