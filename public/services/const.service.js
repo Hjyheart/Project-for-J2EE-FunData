@@ -7,7 +7,6 @@ app.service('constService', function () {
     //var ServerHost = 'http://localhost:8080';
     //var ServerHost = 'http://192.168.1.9:8080';
     // var ServerHost = 'http://10.60.42.202:8080';
-    var ServerHost = 'http://192.168.1.9:8080';
     var FrontHost = 'http://localhost:3000';
     var _const = {
         urls: {
@@ -48,7 +47,11 @@ app.service('constService', function () {
             getCompetitionDetail: `${ServerHost}/competition/detail`,
             confirmDataFile: `${ServerHost}/competition/confirmDataFile`,
             confirmDataAns: `${ServerHost}/competition/confirmAnsFile`,
-            confirmUserDataAns: `${ServerHost}/competition/confirmUserAns`
+            confirmUserDataAns: `${ServerHost}/competition/confirmUserAns`,
+            judgeIfRegister: `${ServerHost}/competition/applyIf`,
+            competitionRegister: `${ServerHost}/competition/register`,
+            competitionQuit: `${ServerHost}/competition/unregister`,
+            getPersonAccurate: `${ServerHost}/competition/person/accurate`
 
         }
     };

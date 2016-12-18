@@ -5,22 +5,17 @@
         <tr>
             <th class="center aligned">Name</th>
             <th class="center aligned">Accuracy Rate</th>
-            <th class="center aligned">Rank</th>
+            <th class="center aligned">Time</th>
         </tr>
         </thead>
         <tbody>
         <th>
 
         </th>
-        <tr>
-            <td class="center aligned"><i class="file outline icon"></i> submission 1 </td>
-            <td class="center aligned">100%</td>
-            <td class="center aligned">1</td>
-        </tr>
-        <tr>
-            <td class="center aligned"><i class="file outline icon"></i> submission 3 </td>
-            <td class="center aligned">100%</td>
-            <td class="center aligned">1</td>
+        <tr ng-repeat="rate in rates">
+            <td class="center aligned"><i class="file outline icon"></i> submission {{$index}} </td>
+            <td class="center aligned">{{rate.value}}</td>
+            <td class="center aligned">{{rate.uploadtime}}</td>
         </tr>
         </tbody>
     </table>

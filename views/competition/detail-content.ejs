@@ -8,6 +8,15 @@
     <div class="ui blue label"><i class="hourglass start icon"></i> {{competition.com_start_time}} </div>
     <div class="ui red label"><i class="hourglass end icon"></i> {{competition.com_end_time}} </div>
 </h1>
+<div ng-if="isLogin">
+    <div class="ui teal basic button"  ng-mouseover="jiggle()" ng-click="register()" ng-if="!isApply">
+        register
+    </div>
+
+    <div class="ui red basic button" ng-mouseover="shake()" ng-click="quit()" ng-if="isApply">
+        quit
+    </div>
+</div>
 
 <div class="ui raised segments">
     <div class="ui segment">
