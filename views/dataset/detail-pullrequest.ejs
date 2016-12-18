@@ -8,25 +8,17 @@
 
         <div ng-repeat="pull in pullrequest.list">
            <div class="item">
-                <div class="image">
-                    <img src="http://semantic-ui.com/images/wireframe/image.png">
-                </div>
-                <div class="content">
-
+                <div class="content _row">
                     <a class="header">{{pull.userName}}</a>
                    <div class="meta">
                         <span class="cinema">desc</span>
                     </div>
                     <div class="description">
-
                         <p>{{pull.description}}</p>
                     </div>
-                    <div class="extra">
-                        <div class="ui right floated primary button" ng-if="pull.type==0" ng-click="confirmPullRequest(pull,1)">Merge <i class="right chevron icon"></i> </div>
+                    <div class="description">
+                        <a href="{{pull.url}}">download</a>
                     </div>
-                    <div class="extra">
-                        <div class="ui right floated primary button" ng-if="pull.type==0" ng-click="confirmPullRequest(pull,0)">Reject <i class="right chevron icon"></i> </div>
-                   </div>
                 </div>
             </div>
             <hr>

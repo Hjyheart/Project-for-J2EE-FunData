@@ -16,6 +16,7 @@ app.controller('detailCtrl', function ($scope, $http,
     $scope.isAdmin = '0';
     $scope.pageStart = 0;
     $scope.datasetname=$('#datasetname')[0].innerText;
+    $scope.desc = "";
     $scope.username = null;
     $scope._type = null;
     $scope.types = [
@@ -87,7 +88,7 @@ app.controller('detailCtrl', function ($scope, $http,
     $scope.getPullRequests =function () {
         detailService.getDetail(constService.urls().getPullRequest, 0, $scope.datasetname)
             .then( res => {
-                    $scope.Comments = res.data.comments;
+                    $scope.pullrequest.list = res.data.pullrequest;
 
             })
             .catch( err => {
@@ -133,7 +134,6 @@ app.controller('detailCtrl', function ($scope, $http,
 
     }
 
-
     function moreContent(page){
         detailService.getDetail(constService.urls().getContent, page, $scope.datasetname)
             .then( res => {
@@ -164,15 +164,10 @@ app.controller('detailCtrl', function ($scope, $http,
 
     }
 
+
     $scope.upload = function () {
-        // detailService.getDetail(constService.urls().uploadFile, 0, $scope.datasetname)
-        //     .then( res => {
-        //             uploader.start();
-        //     })
-        //     .catch( err => {
-        //         console.log(err);
-        //     });
        $('newSubmition').modal('hide');
+        $scope.getPullRequests();
     }
 
     $scope.newSubmition = function () {
@@ -184,7 +179,8 @@ app.controller('detailCtrl', function ($scope, $http,
 
         uploader = uploadService.upload(1, {username: authService.getUser(),
             datasetname: $scope.datasetname,
-            type: $scope._type});
+            type: $scope._type,
+            desc: $scope.desc});
     }
 
 })
