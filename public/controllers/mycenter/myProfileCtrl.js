@@ -7,6 +7,8 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
     $scope.myCompetitions = [];
     $scope.myCourses = [];
     $scope.myDatasets = [];
+    $scope.myCompetitions;
+    $scope.myprofile = null;
     var uploader;
     $scope.username = null;
 
@@ -15,6 +17,22 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         // init user
         if (authService.getUser() !== null && authService.getUser() !== 'null'){
             $scope.username = authService.getUser();
+
+            // 获取用户的数据
+            $http({
+                method: 'POST',
+                url: constService.urls().getUserProfile,
+                params:{
+                    'username': $scope.username
+                }
+            }).then( res=>{
+                $scope.myprofile = res.data;
+            }).catch( err=>{
+                console.log(err);
+            })
+
+        }else{
+            window.location.href = '/login';
         }
 
         // 获取用户的数据集
@@ -239,6 +257,32 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         $scope.fileNum += 1;
         $('#upload-file').val('');
 
+    };
+
+    // 改密码弹框
+    $scope.showEdit = function () {
+        $('#edit').modal('show');
+    };
+
+    // 改密码
+    $scope.changePassword = function () {
+        $http({
+            method: 'POST',
+            url: constService.urls().changePwd,
+            params:{
+                'username': $scope.username,
+                'oldpwd': $scope.oldpwd,
+                'newpwd': $scope.newpwd
+            }
+        }).then( res=>{
+            if (res.data){
+                $('#change-success').modal('show');
+            }else{
+                $('#change-error').modal('show');
+            }
+        }).catch( err=>{
+            console.log(err);
+        })
     };
 
 }]);

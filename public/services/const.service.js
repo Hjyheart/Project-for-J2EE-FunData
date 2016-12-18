@@ -4,7 +4,7 @@
 var app = angular.module('myApp');
 
 app.service('constService', function () {
-    //var ServerHost = 'http://localhost:8080';
+    var ServerHost = 'http://localhost:8080';
     //var ServerHost = 'http://192.168.1.9:8080';
     // var ServerHost = 'http://10.60.42.202:8080';
     //var ServerHost = 'http://192.168.1.4:8080';
@@ -18,6 +18,8 @@ app.service('constService', function () {
             register: `${FrontHost}/register`,
             confirmTitle: `${ServerHost}/dataset/confirmTitle`,
             confirmFile: `${ServerHost}/dataset/confirmFile`,
+            getUserProfile: `${ServerHost}/authorize/user`,
+            changePwd: `${ServerHost}/authorize/edit`,
             // dataset
             getHotProject: `${ServerHost}/getHotProject`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,

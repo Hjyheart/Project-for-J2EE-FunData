@@ -29,15 +29,23 @@
     <script src="/controllers/authCtrl.js"></script>
 
 </head>
-<body class="pushable" ng-app="myApp" ng-controller="myProfileCtrl">
+<body class="pushable" ng-app="myApp" ng-controller="authCtrl">
 
-<% include ../nav/navbar-floating.ejs%>
-
-<div class="pusher">
+<div class="pusher" ng-controller="myProfileCtrl">
+    <div ng-if="isLogin">
+        <% include ../nav/navbar-floating.ejs%>
+    </div>
+    <div ng-if="!isLogin">
+        <% include ../nav/navbar-floating-public.ejs %>
+    </div>
     <div class="ui inverted vertical masthead center aligned segment">
-        <div ng-controller="authCtrl">
-            <% include ../nav/navbar-personal.ejs %>
-
+        <div>
+            <div ng-if="!isLogin">
+                <% include ../nav/navbar-public.ejs %>
+            </div>
+            <div ng-if="isLogin">
+                <% include ../nav/navbar-personal.ejs %>
+            </div>
         </div>
 
         <div class="ui text container">
@@ -132,10 +140,6 @@
 
     function comToManage(comId) {
         window.location.href = "/competition/" + comId + "/" + comId + "/manage";
-    };
-
-    function showEdit() {
-        $('#edit').modal('show');
     };
 
     function editProfile() {
