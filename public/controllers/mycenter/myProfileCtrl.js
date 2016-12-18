@@ -83,6 +83,32 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         }).modal('show');
     };
 
+    $scope.submitMooc = function () {
+        $http({
+            method: 'POST',
+            url: `${constService.urls().addMooc/{courseName}/{description}/{username}}`,
+        }).then( res=>{
+            console.log(res);
+            // 获取用户的竞赛
+            $http({
+                method: 'POST',
+                url: constService.urls().getHostCompetitions,
+                params:{
+                    'page': 0,
+                    'username': authService.getUser()
+                }
+            }).then( res=>{
+                console.log(res);
+                $scope.myCompetitions = res.data.My_competitions.my_com;
+            }).catch( err=>{
+                console.log(err);
+            });
+        }).catch( err=>{
+            console.log(err);
+        });
+    };
+
+
     // 查看竞赛详情
     $scope.comToDetail = function (com) {
         window.location.href = '/competition/' + com.com_id + '/detail';
