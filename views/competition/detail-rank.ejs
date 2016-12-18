@@ -6,34 +6,19 @@
             <th class="center aligned">Rank</th>
         </tr></thead>
         <tbody>
-        <tr>
+        <tr ng-repeat="rank in ranks">
             <td class="center aligned">
                 <h4 class="ui image header">
-                    <img src="/images/wudi.jpg" class="ui mini rounded image">
-                    <div class="content">Luo Xue <div class="sub header">764796124@qq.com </div>
+                    <img src="{{rank.head_url}}" class="ui mini rounded image">
+                    <div class="content">{{rank.user_name}} <div class="sub header">{{rank.uploadDate}} </div>
                     </div>
                 </h4>
             </td>
             <td class="center aligned">
-                100%
+               {{rank.value}}
             </td>
             <td class="center aligned">
-                1
-            </td>
-        </tr>
-        <tr>
-            <td class="center aligned">
-                <h4 class="ui image header">
-                    <img src="/images/xiaowang.jpg" class="ui mini rounded image">
-                    <div class="content">Xiao Wang <div class="sub header">764796124@qq.com </div>
-                    </div>
-                </h4>
-            </td>
-            <td class="center aligned">
-                99%
-            </td>
-            <td class="center aligned">
-                2
+                {{$index + 1}}
             </td>
         </tr>
         </tbody>

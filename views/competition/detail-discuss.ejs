@@ -1,35 +1,23 @@
 <div class="ui raised segment transition hidden" id="discuss-area">
     <div class="ui comments">
         <h3 class="ui dividing header">Discuss</h3>
-        <div class="comment">
+        <div class="comment" ng-repeat="comment in competition.comments">
             <a class="avatar">
-                <img src="http://semantic-ui.com/images/avatar/small/matt.jpg">
+                <img src="{{comment.head-url}}">
             </a>
             <div class="content">
-                <a class="author">Matt</a>
+                <a class="author">{{comment.username}}</a>
                 <div class="metadata">
-                    <span class="date">Today at 5:42PM</span>
+                    <span class="date">{{comment.time}}</span>
                 </div>
-                <div class="text">How artistic! </div>
+                <div class="text">{{comment.content}} </div>
             </div>
         </div>
-        <div class="comment">
-            <a class="avatar">
-                <img src="http://semantic-ui.com/images/avatar/small/joe.jpg">
-            </a>
-            <div class="content">
-                <a class="author">Joe Henderson</a>
-                <div class="metadata">
-                    <span class="date">5 days ago</span>
-                </div>
-                <div class="text">Dude, this is awesome. Thanks so much </div>
-            </div>
-        </div>
-        <form class="ui reply form">
+        <form class="ui reply form" ng-if="isLogin">
             <div class="field">
-                <textarea></textarea>
+                <textarea id="comment-content"></textarea>
             </div>
-            <div class="ui blue labeled submit icon button" type="submit"><i class="icon edit"></i> Add Comment </div>
+            <div class="ui blue labeled submit icon button" type="submit" ng-click="submitComment()"><i class="icon edit"></i> Add Comment </div>
         </form>
     </div>
 </div>

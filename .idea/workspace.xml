@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e86c979-fdd9-4f60-866c-2c1ba1494130" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/const.js" afterPath="$PROJECT_DIR$/const.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/competition/detailCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/competition/detailCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/services/const.service.js" afterPath="$PROJECT_DIR$/public/services/const.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/competition/detail-content.ejs" afterPath="$PROJECT_DIR$/views/competition/detail-content.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/competition/detail-mysubmitions.ejs" afterPath="$PROJECT_DIR$/views/competition/detail-mysubmitions.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/competition/detail-discuss.ejs" afterPath="$PROJECT_DIR$/views/competition/detail-discuss.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/competition/detail-rank.ejs" afterPath="$PROJECT_DIR$/views/competition/detail-rank.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/competition/detail.ejs" afterPath="$PROJECT_DIR$/views/competition/detail.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,7 +27,7 @@
     <favorites_list name="FunData" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36316806">
+    <splitter split-orientation="horizontal" split-proportion="0.71428573">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="manage.js" pinned="false" current-in-tab="false">
@@ -45,19 +46,60 @@
           <file leaf-file-name="detail.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/competition/detail.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+                <state relative-caret-position="-423">
+                  <caret line="75" column="114" lean-forward="false" selection-start-line="75" selection-start-column="114" selection-end-line="75" selection-end-column="114" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="detail-mysubmitions.ejs" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/views/competition/detail-mysubmitions.ejs">
+          <file leaf-file-name="detail-download.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/competition/detail-download.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="myProfileCtrl.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="96">
+                  <caret line="84" column="13" lean-forward="true" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="detail-rank.ejs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/competition/detail-rank.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="detail-discuss.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/competition/detail-discuss.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="330">
+                  <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+                  <folding>
+                    <marker date="1482042659000" expanded="true" signature="66:975" ph="..." />
+                    <marker date="1482042659000" expanded="true" signature="96:968" ph="..." />
+                    <marker date="1482042659000" expanded="true" signature="222:632" ph="..." />
+                    <marker date="1482042659000" expanded="true" signature="253:319" ph="..." />
+                    <marker date="1482042659000" expanded="true" signature="353:617" ph="..." />
+                    <marker date="1482042659000" expanded="true" signature="451:537" ph="..." />
+                    <marker date="1482042659000" expanded="true" signature="685:957" ph="..." />
+                    <marker date="1482042659000" expanded="true" signature="717:795" ph="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -89,18 +131,8 @@
           <file leaf-file-name="detailCtrl.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/controllers/competition/detailCtrl.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
-                  <caret line="81" column="37" lean-forward="false" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="const.service.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/services/const.service.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="660">
-                  <caret line="53" column="73" lean-forward="false" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
+                <state relative-caret-position="75">
+                  <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -132,9 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/controllers/app.js" />
-        <option value="$PROJECT_DIR$/views/mooc/home-courses-boutique.ejs" />
-        <option value="$PROJECT_DIR$/views/mooc/home-courses-others.ejs" />
         <option value="$PROJECT_DIR$/routes/mycenter.js" />
         <option value="$PROJECT_DIR$/public/services/info.service.js" />
         <option value="$PROJECT_DIR$/views/mycenter/profile-mymooc.ejs" />
@@ -176,13 +205,16 @@
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/views/competition/manage.ejs" />
         <option value="$PROJECT_DIR$/public/controllers/competition/manage.js" />
-        <option value="$PROJECT_DIR$/views/competition/detail.ejs" />
         <option value="$PROJECT_DIR$/public/services/upload.service.js" />
         <option value="$PROJECT_DIR$/const.js" />
         <option value="$PROJECT_DIR$/views/competition/detail-content.ejs" />
-        <option value="$PROJECT_DIR$/public/services/const.service.js" />
         <option value="$PROJECT_DIR$/views/competition/detail-mysubmitions.ejs" />
+        <option value="$PROJECT_DIR$/views/competition/detail-discuss.ejs" />
+        <option value="$PROJECT_DIR$/public/services/const.service.js" />
         <option value="$PROJECT_DIR$/public/controllers/competition/detailCtrl.js" />
+        <option value="$PROJECT_DIR$/views/competition/detail-download.ejs" />
+        <option value="$PROJECT_DIR$/views/competition/detail.ejs" />
+        <option value="$PROJECT_DIR$/views/competition/detail-rank.ejs" />
       </list>
     </option>
   </component>
@@ -198,8 +230,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="y" value="-1024" />
+    <option name="width" value="1280" />
+    <option name="height" value="1024" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -490,11 +523,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/competition" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/views/nav" />
       <recent name="$PROJECT_DIR$/public/controllers/mooc" />
       <recent name="$PROJECT_DIR$/views/mooc" />
-      <recent name="$PROJECT_DIR$/views/competition" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Unnamed">
@@ -626,12 +659,12 @@
       <workItem from="1481905785970" duration="6987000" />
       <workItem from="1481953998510" duration="10618000" />
       <workItem from="1481967014204" duration="3875000" />
-      <workItem from="1481989108232" duration="4321000" />
+      <workItem from="1481989108232" duration="9504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175985000" />
+    <option name="totallyTimeSpent" value="181168000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -643,17 +676,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="-1024" width="1280" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18220116" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19936457" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3260274" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.50277996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.49722" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1564734" sideWeight="0.5054602" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27425742" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27425742" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19897959" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2096436" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -697,20 +730,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/services/divide.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/services/auth.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/competition/competition-sidebar.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -882,7 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/competition/detail-download.ejs" />
     <entry file="file://$PROJECT_DIR$/views/competition/home.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -946,13 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="194" column="4" lean-forward="false" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/competition/detail-popupwindow.ejs" />
     <entry file="file://$PROJECT_DIR$/public/controllers/competition/manage.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1005,14 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/services/const.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="53" column="73" lean-forward="false" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/competition/detail-content.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1021,26 +1024,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/competition/detail.ejs">
+    <entry file="file://$PROJECT_DIR$/views/competition/detail-mysubmitions.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+        <state relative-caret-position="255">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/competition/detail-mysubmitions.ejs">
+    <entry file="file://$PROJECT_DIR$/views/competition/detail-discuss.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="330">
+          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding>
+            <marker date="1482042659000" expanded="true" signature="66:975" ph="..." />
+            <marker date="1482042659000" expanded="true" signature="96:968" ph="..." />
+            <marker date="1482042659000" expanded="true" signature="222:632" ph="..." />
+            <marker date="1482042659000" expanded="true" signature="253:319" ph="..." />
+            <marker date="1482042659000" expanded="true" signature="353:617" ph="..." />
+            <marker date="1482042659000" expanded="true" signature="451:537" ph="..." />
+            <marker date="1482042659000" expanded="true" signature="685:957" ph="..." />
+            <marker date="1482042659000" expanded="true" signature="717:795" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/services/const.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="55" column="62" lean-forward="false" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/mycenter/myProfileCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="84" column="13" lean-forward="true" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/competition/detail-download.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/competition/detailCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="81" column="37" lean-forward="false" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/competition/detail.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-423">
+          <caret line="75" column="114" lean-forward="false" selection-start-line="75" selection-start-column="114" selection-end-line="75" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/competition/detail-rank.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding />
         </state>
       </provider>

@@ -51,7 +51,9 @@ app.service('constService', function () {
             judgeIfRegister: `${ServerHost}/competition/applyIf`,
             competitionRegister: `${ServerHost}/competition/register`,
             competitionQuit: `${ServerHost}/competition/unregister`,
-            getPersonAccurate: `${ServerHost}/competition/person/accurate`
+            getPersonAccurate: `${ServerHost}/competition/person/accurate`,
+            getAccurateRank: `${ServerHost}/competition//accurate/rank`,
+            addComment: `${ServerHost}/competition/comment/add`
 
         }
     };
