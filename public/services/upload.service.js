@@ -69,7 +69,8 @@ app.service('uploadService', function (constService, $http) {
                                 data: {
                                     key: _info.key,
                                     username: id.username,
-                                    datasetname: id.datasetname
+                                    datasetname: id.datasetname,
+                                    description: id.desc
                                 },
                                 success: function(data) {
 
