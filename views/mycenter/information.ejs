@@ -7,17 +7,43 @@
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
     <script src="/jquery.js" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="/sematic/semantic.min.js" crossorigin="anonymous"\></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plupload/2.1.1/plupload.full.min.js"></script>
+    <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.0-beta/qiniu.min.js"></script>
+    <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
     <script src="/floatingNav.js"></script>
+
+    <script src="/ng-pagination/dist/directive.pagination.js"></script>
+    <script src="/controllers/app.js"></script>
+    <script src="/services/const.service.js"></script>
+    <script src="/services/info.service.js"></script>
+    <script src="/services/auth.service.js"></script>
+    <script src="/controllers/mycenter/informationCtrl.js"></script>
+    <script src="/controllers/authCtrl.js"></script>
 </head>
-<body class="pushable">
+<body class="pushable" ng-app="myApp" ng-controller="authCtrl">
 
-<% include ../nav/navbar-floating.ejs%>
 
-<div class="pusher">
+<div class="pusher" ng-controller="informationCtrl">
+    <div ng-if="isLogin">
+        <% include ../nav/navbar-floating.ejs%>
+    </div>
+    <div ng-if="!isLogin">
+        <% include ../nav/navbar-floating-public.ejs %>
+    </div>
     <div class="ui inverted vertical masthead center aligned segment">
-        <% include ../nav/navbar-personal.ejs %>
-
+        <div>
+            <div ng-if="!isLogin">
+                <% include ../nav/navbar-public.ejs %>
+            </div>
+            <div ng-if="isLogin">
+                <% include ../nav/navbar-personal.ejs %>
+            </div>
+        </div>
         <div class="ui text container">
             <br><br>
             <h1 class="ui inverted header">

@@ -77,26 +77,26 @@
 <div class="ui small modal" id="edit">
     <i class="close icon"></i>
     <div class="header" id="edit-title">
-        Edit Profile
+        Change Password
     </div>
     <div class="ui form">
         <div class="ui stacked segment">
             <div class="field" id="first-name">
-                <label>First Name</label>
+                <label>Old Password</label>
                 <div class="ui left icon input">
-                    <i class="spy icon"></i>
-                    <input placeholder="First Name" type="text">
+                    <i class="lock icon"></i>
+                    <input placeholder="Old Password" type="password" ng-model="oldpwd">
                 </div>
             </div>
             <div class="field" id="last-name">
-                <label>Last Name</label>
+                <label>New Password</label>
                 <div class="ui left icon input">
-                    <i class="child icon"></i>
-                    <input placeholder="Last Name" type="text">
+                    <i class="lock icon"></i>
+                    <input placeholder="New Password" type="password" ng-model="newpwd">
                 </div>
             </div>
             <div class="actions">
-                <button class="ui green submit button approve" onclick="editProfile()">Ok</button>
+                <button class="ui green submit button approve" ng-click="changePassword()">Ok</button>
             </div>
         </div>
     </div>
@@ -211,6 +211,34 @@
             <div class="actions">
                 <button class="ui green submit button approve">Ok</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!--改密成功-->
+<div class="ui modal" id="change-success">
+    <i class="close icon"></i>
+    <div class="header">
+        Change success
+    </div>
+    <div class="content">
+        <p>Success!!</p>
+        <div class="actions">
+            <button class="ui green submit button approve">Ok</button>
+        </div>
+    </div>
+</div>
+
+<!--改密失败-->
+<div class="ui modal" id="change-error">
+    <i class="close icon"></i>
+    <div class="header">
+        Change Fail
+    </div>
+    <div class="content">
+        <p>Wrong password!</p>
+        <div class="actions">
+            <button class="ui green submit button approve">Ok</button>
         </div>
     </div>
 </div>
