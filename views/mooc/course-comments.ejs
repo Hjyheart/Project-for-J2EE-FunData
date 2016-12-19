@@ -1,10 +1,12 @@
 <div class="ui attached tab" data-tab="comments">
-    <div class="ui text container">
         <h1 class="ui header">Q & A</h1>
 
         <h2 class="ui header">Answered</h2>
         <div class="ui comments">
             <div class="comment" ng-repeat="item in answered">
+                <!--<a class="avatar">-->
+                    <!--<img src="{{item.question.head_href}}">-->
+                <!--</a>-->
                 <div class="content">
                     <a class="author" href="{{item.question.question_owner_id}}">{{item.question.question_owner_name}}</a>
                     <div class="metadata">
@@ -14,6 +16,9 @@
                 </div>
                 <div class="ui comments">
                     <div class="comment" ng-repeat="ans in item.answer">
+                        <a class="avatar">
+                            <img src="{{ans.head_href}}">
+                        </a>
                         <div class="content">
                             <a class="author" href="{{ans.answer_owner_id}}">{{ans.answer_owner_id}}</a>
                             <div class="metadata">
@@ -25,21 +30,21 @@
                 </div>
             </div>
         </div>
-
         <h2 class="ui header">Qestions</h2>
         <div class="ui comments">
             <div class="comment" ng-repeat="item in unanswered">
+                <!--<a class="avatar">-->
+                    <!--<img src="http://semantic-ui.com/images/avatar/small/matt.jpg">-->
+                <!--</a>-->
                 <div class="content">
                     <a class="author" href="{{item.question.question_owner_id}}">{{item.question.question_owner_name}}</a>
                     <div class="metadata">
                         <div class="date">{{item.question.question_createtime}}</div>
                     </div>
                     <div class="text">{{item.question.question_content}}</div>
-
                     <div class="actions" ng-if="isLogin">
                         <a class="reply active" ng-click="showA(item.question)">Reply</a>
                     </div>
-
                     <form class="ui reply form transition hidden" ng-if="isLogin" id={{item.question.question_id}}>
                         <div class="field">
                             <textarea id="{{ $index + '-answer' }}"></textarea>
@@ -49,17 +54,12 @@
                 </div>
             </div>
         </div>
-
         <div ng-if="isLogin">
             <h2 class="ui header">Add Question</h2>
-
             <div class="ui comments">
                 <div class="comment">
                     <div class="content">
                         <a class="author">{{username}}</a>
-                        <div class="metadata">
-                            <div class="date">time</div>
-                        </div>
                         <form class="ui reply form" ng-if="isLogin">
                             <div class="field">
                                 <textarea id="new-question"></textarea>
@@ -70,8 +70,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
 </div>
 
