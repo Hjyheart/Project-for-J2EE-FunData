@@ -2,12 +2,12 @@
  * Created by huang on 16-11-28.
  */
 
-var app = angular.module('myApp');
 app.controller('manageCtrl', function ($scope, $http,
                                      uploadService,
                                      authService,
                                      detailService,
                                      constService) {
+    $scope.username = null;
     $scope.pullrequest = {
         page: 1,
         take: 5,
@@ -19,6 +19,10 @@ app.controller('manageCtrl', function ($scope, $http,
     $scope.datasetname=$('#datasetname')[0].innerText;
 
     this.$onInit = function () {
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
         $scope.getPullRequests();
     }
 

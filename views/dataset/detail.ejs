@@ -24,10 +24,16 @@
       <script src="/controllers/authCtrl.js"></script>
       <script src="/controllers/dataset/detailCtrl.js"></script>
   </head>
-  <body class="pusherable" ng-app="myApp">
-   <div class="pusher">
+  <body class="pusherable" ng-app="myApp" ng-controller="authCtrl">
+   <div class="pusher" ng-controller="detailCtrl">
+       <div ng-if="isLogin">
+           <% include ../nav/navbar-floating.ejs%>
+       </div>
+       <div ng-if="!isLogin">
+           <% include ../nav/navbar-floating-public.ejs %>
+       </div>
         <div class="ui inverted vertical masthead center aligned segment">
-            <div ng-controller="authCtrl">
+            <div>
                 <div ng-if="!isLogin">
                     <% include ../nav/navbar-public.ejs %>
                 </div>
@@ -59,23 +65,8 @@
                        <!--右侧喜爱和贡献标签-->
                         <div class="right menu">
                             <div class="item">
-                                <div class="ui basic teal button" ng-if="username" onclick="datasetToManage('<%= title%>')">manage</div>
 
-                            </div>
-                            <div class="ui labeled button" ng-if="username" onclick="datasetToManage('<%= title%>')">
-
-                            </div>
-                            <div class="item">
-                                <div class="ui labeled button">
-                                    <div class="ui basic pink button"><i class="fork icon"></i> Contribute </div>
-                                    <a class="ui left pointing pink label">
-                                        {{Contribute}}
-                                   </a>
-                                </div>
-                            </div>
-                            <div class="item">
-
-                                <button class="ui basic blue button" ng-click="toDatasetManage('<%=title%>')" ng-if="isAdmin === '1'">Admin</button>
+                                <button class="ui basic teal button" ng-click="toDatasetManage('<%=title%>')" ng-if="isAdmin === 1">manage</button>
                            </div>
                         </div>
                     </div>

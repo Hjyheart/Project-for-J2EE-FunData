@@ -5,13 +5,13 @@ var _const = require('../const');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Home' });
 });
 
 
 /* GET login page. */
 router.get('/login', function (req, res, next) {
-   res.render('login', { title: "login"});
+   res.render('login', { title: "Login"});
 });
 
 router.post('/login', (req, res, next) => {

@@ -10,18 +10,32 @@
               crossorigin="anonymous"></script>
       <script src="/sematic/semantic.min.js" crossorigin="anonymous"></script>
       <script src="/floatingNav.js"></script>
+
       <script src="/ng-pagination/dist/directive.pagination.js"></script>
       <script src="/controllers/app.js"></script>
-      <script src="/services/upload.service.js"></script>
       <script src="/services/const.service.js"></script>
+      <script src="/services/upload.service.js"></script>
+      <script src="/services/info.service.js"></script>
+      <script src="/services/create.service.js"></script>
       <script src="/services/auth.service.js"></script>
       <script src="/services/detail.service.js"></script>
+      <script src="/controllers/authCtrl.js"></script>
       <script src="/controllers/dataset/manageCtrl.js"></script>
   </head>
-  <body class="pusherable" ng-app="myApp" ng-controller="manageCtrl">
-    <div class="pusher">
+  <body class="pusherable" ng-app="myApp" ng-controller="authCtrl">
+    <div class="pusher" ng-controller="manageCtrl">
+        <div ng-if="isLogin">
+            <% include ../nav/navbar-floating.ejs%>
+        </div>
         <div class="ui inverted vertical masthead center aligned segment">
-            <% include ../nav/navbar-personal.ejs %>
+            <div>
+                <div ng-if="!isLogin">
+                    <% include ../nav/navbar-public.ejs %>
+                </div>
+                <div ng-if="isLogin">
+                    <% include ../nav/navbar-personal.ejs %>
+                </div>
+            </div>
             <div class="ui text container">
                 <br><br>
                 <h1 class="ui inverted header" id="datasetname">
@@ -29,7 +43,7 @@
                 </h1>
                 <h2>Here are the pull request for <%= title %> !</h2>
                 <br>
-                <div class="ui huge teal button">Pull Requests <i class="down arrow icon"></i></div>
+                <i class="down arrow icon"></i>
             </div>
         </div>
 
