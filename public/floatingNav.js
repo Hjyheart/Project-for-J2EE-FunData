@@ -45,36 +45,59 @@ $(document)
                 minCharacters : 3,
                 apiSettings   : {
                     onResponse: function(githubResponse) {
-                        var
-                            response = {
+                        var response = {
                                 results : {}
+                            };
+                        var competitions = githubResponse.competitions;
+                        var courses = githubResponse.courses;
+                        var datasets = githubResponse.datasets;
+                        var dataers = githubResponse.dataers;
+                        $.each(competitions, (index, item) => {
+                            response.results['competitions'] = {
+                                name: 'competitions',
+                                results: []
                             }
-                            ;
+                            response.results['competitions'].results.push({
+                                title: item.name,
+                                url: `/competition/${item.id}/detail`
+                            })
+                        });
+
+                        $.each(datasets, (index, item) => {
+                            response.results['datasets'] = {
+                                name: 'datasets',
+                                results: []
+                            }
+                            response.results['datasets'].results.push({
+                                title: item.name,
+                                url: `/dataset/${item.name}/detail`
+                            })
+                        });
+
                         // translate GitHub API response to work with search
-                        $.each(githubResponse.items, function(index, item) {
-                            var
-                                language   = item.language || 'Unknown',
-                                maxResults = 8
-                                ;
-                            if(index >= maxResults) {
-                                return false;
+                        $.each(dataers, (index, item) => {
+                            response.results['dataers'] = {
+                                name: 'dataers',
+                                results: []
                             }
-                            // create new language category
-                            if(response.results[language] === undefined) {
-                                response.results[language] = {
-                                    name    : language,
-                                    results : []
-                                };
+                            response.results['dataers'].results.push({
+                                title: item.name,
+                                url: `/other/${item.name}`
+                            })
+                        });
+                        $.each(courses, (index, item) => {
+                            response.results['courses'] = {
+                                name: 'courses',
+                                results: []
                             }
-                            // add result to category
-                            response.results[language].results.push({
-                                title       : item.name,
-                                url         : item.html_url
-                            });
+                            response.results['courses'].results.push({
+                                title: item.name,
+                                url: `/mooc/${item.id}/${item.name}/detail`
+                            })
                         });
                         return response;
                     },
-                    url: '//api.github.com/search/repositories?q={query}'
+                    url: 'http://localhost:8080/search/{query}'
                 }
             })
         ;

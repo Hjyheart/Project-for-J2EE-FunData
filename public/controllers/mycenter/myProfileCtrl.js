@@ -98,6 +98,20 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
     };
 
 
+    $scope.datasetToDetail = function (name) {
+            window.location.href = "/dataset/" + name + "/detail";
+        };
+
+    $scope.datasetToManage = function (name) {
+            window.location.href = "/dataset/" + name + "/manage";
+        };
+
+    $scope.datasetShowWarning = function (datasetName){
+            name = datasetName;
+            $('#confirmDeleteDataset').modal('show');
+        };
+
+
     // js for mooc
     $scope.moocToDetail = function (course) {
         window.location.href = '/mooc/' + course.course_id + '/' + course.course_name + '/detail';
