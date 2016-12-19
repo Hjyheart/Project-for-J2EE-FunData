@@ -50,6 +50,8 @@ app.service('constService', function () {
             deleteMooc: `${ServerHost}/course/delete`,
             submitOverview: `${ServerHost}/course/editoverview`,
             confirmStepFile: `${ServerHost}/course/confirmsteppic`,
+            editStepContent: `${ServerHost}/course/editstepcontent`,
+            addQuestion: `${ServerHost}/course/addquestion`,
             // competition
             getMyCompetition: `${ServerHost}/competition/getInfo`,
             getCompetitions: `${ServerHost}/competition/show_competitions`,

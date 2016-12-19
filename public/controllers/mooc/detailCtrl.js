@@ -54,7 +54,7 @@ app.controller('detailCtrl',
         $('#overview-btn').removeClass('active');
         $('#comments-btn').removeClass('active');
         $('.ui.attached.tab.active').removeClass('active');
-        $('#' + step.step_header).addClass('active');
+        $('#' + index + "-step").addClass('active');
     };
 
     $scope.showA = function (question) {
@@ -96,7 +96,39 @@ app.controller('detailCtrl',
     };
 
     $scope.addQuestion = function () {
-        $('#add-success').modal('show');
+        $http({
+            method: 'POST',
+            url: constService.urls().addQuestion,
+            params:{
+                'username': $scope.username,
+                'courseId': course_id,
+                'content':  $('#new-question').val()
+            }
+        }).then( res=>{
+           console.log(res);
+            $('#add-success').modal('show');
+
+            $http({
+                method: 'POST',
+                url: constService.urls().getDetailInit,
+                params: {
+                    id: course_id,
+                    username: authService.getUser()
+                }
+
+            })
+                .then( res =>{
+                    console.log(res)
+                    $scope.answered = res.data.course_qa.answered;
+                    $scope.unanswered = res.data.course_qa.unanswered;
+                })
+                .catch(err =>{
+                    console.log(err);
+                });
+
+        }).catch( err=>{
+            console.log(err);
+        });
         $('#new-question').val('');
     };
 

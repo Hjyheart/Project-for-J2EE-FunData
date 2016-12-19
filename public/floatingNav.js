@@ -38,7 +38,6 @@ $(document)
 
         });
 
-
         // for search
         $('.ui.search')
             .search({

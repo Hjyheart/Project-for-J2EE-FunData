@@ -14,8 +14,6 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService', 'divideService'
         $scope.username = authService.getUser();
     }
 
-
-
     $http({
         method: 'POST',
         url: constService.urls().getDetailInit,
@@ -28,21 +26,18 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService', 'divideService'
         console.log(res);
         $scope.overview = res.data.course_overview;
         $scope.steps = res.data.course_steps.course_steps;
-        $scope.boutique_course = res.data.boutique_course;
-        $('#overview-content').replaceWith(divideService.getHtml($scope.overview.overview_content));
+        $('#overview-content').replaceWith(divideService.getHtml($scope.overview));
 
     }).catch(err => {
         console.log(err);
     });
-
-
 };
 
     $scope.showStep = function (step, index) {
         $('#' + index).replaceWith(divideService.getHtml(step.step_content));
         $('#overview-btn').removeClass('active');
         $('.ui.attached.tab.active').removeClass('active');
-        $('#' + step.step_header).addClass('active');
+        $('#' + index + "-step").addClass('active');
     };
 
     $scope.stepEditDeal = function (step, index) {
@@ -51,9 +46,23 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService', 'divideService'
         $('#' + index + '-edit-btn').transition('fly left');
     };
 
-    $scope.stepSubmit = function () {
+    $scope.stepSubmit = function (step, index) {
         $('#' + index + '-edit-form').transition('vertical flip');
         $('#' + index + '-edit-btn').transition('fly left');
+
+        $http({
+            method: 'POST',
+            url: constService.urls().editStepContent,
+            params:{
+                'id': step.id,
+                'content': $('#' + index + '-edit-content').val()
+            }
+        }).then( res=>{
+            console.log(res.data);
+            $('.ui.text.container p').replaceWith(divideService.getHtml($('#' + index + '-edit-content').val()));
+        }).catch( err=>{
+            console.log(err);
+        })
 
     };
 
@@ -67,13 +76,13 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService', 'divideService'
                 name: name
             }
         }).then( res=>{
-            $scope.steps = $scope.steps.concat(res.data)
+            $scope.steps = $scope.steps.concat(res.data);
             console.log(res);
 
         }).catch(err =>{
             console.log(err);
         });
-    }
+    };
 
     $scope.overEditDeal = function () {
         $('#over-edit-form').transition('vertical flip');
@@ -93,17 +102,19 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService', 'divideService'
             }
         }).then( res=>{
             console.log(res);
+            $('.ui.text.main.container p').replaceWith(divideService.getHtml(overview));
 
         }).catch(err =>{
             console.log(err);
         });
     };
 
-    $scope.changeGuide = function (step) {
+    $scope.changeGuide = function (step, index) {
         uploader = uploadService.upload(3,
             {
                 stepId: step.id,
-                courseId: $scope.mooc_id
+                courseId: $scope.mooc_id,
+                index: index
 
             });
         $('#new-guide').modal('show');
