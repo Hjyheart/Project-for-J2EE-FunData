@@ -52,6 +52,7 @@ app.service('constService', function () {
             confirmStepFile: `${ServerHost}/course/confirmsteppic`,
             editStepContent: `${ServerHost}/course/editstepcontent`,
             addQuestion: `${ServerHost}/course/addquestion`,
+            addAnswer: `${ServerHost}/course/answer`,
             // competition
             getMyCompetition: `${ServerHost}/competition/getInfo`,
             getCompetitions: `${ServerHost}/competition/show_competitions`,

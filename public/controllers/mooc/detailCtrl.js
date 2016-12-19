@@ -57,8 +57,8 @@ app.controller('detailCtrl',
         $('#' + index + "-step").addClass('active');
     };
 
-    $scope.showA = function (question) {
-        $('#' + question.question_id).transition('vertical flip');
+    $scope.showA = function (question, index) {
+        $('#' + index + '-reply').transition('vertical flip');
     };
 
     $scope.joinDeal = function () {
@@ -133,32 +133,25 @@ app.controller('detailCtrl',
     };
 
     $scope.addAnswer = function (question, index) {
-        console.log(index);
+        console.log(question);
         console.log($('#' + index + '-answer').val());
 
-        for (var i = 0; i < $scope.unanswered.length; i++){
-            if ($scope.unanswered[i] === question){
-                $scope.answered.push({
-                    'question':{
-                        'question_id': question.question_id,
-                        'question_owner_name': question.question_owner_name,
-                        'question_owner_id': question.question_owner_id,
-                        'question_time': question.question_time,
-                        'question_content': question.question_content
-                    },
-                    'answer':{
-                        'answer_id': '1',
-                        'answer_owner_name': $scope.user.user_name,
-                        'answer_owner_id': $scope.user.user_id,
-                        'answer_time': '2016.12.5',
-                        'answer_content': $('#' + index + '-answer').val()
-                    }
-                });
-                $('#' + index + '-answer').val('');
-                $scope.unanswered.splice(i, 1);
-                break;
+        $http({
+            method: 'POST',
+            url: constService.urls().addAnswer,
+            params:{
+                'username': $scope.username,
+                'questionId': question.question.question_id,
+                'content': $('#' + index + '-answer').val()
             }
-        }
+        }).then( res=>{
+            console.log(res.data);
+            $('#' + index + '-reply').transition('vertical flip');
+            $('#' + index + '-answer').val('');
+            $('#answer-success').modal('show');
+        }).catch( err=>{
+            console.log(err);
+        });
     };
 
 }]);

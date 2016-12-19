@@ -4,11 +4,9 @@
         <h2 class="ui header">Answered</h2>
         <div class="ui comments">
             <div class="comment" ng-repeat="item in answered">
-                <!--<a class="avatar">-->
-                    <!--<img src="{{item.question.head_href}}">-->
-                <!--</a>-->
+                <img src="http://semantic-ui.com/images/avatar/small/matt.jpg" class="mini image">
                 <div class="content">
-                    <a class="author" href="{{item.question.question_owner_id}}">{{item.question.question_owner_name}}</a>
+                    <a class="author" href="/other/{{item.question.question_owner_name}}">{{item.question.question_owner_name}}</a>
                     <div class="metadata">
                         <div class="date">{{item.question.question_createtime}}</div>
                     </div>
@@ -16,11 +14,9 @@
                 </div>
                 <div class="ui comments">
                     <div class="comment" ng-repeat="ans in item.answer">
-                        <a class="avatar">
-                            <img src="{{ans.head_href}}">
-                        </a>
+                        <img src="{{ans.head_href}}" class="ui mini image">
                         <div class="content">
-                            <a class="author" href="{{ans.answer_owner_id}}">{{ans.answer_owner_id}}</a>
+                            <a class="author" href="/other/{{ans.answer_owner_name}}">{{ans.answer_owner_id}}</a>
                             <div class="metadata">
                                 <div class="data">{{ans.answer_time}}</div>
                             </div>
@@ -33,19 +29,17 @@
         <h2 class="ui header">Qestions</h2>
         <div class="ui comments">
             <div class="comment" ng-repeat="item in unanswered">
-                <!--<a class="avatar">-->
-                    <!--<img src="http://semantic-ui.com/images/avatar/small/matt.jpg">-->
-                <!--</a>-->
+                <img src="http://semantic-ui.com/images/avatar/small/matt.jpg" class="mini image">
                 <div class="content">
-                    <a class="author" href="{{item.question.question_owner_id}}">{{item.question.question_owner_name}}</a>
+                    <a class="author" href="/other/{{item.question.question_owner_name}}">{{item.question.question_owner_name}}</a>
                     <div class="metadata">
                         <div class="date">{{item.question.question_createtime}}</div>
                     </div>
                     <div class="text">{{item.question.question_content}}</div>
                     <div class="actions" ng-if="isLogin">
-                        <a class="reply active" ng-click="showA(item.question)">Reply</a>
+                        <a class="reply active" ng-click="showA(item.question, $index)">Reply</a>
                     </div>
-                    <form class="ui reply form transition hidden" ng-if="isLogin" id={{item.question.question_id}}>
+                    <form class="ui reply form transition hidden" ng-if="isLogin" id="{{$index}}-reply">
                         <div class="field">
                             <textarea id="{{ $index + '-answer' }}"></textarea>
                         </div>
