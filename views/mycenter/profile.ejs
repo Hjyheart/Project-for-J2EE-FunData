@@ -38,7 +38,7 @@
     <div ng-if="!isLogin">
         <% include ../nav/navbar-floating-public.ejs %>
     </div>
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui vertical masthead center aligned segment" style="background-image: url(/images/bg4.jpg);">
         <div>
             <div ng-if="!isLogin">
                 <% include ../nav/navbar-public.ejs %>
@@ -49,13 +49,13 @@
         </div>
 
         <div class="ui text container">
-            <br><br>
+            <br><br><br><br><br><br>
             <h1 class="ui inverted header">
                 Hello
             </h1>
 
             <h2>{{username}}</h2>
-           <br>
+           <br><br><br>
             <i class="down arrow icon"></i>
         </div>
     </div>
@@ -69,8 +69,6 @@
                 </div>
                 <!--右侧信息-->
                 <div class="ten wide right floated column">
-                    <br>
-                    <br>
                     <h2 class="ui header">
                         <i class="user icon"></i>
                         <div class="content">My Basic Information </div>

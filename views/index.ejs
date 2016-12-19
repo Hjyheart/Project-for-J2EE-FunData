@@ -20,7 +20,6 @@
     <script src="/controllers/authCtrl.js"></script>
 </head>
 <body class="pushable" ng-app="myApp" ng-controller="authCtrl">
-
 <div class="pusher" ng-controller="indexCtrl">
     <div ng-if="isLogin">
         <% include nav/navbar-floating.ejs%>
@@ -28,7 +27,10 @@
     <div ng-if="!isLogin">
         <% include nav/navbar-floating-public.ejs %>
     </div>
-    <div class="ui inverted vertical masthead center aligned segment"  ng-controller="authCtrl">
+
+
+    <div class="ui vertical masthead center aligned segment" style="background-image: url(/images/bg.jpg);">
+
         <div>
             <div ng-if="!isLogin">
                 <% include nav/navbar-public.ejs %>
@@ -38,61 +40,47 @@
             </div>
         </div>
         <div class="ui text container">
-            <br><br>
+            <br><br><br><br><br><br>
             <h1 class="ui inverted header">
                 FunData
             </h1>
             <h2>Let's play with your data!</h2>
-            <br>
+            <br><br><br>
             <i class="down arrow icon"></i>
         </div>
     </div>
 
-    <div ng-controller="indexCtrl">
-        <div class="ui stripe theming vertical segment">
-            <div class="ui stackable very relaxed two column grid container">
-                <div class="center aligned column">
-                    <h1 class="ui header"> Dataset </h1>
-                    <p></p>
-                    <button class="ui positive button" onclick="toData()">Get Start<i class="ui right arrow icon"></i></button>
-                </div>
-                <div class="left aligned column">
-                    <img src="/images/dataset-logo.png" class="ui medium image">
-
-                </div>
+    <div class="ui stripe vertical segment">
+        <div class="ui stackable very relaxed grid container">
+            <div class="fourteen wide center aligned centered column">
+                <h1 class="ui icon header"><img src="/images/dataset-logo.png" class="ui medium image"> Wonderful Dataset </h1>
+                <p>A wonderful dataset can realize a wonderful dream. Let's share our data!</p>
+                <p>Everyone can have his wonderful dataset!</p>
+                <a class="ui large primary button" href="/dataset">Get Start <i class="right chevron icon"></i> </a>
             </div>
-
-        </div>
-
-        <div class="ui stripe theming vertical segment">
-            <div class="ui stackable very relaxed two column grid container">
-                <div class="left aligned column">
-                    <img src="/images/competition-logo.png" class="ui medium image">
-                </div>
-                <div class="center aligned column">
-                    <h1 class="ui header"> Competitions </h1>
-                    <p>Description</p>
-                    <button class="ui positive button" onclick="toCompetition()">Get Start<i class="ui right arrow icon"></i></button>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="ui stripe theming vertical segment">
-            <div class="ui stackable very relaxed two column grid container">
-                <div class="center aligned column">
-                    <h1 class="ui header"> Mooc </h1>
-                    <p>Description</p>
-                </div>
-                <div class="left aligned column">
-                    <img src="/images/mooc-logo.jpg" class="ui medium image">
-                    <button class="ui positive button" onclick="toMooc()">Get Start<i class="ui right arrow icon"></i></button>
-                </div>
-            </div>
-
         </div>
     </div>
 
+    <div class="ui stripe community vertical segment">
+        <div class="ui two column center aligned divided very relaxed stackable grid container">
+            <div class="row">
+                <div class="column">
+                    <h2 class="ui icon header"><img class="ui medium image" src="/images/competition-logo.png"> </h2>
+                    <h2 class="ui header">Exciting data Competition</h2>
+                    <p>Register a data competition and have a fight!</p>
+                    <a class="ui large primary button" href="/competition">Fight!<i class="right chevron icon"></i></a>
+                </div>
+                <div class="column">
+                    <h2 class="ui icon header"><img class="ui medium image" src="/images/mooc-logo.jpg" style="height: 300px"> </h2>
+                    <h2 class="ui header">Learn with each other</h2>
+                    <p>Teaching people tireless</p>
+                    <a class="ui large primary button" href="/mooc">Study!<i class="right chevron icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
 
     <% include footer.ejs %>
 </div>
@@ -102,14 +90,6 @@
 </html>
 <script>
     $("body").css('height',$(window).height());
-
-    function toData() {
-        window.location.href = "/dataset";
-    };
-
-    function toMooc() {
-        window.location.href = "/mooc";
-    };
 
     function toCompetition() {
         window.location.href = "/competition";

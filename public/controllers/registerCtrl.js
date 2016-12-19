@@ -1,8 +1,7 @@
 /**
  * Created by huang on 16-11-28.
  */
-var app = angular.module('myApp');
-app.controller('registerCtrl', function ($scope, $http,
+app.controller('registerCtrl', ['$scope', '$http', 'constService', 'authService', function ($scope, $http,
                                         constService,
                                         authService) {
     $scope.error = false;
@@ -34,4 +33,4 @@ app.controller('registerCtrl', function ($scope, $http,
             })
     }
 
-});
+}]);

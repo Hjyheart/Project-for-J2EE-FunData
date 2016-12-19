@@ -24,23 +24,33 @@
     <script src="/controllers/authCtrl.js"></script>
 </head>
 <div class="transition hidden" id="mooc-id"><%= moocId %></div>
-<body class="pushable" ng-app="myApp" ng-controller="manageCtrl">
-<% include ../nav/navbar-floating.ejs%>
+<body class="pushable" ng-app="myApp" ng-controller="authCtrl">
+    <div ng-if="isLogin">
+        <% include ../nav/navbar-floating.ejs%>
+    </div>
+    <div ng-if="!isLogin">
+        <% include ../nav/navbar-floating-public.ejs %>
+    </div>
 
-<div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
+<div class="pusher" ng-controller="manageCtrl">
+    <div class="ui vertical masthead center aligned segment" style="background-image: url(/images/bg2.jpg);">
 
-        <div ng-controller="authCtrl">
-            <% include ../nav/navbar-personal.ejs %>
+        <div>
+            <div ng-if="!isLogin">
+                <% include ../nav/navbar-public.ejs %>
+            </div>
+            <div ng-if="isLogin">
+                <% include ../nav/navbar-personal.ejs %>
+            </div>
         </div>
 
         <div class="ui text container">
-            <br><br>
+            <br><br><br><br><br><br>
             <h1 class="ui inverted header">
                 <%= title %>
             </h1>
             <h2>Manager your course!</h2>
-            <br>
+            <br><br><br>
             <i class="down arrow icon"></i>
         </div>
     </div>
