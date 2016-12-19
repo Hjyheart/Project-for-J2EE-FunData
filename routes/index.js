@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var _const = require('../const');
-
+var crypto = require('crypto');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
@@ -15,13 +15,16 @@ router.get('/login', function (req, res, next) {
 });
 
 router.post('/login', (req, res, next) => {
+
+    var md5 = crypto.createHash('md5');
+    var password = md5.update(req.query.pwd).digest('hex');
     console.log(req.query);
     request({
         url: `${_const.ServerHost}/authorize/login`,
         method: 'POST',
         form: {
             email: req.query.email,
-            pwd: req.query.pwd
+            pwd: password
         }
     }, function (err, response, body) {
         console.log(body)
@@ -54,12 +57,14 @@ router.get('/register', function (req, res, next) {
 });
 
 router.post('/register', (req, res, next) => {
+    var md5 = crypto.createHash('md5');
+    var password = md5.update(req.query.pwd).digest('hex');
     request({
         url: `${_const.ServerHost}/authorize/register`,
         method: 'POST',
         form: {
             email: req.query.email,
-            pwd: req.query.pwd,
+            pwd: password,
             name: req.query.name,
         }
     }, function (err, response, body) {

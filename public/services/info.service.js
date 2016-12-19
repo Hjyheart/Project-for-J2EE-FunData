@@ -15,8 +15,6 @@ app.service('infoService', function ($http, authService) {
 
             }
         })
-
-
     }
 
 });
