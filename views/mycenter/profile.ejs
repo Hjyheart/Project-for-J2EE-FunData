@@ -121,18 +121,7 @@
     var competitionName;
     var moocName;
 
-    function datasetToDetail(name) {
-        window.location.href = "/dataset/" + name + "/detail";
-    };
 
-    function datasetToManage(name) {
-        window.location.href = "/dataset/" + name + "/manage";
-    };
-
-    function datasetShowWarning(datasetName){
-        name = datasetName;
-        $('#confirmDeleteDataset').modal('show');
-    };
 
     function comToDetail(comId) {
         window.location.href = "/competition/" + comId + "/" + comId + "/detail";

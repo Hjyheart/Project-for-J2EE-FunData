@@ -22,7 +22,7 @@ app.service('constService', function () {
             changePwd: `${ServerHost}/authorize/edit`,
             confirmChangeImg: `${ServerHost}/authorize/confirmImg`,
             // dataset
-            getHotProject: `${ServerHost}/dataset/getHotProject`,
+            getHotProject: `${ServerHost}/dataset/getDataset`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,
             getMyContribute: `${ServerHost}/dataset/getMyContribute`,
             getPullRequest: `${ServerHost}/dataset/getPullRequest`,
