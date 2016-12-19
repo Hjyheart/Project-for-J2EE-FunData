@@ -41,41 +41,60 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
             window.location.href = '/login';
         }
 
-        // 获取用户的数据集
-        infoService.getInfo(constService.urls().getMyProject)
-            .then( res => {
+
+        var freshDataset = function () {
+            // 获取用户的数据集
+            infoService.getInfo(constService.urls().getMyProject)
+                .then( res => {
+                    console.log(res);
+                    $scope.myDatasets = res.data.datasets;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+
+            setTimeout(freshDataset, 5000);
+        };
+
+        freshDataset();
+
+
+        var freshCourse = function () {
+            infoService.getInfo(constService.urls().getMyCourse)
+                .then( res => {
+                    console.log(res);
+                    $scope.myCourses = res.data.join.join_courses;
+                    $scope.myCourses = $scope.myCourses.concat(res.data.host.host_courses);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            setTimeout(freshCourse, 5000);
+        };
+
+        freshCourse();
+
+        var freshCompetition = function () {
+            // 获取用户的竞赛
+            $http({
+                method: 'POST',
+                url: constService.urls().getHostCompetitions,
+                params:{
+                    'page': 0,
+                    'username': authService.getUser()
+                }
+            }).then( res=>{
                 console.log(res);
-                $scope.myDatasets = res.data.datasets;
-            })
-            .catch(err => {
+                $scope.myCompetitions = res.data.My_competitions.my_com;
+            }).catch( err=>{
                 console.log(err);
             });
 
+            setTimeout(freshCompetition, 5000);
+        };
 
-        infoService.getInfo(constService.urls().getMyCourse)
-            .then( res => {
-                console.log(res);
-                $scope.myCourses = res.data.join.join_courses;
-                $scope.myCourses = $scope.myCourses.concat(res.data.host.host_courses);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        freshCompetition();
 
-        // 获取用户的竞赛
-        $http({
-            method: 'POST',
-            url: constService.urls().getHostCompetitions,
-            params:{
-                'page': 0,
-                'username': authService.getUser()
-            }
-        }).then( res=>{
-            console.log(res);
-            $scope.myCompetitions = res.data.My_competitions.my_com;
-        }).catch( err=>{
-            console.log(err);
-        });
     };
 
 

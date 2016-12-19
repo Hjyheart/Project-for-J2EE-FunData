@@ -9,16 +9,6 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', 'authService', fu
     $scope.other_course = [];
 
     this.$onInit = function () {
-       // 获取荧幕热门课程
-       $http({
-           method: 'GET',
-           url: constService.urls().getMoocScreenHotCourse
-       }).then( res =>{
-           console.log(res);
-           $scope.screen_hot_course = res.data;
-       }).catch(err =>{
-           console.log(err);
-       });
 
         // 获取精品课程
         $http({

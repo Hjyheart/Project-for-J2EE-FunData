@@ -14,6 +14,7 @@ app.controller('authCtrl', function ($scope, $http,
     $scope.logout = function () {
         $scope.isLogin = false;
         authService.setUser(null);
+        window.location.href = '/';
     }
 
 });

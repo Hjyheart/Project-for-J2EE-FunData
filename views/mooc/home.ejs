@@ -38,21 +38,13 @@
                 <% include ../nav/navbar-personal.ejs %>
             </div>
         </div>
-
         <div class="ui text container">
+            <br><br>
             <h1 class="ui inverted header" >
                 Moocs
             </h1>
             <h2>Study!</h2>
-        </div>
-        <div class="content" style="width:1000px;height:300px;margin:10px auto;overflow:hidden;">
-            <div id="slider">
-                <a href="/mooc/{{screen_hot_course[0].id}}/detail"><img src="{{screen_hot_course.pictureUrl}}"/></a>
-                <a href="/mooc/{{screen_hot_course[1].id}}/detail"><img src="{{screen_hot_course.pictureUrl}}"/></a>
-                <a href="/mooc/{{screen_hot_course[2].id}}/detail"><img src="{{screen_hot_course.pictureUrl}}"/></a>
-                <a href="/mooc/{{screen_hot_course[3].id}}/detail"><img src="{{screen_hot_course.pictureUrl}}"/></a>
-                <a href="/mooc/{{screen_hot_course[4].id}}/detail"><img src="{{screen_hot_course.pictureUrl}}"/></a>
-            </div>
+            <br>
         </div>
         <br>
         <i class="down arrow icon"></i>
@@ -81,30 +73,6 @@
     <%include ../footer.ejs%>
 
 </div>
-<script type="text/javascript">
-    $(function() {
-        $('#slider').vmcSlider({
-            width: 1000,
-            height: 300,
-            gridCol: 10,
-            gridRow: 5,
-            gridVertical: 20,
-            gridHorizontal: 10,
-            autoPlay: true,
-            ascending: true,
-            effects: [
-                'fade', 'fadeLeft', 'fadeRight', 'fadeTop', 'fadeBottom', 'fadeTopLeft', 'fadeBottomRight',
-                'blindsLeft', 'blindsRight', 'blindsTop', 'blindsBottom', 'blindsTopLeft', 'blindsBottomRight',
-                'curtainLeft', 'curtainRight', 'interlaceLeft', 'interlaceRight', 'mosaic', 'bomb', 'fumes'
-            ],
-            ie6Tidy: false,
-            random: false,
-            duration: 2000,
-            speed: 900
-        });
-    });
-</script>
-
 </body>
 
 </html>

@@ -60,14 +60,21 @@
             <div class="row">
                 <div class="ten wide column">
                     <div class="ui pointing secondary menu">
+                        <a class="item active" data-tab="first">About</a>
                         <a class="item" data-tab="second">Dataset Comments</a>
-                        <a class="item" data-tab="third">Mooc Comments</a>
                         <a class="item" data-tab="four">Competition Comments</a>
                     </div>
+                    <div class="ui tab segment active" data-tab="first">
+                        <div class="ui text main container">
+                            <h1 class="ui center aligned icon header">
+                                <i class="circular users icon"></i>
+                                <p class="ui center text">You can find comments on your datasets and competitions here !</p>
 
+                            </h1>
+
+                        </div>
+                    </div>
                     <% include information-datasetcomments.ejs %>
-
-                    <% include information-mooccomments.ejs %>
 
                     <% include information-competitioncomments.ejs %>
 

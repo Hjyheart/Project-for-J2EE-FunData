@@ -6,6 +6,7 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService','createService',
         var uploader;
         $scope.username = null;
         $scope.comId = $('#com-id').text();
+        $scope.competition = null;
 
         this.$onInit = function () {
             // init user
@@ -13,11 +14,19 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService','createService',
                 $scope.username = authService.getUser();
             }
 
-            // 获取该竞赛信息
-            // $http({
-            //     method: 'POST',
-            //     url: constService.urls().getCompetitionDetail
-            // })
+            // 获取细节
+            $http({
+                method: 'POST',
+                url: constService.urls().getCompetitionDetail,
+                params:{
+                    'compId': $scope.comId
+                }
+            }).then( res=>{
+                console.log(res);
+                $scope.competition = res.data;
+            }).catch( err=>{
+                console.log(err);
+            });
 
 
         };

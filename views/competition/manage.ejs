@@ -80,28 +80,19 @@
                 <div class="ten wide column">
                     <div class="ui raised segment transition hidden" id="download-upload">
                         <div class="ui divided list">
-                            <div class="item">
-                                <div class=" content">
-                                    <div class="ui text centered container">
-                                        <a href="#">download1</a>
-                                        <p>des</p>
+                            <div class="item" ng-repeat="download in competition.download">
+                                <div class="content">
+                                    <a class="header" href="{{download.url}}">{{download.name}}</a>
+                                    <div class="meta">
+                                        <span>{{download.time}}</span>
                                     </div>
+                                    <hr/>
                                 </div>
                             </div>
                         </div>
                         <div class="ui blue button" ng-click="uploadDownloadFile()">upload</div>
                     </div>
                     <div class="ui raised segment transition hidden" id="answer-upload">
-                        <div class="ui divided list">
-                            <div class="item">
-                                <div class=" content">
-                                    <div class="ui text centered container">
-                                        <a href="#">Ans</a>
-                                        <p>des</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="ui blue button" ng-click="uploadAnsFile()">upload</div>
                     </div>
                 </div>
