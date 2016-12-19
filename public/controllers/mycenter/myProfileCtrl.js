@@ -2,8 +2,8 @@
  * Created by hongjiayong on 2016/12/6.
  */
 
-app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createService', 'authService', 'infoService',
-    function ($scope, $http, constService, createService, authService, infoService) {
+app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createService', 'authService', 'infoService', 'uploadService',
+    function ($scope, $http, constService, createService, authService, infoService, uploadService) {
     $scope.myCompetitions = [];
     $scope.myCourses = [];
     $scope.myDatasets = [];
@@ -18,18 +18,24 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         if (authService.getUser() !== null && authService.getUser() !== 'null'){
             $scope.username = authService.getUser();
 
-            // 获取用户的数据
-            $http({
-                method: 'POST',
-                url: constService.urls().getUserProfile,
-                params:{
-                    'username': $scope.username
-                }
-            }).then( res=>{
-                $scope.myprofile = res.data;
-            }).catch( err=>{
-                console.log(err);
-            })
+            var fresh = function () {
+                // 获取用户的数据
+                $http({
+                    method: 'POST',
+                    url: constService.urls().getUserProfile,
+                    params:{
+                        'username': $scope.username
+                    }
+                }).then( res=>{
+                    $scope.myprofile = res.data;
+                }).catch( err=>{
+                    console.log(err);
+                });
+
+                setTimeout(fresh, 5000);
+            };
+
+            fresh();
 
         }else{
             window.location.href = '/login';
@@ -43,7 +49,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
 
 
         infoService.getInfo(constService.urls().getMyCourse)
@@ -286,4 +292,12 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
         })
     };
 
+    // 换头像
+    $scope.changeImg = function () {
+        $('#new-image').modal('show');
+        var data = {
+            'username': $scope.username,
+        };
+        uploader = uploadService.upload(4, data);
+    };
 }]);

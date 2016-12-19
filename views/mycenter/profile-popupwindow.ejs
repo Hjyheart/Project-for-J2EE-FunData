@@ -103,19 +103,17 @@
 </div>
 
 <!--以下为点击ChangeImg时弹出的页面-->
-<div class="ui modal" id="newImage">
-    <i class="close icon"></i>
-    <div class="header" id="detailName">
-        Change Image
-    </div>
+<div class="ui modal" id="new-image">
+    <div class="header" id="upload-modual-header">Change Imge</div>
     <div class="content">
-        <form class="ui form" action="" method="post">
-            <div class="field aligned">
-                <input type="file" name="upload-file">
+        <div class="ui form">
+            <div class="field" id="dataset-upload">
+                <a href="#" id="upload">upload</a>
             </div>
-            <button class="ui positive right floated labeled icon button" type="submit">Yes <i class="checkmark icon"></i> </button>
-            <br>
-        </form>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui green submit button approve">Ok</button>
     </div>
 </div>
 

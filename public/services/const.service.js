@@ -20,6 +20,7 @@ app.service('constService', function () {
             confirmFile: `${ServerHost}/dataset/confirmFile`,
             getUserProfile: `${ServerHost}/authorize/user`,
             changePwd: `${ServerHost}/authorize/edit`,
+            confirmChangeImg: `${ServerHost}/authorize/confirmImg`,
             // dataset
             getHotProject: `${ServerHost}/dataset/getHotProject`,
             getMyProject: `${ServerHost}/dataset/getMyDataset`,

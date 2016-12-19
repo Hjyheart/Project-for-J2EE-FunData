@@ -42,7 +42,7 @@ app.service('uploadService', function (constService, $http) {
                     'FileUploaded': function(up, file, info) {
                         console.log(info);
                         var _info = JSON.parse(info);
-                        //$('.ui.modal').modal('show');
+                        // $('.ui.modal').modal('show');
                         // $('#process-bar').progress({
                         //     percent: 100,
                         //     text: {
@@ -54,7 +54,7 @@ app.service('uploadService', function (constService, $http) {
                         //     $('.ui.modal').modal('hide');
                         //     $('#process-bar').progress('set percent', 0);
                         // }, 1000);
-                        // 1->dataset 2->com 3->mooc
+                        // 1->dataset 2->com 3->mooc 4->profile
                         if (type === 1){
                             var url = "";
                             if(id.type.value === 1) {
@@ -136,6 +136,19 @@ app.service('uploadService', function (constService, $http) {
                                 //
                                 console.log(err);
                             });
+                        }else if (type === 4){
+                            $http({
+                                method: 'POST',
+                                url: constService.urls().confirmChangeImg,
+                                params:{
+                                    'username': id.username,
+                                    'key': _info.key
+                                }
+                            }).then( res=>{
+                                console.log(res);
+                            }).catch( err=>{
+                                console.log(err);
+                            })
                         }
 
 

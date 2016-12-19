@@ -4,11 +4,11 @@
             <div class="ui dimmer">
                 <div class="content">
                     <div class="center">
-                        <div class="ui inverted button" onclick="changeImg()">Change image</div>
+                        <div class="ui inverted button" ng-click="changeImg()">Change image</div>
                     </div>
                 </div>
             </div>
-            <img src="{{myprofile.head_href}}">
+            <img src="{{myprofile.head_href}}" id="head-image">
         </div>
         <div class="content">
             <a class="ui orange right ribbon label" ng-click="showEdit()"><i class="write icon"></i>change password</a>
