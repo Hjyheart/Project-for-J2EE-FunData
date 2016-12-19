@@ -131,7 +131,7 @@ app.service('uploadService', function (constService, $http) {
                                 }
                             }).then( res => {
                                 console.log(res);
-                                $('#guidePic').attr("src", res.data.url);
+                                $('#guidePic-'+ id.index).attr("src", res.data.url);
                             }).catch( err=>{
                                 //
                                 console.log(err);

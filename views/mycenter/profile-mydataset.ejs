@@ -2,14 +2,14 @@
     <div class="card" ng-repeat="dataset in myDatasets">
         <div class="content">
             <div class="header">{{dataset.datasetname}}</div>
-            <div class="meta">Friends of Veronika </div>
-            <div class="description">Elliot requested permission to view your contact details </div>
+            <div class="meta">{{dataset.size}} pull request </div>
+            <div class="description">{{dataset.description}} </div>
         </div>
         <div class="extra content">
             <div class="ui three buttons">
-                <div class="ui basic green button" onclick="datasetToDetail('<%=title%>')">More</div>
-                <div class="ui basic blue button" onclick="datasetToManage('<%=title%>')">Manage</div>
-                <div class="ui basic red button" onclick="datasetShowWarning('<%=title%>')">Delete</div>
+                <div class="ui basic green button" ng-click="datasetToDetail()">More</div>
+                <div class="ui basic blue button" ng-click="datasetToManage()">Manage</div>
+                <div class="ui basic red button" ng-click="datasetShowWarning()">Delete</div>
             </div>
         </div>
     </div>
