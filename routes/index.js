@@ -77,7 +77,8 @@ router.post('/register', (req, res, next) => {
 
 /* Get other's profile */
 router.get('/other/:name', function(req, res, next) {
-    res.render('otherprofile', { title: 'Express' });
+    var username = req.params.name;
+    res.render('otherprofile', { title: 'Other\'s profile', username: username });
 });
 
 

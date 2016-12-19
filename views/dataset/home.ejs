@@ -56,19 +56,22 @@
                                   <div class="header">{{project.name}}</div>
                              </div>
                               <div class="content">
-                                  <h4 class="ui sub header">Activity</h4>
+                                  <h4 class="ui sub header">Activity <i class="down arrow icon"></i></h4>
                                   <div class="ui small feed">
                                       <div class="event">
                                           <div class="content">
-
-                                              <div class="summary"><a>{{project.username}}</a> <a ng-if="project.type==='1'"></a> <a ng-if="project.type==='2'"></a> to the project </div>
+                                              <div class="summary">
+                                                  <p ng-if="project.type===-1"><a href="/other/{{project.username}}">{{project.username}}</a> have some pillrequests to be done</p>
+                                                  <p ng-if="project.type=== 1"><a href="/other/{{project.username}}">{{project.username}}</a>'s pullrequest has been confirmed</p>
+                                                  <p ng-if="project.type=== 0"><a href="/other/{{project.username}}">{{project.username}}</a>'s pullrequest has been rejected</p>
+                                                  <p ng-if="project.type=== ''"><a href="/other/{{project.username}}">{{project.username}}</a>Quiet</p>
+                                              </div>
                                           </div>
                                       </div>
                                   </div>
                               </div>
                               <div class="extra content">
-
-                                  <button class="ui button"><a href="dataset/{{project.name}}/detail">Join Project</a></button>
+                                  <button class="ui blue button" ng-click="toDetail(project)">Join Project</button>
                              </div>
                           </div>
                       </div>

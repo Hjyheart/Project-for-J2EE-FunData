@@ -62,6 +62,10 @@ app.controller('homeCtrl', function ($scope, $http,
             });
     };
 
+    $scope.toDetail = function (project) {
+        window.location.href = 'dataset/' + project.name + '/detail';
+    }
+
 
 
 });

@@ -60,6 +60,7 @@ app.controller('myProfileCtrl', ['$scope', '$http', 'constService','createServic
 
 
         var freshCourse = function () {
+            // 获取用户的课程
             infoService.getInfo(constService.urls().getMyCourse)
                 .then( res => {
                     console.log(res);
