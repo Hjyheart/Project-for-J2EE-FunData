@@ -7,6 +7,10 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService','createService',
         $scope.username = null;
         $scope.comId = $('#com-id').text();
         $scope.competition = null;
+        $scope.editName = '';
+        $scope.starttime = '';
+        $scope.endtime = '';
+
 
         this.$onInit = function () {
             // init user
@@ -71,6 +75,56 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService','createService',
                 'type': 2
             };
             uploader = uploadService.upload(2, ansfile);
+        };
+
+        $scope.submitDes = function (competition) {
+            $http({
+                method: 'POST',
+                url: constService.urls().editDes,
+                params:{
+                    'id': $scope.comId,
+                    'des': $('#des-val').val()
+                }
+            }).then( res=>{
+                console.log(res.data);
+                $scope.competition.com_des = $('#des-val').val();
+                $('#des-val').val('');
+                $('#edit-des').transition('fade');
+                $('#des-input').transition('fade left');
+
+            }).catch( err=>{
+                console.log(err);
+            })
+        };
+
+        $scope.submitName = function (competition) {
+            $http({
+                method: 'POST',
+                url: constService.urls().editName,
+                params:{
+                    'id': $scope.comId,
+                    'name': $scope.editName
+                }
+            }).then( res=>{
+                console.log(res.data);
+                $scope.competition.com_name = $scope.editName;
+                $scope.editName = '';
+                $('#name-input').transition('fade');
+                $('#edit-name').transition('fade');
+
+            }).catch( err=>{
+                console.log(err);
+            })
+        };
+
+        $scope.editStartTime = function () {
+            $('#start-time-input').transition('fade');
+            $('#edit-start-time').transition('fade');
+        };
+
+        $scope.editEndTime = function () {
+            $('#end-time-input').transition('fade');
+            $('#edit-end-time').transition('fade');
         };
 
     }]);

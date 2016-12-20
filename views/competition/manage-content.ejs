@@ -1,8 +1,8 @@
-<h1 class="ui header">Problem name</h1>
+<h1 class="ui header">{{competition.com_name}}</h1>
 <button class="ui green button" onclick="editName()" id="edit-name">Edit</button>
 <div class="ui action input transition hidden" id="name-input">
-    <input type="text" placeholder="Search...">
-    <button class="ui blue labeled submit icon button" onclick="submitName()"><i class="icon edit"></i> submit </button>
+    <input type="text" placeholder="edit..." ng-model="editName">
+    <button class="ui blue labeled submit icon button" ng-click="submitName(competition)"><i class="icon edit"></i> submit </button>
 </div>
 
 <div class="ui raised segments">
@@ -10,7 +10,7 @@
         <h2 class="ui header">Description</h2>
     </div>
     <div class="ui segment">
-        <p>Description of the competition</p>
+        <p>{{competition.com_des}}</p>
     </div>
 </div>
 
@@ -22,9 +22,9 @@
     <div class="ui segment">
         <div class="ui reply form">
             <div class="field">
-                <textarea></textarea>
+                <textarea id="des-val"></textarea>
             </div>
-            <button class="ui blue labeled submit icon button" onclick="submitDes()"><i class="icon edit"></i> submit </button>
+            <button class="ui blue labeled submit icon button" ng-click="submitDes(competition)"><i class="icon edit"></i> submit </button>
         </div>
     </div>
 </div>
@@ -34,21 +34,64 @@
         <h2 class="ui header">Answer Format</h2>
     </div>
     <div class="ui segment">
-        <p>File format description</p>
+        <div class="ui container">
+            <table class="ui very basic  celled table">
+                <thead>
+                <tr><th>A</th>
+                    <th>B</th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td>
+                        1
+                    <td>
+                        0
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2
+                    <td>
+                        0
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3
+                    <td>
+                        0
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="ui raised segments">
+    <div class="ui segment">
+        <h2 class="ui header">Start time</h2>
+        <p>{{competition.com_start_time}}</p>
     </div>
 </div>
 
-<button class="ui green button" onclick="editFormat()" id="edit-format">Edit</button>
-<div class="ui raised segments transition hidden" id="format-input">
+<button class="ui green button" ng-click="editStartTime()" id="edit-start-time">Edit</button>
+<div class="ui action input transition hidden" id="start-time-input">
+    <input type="text" placeholder="edit..." ng-model="starttime">
+    <button class="ui blue labeled submit icon button" ng-click="submitStartTime(competition)"><i class="icon edit"></i> submit </button>
+</div>
+
+<div class="ui raised segments">
     <div class="ui segment">
-        <h2 class="ui header">Answer Format</h2>
-    </div>
-    <div class="ui segment">
-        <div class="ui reply form">
-            <div class="field">
-                <textarea></textarea>
-            </div>
-            <button class="ui blue labeled submit icon button" onclick="submitFormat()"><i class="icon edit"></i> submit </button>
-        </div>
+        <h2 class="ui header">End time</h2>
+        <p>{{competition.com_end_time}}</p>
     </div>
 </div>
+<button class="ui green button" ng-click="editEndTime()" id="edit-end-time">Edit</button>
+<div class="ui action input transition hidden" id="end-time-input">
+    <input type="text" placeholder="edit..." ng-model="endtime">
+    <button class="ui blue labeled submit icon button" ng-click="submitEndTime(competition)"><i class="icon edit"></i> submit </button>
+</div>
+
