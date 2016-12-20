@@ -1,7 +1,11 @@
+<div class="ui header">
+    <h1>Pull Request</h1>
+</div>
+<div class="ui raised segment">
 <div class="ui items" ng-repeat="pull in pullrequest.list">
     <!--请求进行打表-->
     <div class="item">
-        <div class="image">
+        <div class="ui mini image">
             <img src="/images/dataset-logo.png">
         </div>
         <div class="content">
@@ -13,12 +17,13 @@
                 <p></p>
             </div>
             <div class="extra">
-                <div ng-if="pull.type === -1" class="ui right floated primary button" ng-click="confirmPullRequest('<%= title %>', pull.id, $index)">Confirm<i class="right chevron icon"></i> </div>
-                <div ng-if="pull.type === -1 || pull.type === 1" class="ui right floated primary button" ng-click="rejectPullRequest('<%= title %>', pull.id, $index)">Reject<i class="right chevron icon"></i> </div>
-                <div ng-if="pull.type === 0" class="ui right floated primary button">Rejected<i class="right chevron icon"></i> </div>
+                <div ng-if="pull.type === -1" class="ui primary button" ng-click="confirmPullRequest('<%= title %>', pull.id, $index)">Confirm<i class="right chevron icon"></i> </div>
+                <div ng-if="pull.type === -1 || pull.type === 1" class="ui primary button" ng-click="rejectPullRequest('<%= title %>', pull.id, $index)">Reject<i class="right chevron icon"></i> </div>
+                <div ng-if="pull.type === 0" class="ui red button">Rejected<i class="right chevron icon"></i> </div>
 
             </div>
         </div>
     </div>
     <hr>
+</div>
 </div>

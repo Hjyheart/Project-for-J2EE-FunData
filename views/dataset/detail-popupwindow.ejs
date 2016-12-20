@@ -1,20 +1,28 @@
 <!--以下为点击new submition时弹出的页面-->
-<div class="ui modal" id="newSubmition">
+<div class="ui small modal" id="newSubmition">
     <i class="close icon"></i>
     <div class="header" id="detailName">
         New Submition
     </div>
     <div class="content">
         <form class="ui form">
-            <input type="text" ng-model="desc"/>
-            <select ng-model="_type" ng-change="select()" ng-options="t.text for t in types">
+            <div class="field">
+                <label>Description</label>
+                <input type="text" ng-model="desc" placeholder="pull request name..."/>
+            </div>
 
-            </select>
+            <div class="field">
+                <label>Type</label>
+                <select ng-model="_type" ng-change="select()" ng-options="t.text for t in types">
+
+                </select>
+            </div>
+
             <div class="field aligned" id="dataset-upload">
                 <a href="#" id="upload">New File</a>
-           </div>
+            </div>
             <div class="actions">
-                <div ng-click="upload()" class="ui positive right floated labeled icon button approve" type="submit">Yes <i class="checkmark icon"></i> </div>
+                <div ng-click="upload(desc)" class="ui positive right floated labeled icon button approve" type="submit">Yes <i class="checkmark icon"></i> </div>
             </div>
             <br>
         </form>

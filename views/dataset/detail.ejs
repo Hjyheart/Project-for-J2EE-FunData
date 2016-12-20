@@ -65,7 +65,8 @@
                        <!--右侧喜爱和贡献标签-->
                         <div class="right menu">
                             <div class="item">
-
+                                <button class="ui basic blue button" ng-click="downloadMergeFile('<%=title%>')" ng-if="downloadUrl">download all</button>
+                                &nbsp;&nbsp;&nbsp;
                                 <button class="ui basic teal button" ng-click="toDatasetManage('<%=title%>')" ng-if="isAdmin === 1">manage</button>
                            </div>
                         </div>

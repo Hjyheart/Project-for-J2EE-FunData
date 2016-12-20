@@ -16,12 +16,9 @@ app.controller('detailCtrl', function ($scope, $http,
     $scope.isAdmin = '0';
     $scope.pageStart = 0;
     $scope.datasetname=$('#datasetname')[0].innerText;
-    $scope.desc = "";
     $scope.username = null;
     $scope._type = null;
-    $scope.types = [
-        {text: 'Title', value: 1},
-        {text: 'File', value: 2}];
+    $scope.types;
     var uploader;
     $scope.content = {
         page: 1,
@@ -54,12 +51,28 @@ app.controller('detailCtrl', function ($scope, $http,
                     $scope.content.count = res.data.count;
                     $scope.Contribute = res.data.contribute;
                     $scope.isAdmin = res.data.admin;
+                    $scope.downloadUrl = res.data.url;
+                    if($scope.isAdmin === 1){
+                        $scope.types = [
+                            {text: 'Title', value: 1},
+                            {text: 'File', value: 2}
+                        ]
+                    }else{
+                        $scope.types = [
+                            {text: 'File', value: 2}
+                        ]
+                    }
 
 
             })
             .catch( err => {
                 console.log(err);
             });
+
+    };
+
+    $scope.downloadMergeFile = function () {
+        location = $scope.downloadUrl;
 
     };
 
@@ -166,7 +179,9 @@ app.controller('detailCtrl', function ($scope, $http,
 
 
     $scope.upload = function () {
-       $('newSubmition').modal('hide');
+        uploader = null;
+        $scope.desc = '';
+        $('newSubmition').modal('hide');
         $scope.getPullRequests();
     }
 

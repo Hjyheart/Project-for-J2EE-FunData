@@ -7,9 +7,13 @@ app.controller('homeCtrl',[ '$scope', '$http', 'constService', 'authService', fu
     $scope.mooc_title;
     $scope.boutique_course = [];
     $scope.other_course = [];
+    $scope.username = null;
 
     this.$onInit = function () {
-
+        // init user
+        if (authService.getUser() !== null && authService.getUser() !== 'null'){
+            $scope.username = authService.getUser();
+        }
         // 获取精品课程
         $http({
             method: 'GET',

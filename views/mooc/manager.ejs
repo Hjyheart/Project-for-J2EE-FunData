@@ -83,51 +83,50 @@
         </div>
     </div>
 
-    <% include ../footer.ejs %>
-</div>
-
-<!--以下为点击change guide时弹出的页面-->
-<div class="ui modal" id="new-guide">
-    <i class="close icon"></i>
-    <div class="header" id="detailName">
-        New Gudie
-    </div>
-    <div class="content">
-        <form class="ui form">
-            <div class="field" id="dataset-upload">
-                <a href="#" id="upload">upload</a>
-            </div>
-            <button class="ui positive right floated labeled icon button" ng-click="guideChanged()">Yes <i class="checkmark icon"></i> </button>
-            <br>
-        </form>
-    </div>
-</div>
-
-<!--以下为add step时弹出的页面-->
-<div class="ui modal" id="add-step">
-    <i class="close icon"></i>
-    <div class="header">
-        Add New Step
-    </div>
-    <div class="ui form">
-        <div class="ui stacked segment">
-            <div class="field" id="step-name">
-                <label>Step Name</label>
-                <div class="ui input">
-                    <input placeholder="Mooc Name" type="text" ng-model="s_name">
+    <!--以下为add step时弹出的页面-->
+    <div class="ui modal" id="add-step">
+        <i class="close icon"></i>
+        <div class="header">
+            Add New Step
+        </div>
+        <div class="ui form">
+            <div class="ui stacked segment">
+                <div class="field" id="step-name">
+                    <label>Step Name</label>
+                    <div class="ui input">
+                        <input placeholder="Mooc Name" type="text" ng-model="s_name">
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label>Content</label>
-                <div class="ui input">
-                    <textarea id="step-content" ng-model="s_content"></textarea>
+                <div class="field">
+                    <label>Content</label>
+                    <div class="ui input">
+                        <textarea id="step-content" ng-model="s_content"></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="actions">
-                <button class="ui green submit button approve" ng-click="submitNewStep(s_name, s_content)">ok</button>
+                <div class="actions">
+                    <button class="ui green submit button approve" ng-click="submitNewStep(s_name, s_content)">ok</button>
+                </div>
             </div>
         </div>
     </div>
+    <!--以下为点击change guide时弹出的页面-->
+    <div class="ui modal" id="new-guide">
+        <i class="close icon"></i>
+        <div class="header" id="detailName">
+            New Gudie
+        </div>
+        <div class="content">
+            <form class="ui form">
+                <div class="field" id="dataset-upload">
+                    <a href="#" id="upload">upload</a>
+                </div>
+                <button class="ui positive right floated labeled icon button" ng-click="guideChanged()">Yes <i class="checkmark icon"></i> </button>
+                <br>
+            </form>
+        </div>
+    </div>
+
+    <% include ../footer.ejs %>
 </div>
 
 
