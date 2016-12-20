@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/sematic/semantic.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <!--<link rel="stylesheet" href="/rank-css/about.css"/>-->
     <script src="/jquery.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.2/angular.min.js"
             crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -122,27 +125,8 @@
 
 <script>
 
-    function editName() {
-        $('#edit-name').transition('fade');
-        $('#name-input').transition('fade left');
-    };
-
-    function submitName() {
-        // 这里有ajax请求
-        $('#name-input').transition('fade');
-        $('#edit-name').transition('fade');
-    };
-
-    function editDes() {
-        $('#edit-des').transition('fade');
-        $('#des-input').transition('fade left');
-    };
-
-    function submitDes() {
-        // 这里有ajax
-        $('#des-input').transition('fade');
-        $('#edit-des').transition('fade');
-    };
+    $("#start-time-field").datepicker();
+    $("#end-time-field").datepicker();
 
     function editFormat() {
         $('#edit-format').transition('fade');

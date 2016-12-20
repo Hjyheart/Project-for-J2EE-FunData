@@ -70,7 +70,9 @@ app.service('constService', function () {
             getAccurateRank: `${ServerHost}/competition//accurate/rank`,
             addComment: `${ServerHost}/competition/comment/add`,
             editDes: `${ServerHost}/competition/editdes`,
-            editName: `${ServerHost}/competition/editname`
+            editName: `${ServerHost}/competition/editname`,
+            editStartTime: `${ServerHost}/competition/editstarttime`,
+            editEndTime: `${ServerHost}/competition/editendtime`
 
         }
     };

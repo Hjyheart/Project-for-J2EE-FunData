@@ -127,4 +127,46 @@ app.controller('manageCtrl', ['$scope', '$http', 'constService','createService',
             $('#edit-end-time').transition('fade');
         };
 
+        $scope.submitStartTime = function (competition) {
+            var start = $('#start-time-field').val().substring(6, 10) + '-' +
+                $('#start-time-field').val().substring(0, 2) + '-' +
+                $('#start-time-field').val().substring(3, 5) + ' 00:00:00';
+            $http({
+                method: 'POST',
+                url: constService.urls().editStartTime,
+                params:{
+                    'time': start,
+                    'id': $scope.comId
+                }
+            }).then( res=>{
+                console.log(res.data);
+                $scope.competition.com_start_time = start;
+                $('#start-time-input').transition('fade');
+                $('#edit-start-time').transition('fade');
+            }).catch( err=>{
+                console.log(err);
+            })
+        };
+
+        $scope.submitEndTime = function (competition) {
+            var end = $('#end-time-field').val().substring(6, 10) + '-' +
+                $('#end-time-field').val().substring(0, 2) + '-' +
+                $('#end-time-field').val().substring(3, 5) + ' 00:00:00';
+            $http({
+                method: 'POST',
+                url: constService.urls().editEndTime,
+                params:{
+                    'time': end,
+                    'id': $scope.comId
+                }
+            }).then( res=>{
+                console.log(res.data);
+                $scope.competition.com_end_time = end;
+                $('#end-time-input').transition('fade');
+                $('#edit-end-time').transition('fade');
+            }).catch( err=>{
+                console.log(err);
+            })
+        }
+
     }]);
